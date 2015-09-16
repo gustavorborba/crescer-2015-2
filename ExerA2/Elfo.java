@@ -34,7 +34,7 @@ public class Elfo {
     return random.nextBoolean();
 	}
 
-	public atirarFlechaRefactory(this.flechas, this.experiencia){
+	public void atirarFlechaRefactory(){
     if(acertar() == true){
 		sflechas();
         exper();
