@@ -1,3 +1,4 @@
+//exercicio3
 public class acao{
 	void AtirarFlecha(Elfo flec){
 		if(flec.flechas>0){
