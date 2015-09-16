@@ -30,8 +30,8 @@ public class Elfo {
 	
 //exercicio4
 	public boolean acertar(){
-	Random random = new Random();
-    return random.nextBoolean();
+		Random random = new Random();
+		return random.nextBoolean();
 	}
 
 	public void atirarFlechaRefactory(){
