@@ -4,18 +4,24 @@ public class Elfo {
     private int flechas;
     private int level;
 	private float exp;
+	Acao ac=new Acao();
     public Elfo(String N) {
 		nome=N;
 		flechas=42;
 		level=0;
 		exp=0;
     }
-	void exper(){
+	public void exper(){
 		exp++;
 		if(exp>=100){
 			level++;
 			exp=0;
 		}
+	}
+	public int getflec(){
+		return flechas;
+	}
+	
 	public int  sflechas(){
 		flechas=flechas-1;
 		return flechas;
