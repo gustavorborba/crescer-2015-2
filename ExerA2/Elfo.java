@@ -26,4 +26,20 @@ public class Elfo {
 		flechas=flechas-1;
 		return flechas;
 	}
+	
+	
+//exercicio4
+	public boolean acertar(){
+	Random random = new Random();
+    return random.nextBoolean();
 	}
+
+	public atirarFlechaRefactory(this.flechas, this.experiencia){
+    if(acertar() == true){
+		sflechas();
+        exper();
+    }
+}
+	}
+	
+	
