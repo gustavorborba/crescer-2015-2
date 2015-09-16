@@ -55,7 +55,25 @@ public class Elfo {
         boolean acertar = true;
         if (acertar) {
             experiencia++;
+            
         }
         flechas--;
+    }
+    public String getNome(){
+        return nome;
+    }
+    
+    public int getFlecha(){
+        return flechas;
+    }
+    
+    public void setFlecha(int novaFlecha){
+        if(novaFlecha>this.flechas){
+            this.flechas=novaFlecha;
+        }
+    }
+    public void atacDwarf(Dwarf anao){
+        atirarFlecha();
+        anao.atacado();
     }
 }
