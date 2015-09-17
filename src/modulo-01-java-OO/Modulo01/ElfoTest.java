@@ -25,13 +25,13 @@ public class ElfoTest
 		assertEquals(1,elrond.getExp());
 	}
 	@Test
-	public void elfoPerdeFlecha(){
+	public void elfoPerdeFlechaAoAtirar(){
 		Elfo elrond=new Elfo("Elrond");
 		elrond.atirarFlecha();
 		assertEquals(41,elrond.getFlecha());
 	}
 	@Test
-	public void elfoIniciaFlecha(){
+	public void elfoIniciaComFlecha(){
 	    Elfo elrond=new Elfo("Elrond",84);
 	    assertEquals(84,elrond.getFlecha());
 	}
@@ -44,6 +44,7 @@ public class ElfoTest
 	public void elfoNomeValidoAposCriacao(){
 	    Elfo elrond=new Elfo("Elrond");
 	    assertEquals("Elrond",elrond.getNome());
+	    assertNotSame("Planeta",elrond.getNome());
 	}
 	@Test
 	public void ElfoTemToStringCorreto(){

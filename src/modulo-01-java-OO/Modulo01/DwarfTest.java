@@ -33,8 +33,22 @@ public class DwarfTest
         assertNotSame(110,gloin.getVida());
     }
     @Test
+    public void dwarfPerdeVidasSempreQueAtacado(){
+        Elfo elrond=new Elfo("Elrond");
+        Dwarf gloin=new Dwarf("Gloin");
+        elrond.atacDwarf(gloin);
+        assertEquals(100,gloin.getVida());
+        assertNotSame(95,gloin.getVida());
+        elrond.atacDwarf(gloin);
+        elrond.atacDwarf(gloin);
+        assertEquals(80,gloin.getVida());
+        
+    }
+    @Test
     public void DwarfNasceComNome(){
         Dwarf bifur=new Dwarf("Bifur");
         assertEquals("Bifur",bifur.getNome());
+        assertNotSame("Odin",bifur.getNome());
     }
+    
 }
