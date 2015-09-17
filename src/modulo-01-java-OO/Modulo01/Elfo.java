@@ -16,13 +16,6 @@ public class Elfo {
         this.flechas = flechas;
     }
     
-    public Elfo(String nome, Integer flechas) {
-        this(nome);
-        if (flechas != null) {
-            this.flechas = flechas;
-        }
-    }
-    
     public Elfo(String nome) {
         this(nome, 42);
     }
@@ -51,14 +44,6 @@ public class Elfo {
      *      }
      *  }
      */
-    public void atirarFlechaRefactory(){
-        boolean acertar = true;
-        if (acertar) {
-            experiencia++;
-            
-        }
-        flechas--;
-    }
     public String getNome(){
         return nome;
     }
@@ -72,8 +57,21 @@ public class Elfo {
             this.flechas=novaFlecha;
         }
     }
+    public int getExp(){
+        return experiencia;
+    }
     public void atacDwarf(Dwarf anao){
         atirarFlecha();
         anao.atacado();
+    }
+    public String toString(){
+        String frase;
+        frase = this.getNome();
+        frase += " possui ";
+        frase += this.getFlecha();
+        frase += " flechas e ";
+        frase += this.getExp();
+        frase += " niveis de experiencia";
+        return frase;
     }
 }

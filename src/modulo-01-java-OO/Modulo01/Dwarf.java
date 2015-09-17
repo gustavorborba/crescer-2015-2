@@ -12,4 +12,7 @@ public class Dwarf{
     public void atacado(){
         this.vida-=10;
     }
+    public String getNome(){
+        return this.nome;
+    }
 }
