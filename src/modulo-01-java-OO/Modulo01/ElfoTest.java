@@ -88,7 +88,12 @@ public class ElfoTest
        Elfo galadriel=new Elfo("Galadriel");
        assertEquals("Galadriel possui 42 flechas e 0 niveis de experiencia",galadriel.toString());
        galadriel.atirarFlecha();
-       assertEquals("Galadriel possui 41 flechas e 1 niveis de experiencia",galadriel.toString());
-       assertNotSame("Galadriel possui 40 flechas e 1 niveis de experiencia",galadriel.toString());
+       assertEquals("Galadriel possui 41 flechas e 1 nivel de experiencia",galadriel.toString());
+       assertNotSame("Galadriel possui 40 flechas e 1 nivel de experiencia",galadriel.toString());
+    }
+    @Test
+    public void elfoNasceVivo(){
+        Elfo legolas=new Elfo("Legolas");
+        assertEquals(Status.VIVO,legolas.getStatus());
     }
 }

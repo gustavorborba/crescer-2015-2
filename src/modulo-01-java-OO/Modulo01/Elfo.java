@@ -4,7 +4,7 @@
 public class Elfo {
     private String nome;
     private int flechas, experiencia;
-    
+    private Status status;
     /* Type initializer
      * Executa antes de cada construtor
     {
@@ -14,6 +14,7 @@ public class Elfo {
     public Elfo(String nome, int flechas) {
         this.nome = nome;
         this.flechas = flechas;
+        this.status=Status.VIVO;
     }
     
     public Elfo(String nome) {
@@ -65,13 +66,15 @@ public class Elfo {
         anao.atacado();
     }
     public String toString(){
-        String frase;
-        frase = this.getNome();
-        frase += " possui ";
-        frase += this.getFlecha();
-        frase += " flechas e ";
-        frase += this.getExp();
-        frase += " niveis de experiencia";
-        return frase;
+        boolean singular = Math.abs(this.flechas)==1;
+        String flech=singular ? "flecha" : "flechas";
+        boolean nivelSingular = Math.abs(this.experiencia)==1;
+        String nivel;
+        nivel = nivelSingular ? "nivel" : "niveis";
+        String format=String.format("%s possui %d %s e %d %s de experiencia",this.nome,this.flechas,flech,this.experiencia,nivel);
+        return format;
+    }
+    public Status getStatus(){
+        return this.status;
     }
 }
