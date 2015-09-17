@@ -50,5 +50,14 @@ public class DwarfTest
         assertEquals("Bifur",bifur.getNome());
         assertNotSame("Odin",bifur.getNome());
     }
+    @Test
+    public void dwarfMorreEm0DeVida(){
+        Elfo elf=new Elfo("Odin");
+        Dwarf anao=new Dwarf("Gloin");
+        for(int i=0;i<11;i++){
+            elf.atacDwarf(anao);
+        }
+        assertEquals(Status.MORTO,anao.getStatus());
+    }
     
 }
