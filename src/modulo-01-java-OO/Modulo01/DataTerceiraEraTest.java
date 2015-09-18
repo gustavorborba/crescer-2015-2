@@ -13,12 +13,20 @@ import org.junit.Test;
  */
 public class DataTerceiraEraTest
 {
-    /*
+ 
    @Test
    public void AnoEhBissexto(){
-       DataTerceiraEra bi=new DataTerceiraEra();
-       bi.setAno(2012);
+       DataTerceiraEra bi=new DataTerceiraEra(1,1,2016);
        assertEquals(true,bi.ehBissexto());
     }
-    */
+   @Test
+   public void AnoNaoEhBissexto(){
+       DataTerceiraEra bi=new DataTerceiraEra(1,1,2015);
+       assertEquals(false,bi.ehBissexto());
+    }
+   @Test
+   public void Ano1804EhBissexto(){
+       DataTerceiraEra bi=new DataTerceiraEra(1,1,1804);
+       assertEquals(true,bi.ehBissexto());
+    }
 }

@@ -27,8 +27,5 @@ public class DataTerceiraEra
             return false;
         }
     }
-    //set para testar ehBissexto
-    public void setAno(int bi){
-        ano=bi;
-    }
+   
 }
