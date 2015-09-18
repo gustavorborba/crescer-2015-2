@@ -4,7 +4,12 @@
  */
 public class DataTerceiraEra
 {
-   private int dia=1,mes=1,ano=1;
+   private int dia,mes,ano;
+   public DataTerceiraEra(int d, int m,int a){
+       dia=d;
+       mes=m;
+       ano=a;
+    }
     public int getDia(){
        return dia;
     }

@@ -61,7 +61,6 @@ public class DwarfTest
         Dwarf bifur=new Dwarf("Bifur");
         assertEquals("Bifur",bifur.getNome());
         assertNotSame("Odin",bifur.getNome());
-        assertEquals(1,bifur.dataNascimento.getAno());
     }
     
 }
