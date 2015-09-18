@@ -8,10 +8,11 @@ public class Dwarf{
         this.vida=110;
         this.experiencia=0;
         this.status=Status.VIVO;
+        this.dataNascimento=new DataTerceiraEra(1,1,1);
     }
     public Dwarf(String novoNome,DataTerceiraEra data){
         this(novoNome);
-        this.dataNascimento=new DataTerceiraEra(1,1,1);
+        this.dataNascimento=data;
         
     }
     public int getVida(){
@@ -31,5 +32,17 @@ public class Dwarf{
     public Status getStatus(){
         return this.status;
     }
-    
+    public DataTerceiraEra getNascimento(){
+        return dataNascimento;
+    }
+    public double getNumeroSorte(){
+        double sorte=101.0;
+        if(this.dataNascimento.ehBissexto()==true && (this.getVida()>=80 && this.getVida()<=90)){
+            sorte=sorte * -33;
+        }
+        if(this.dataNascimento.ehBissexto()==false && (this.getNome()=="Seixas" || this.getNome()=="Meireles")){
+            sorte=(sorte * 33) %100;
+        }
+        return sorte;
+    }
 }

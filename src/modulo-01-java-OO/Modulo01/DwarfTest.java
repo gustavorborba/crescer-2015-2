@@ -62,5 +62,20 @@ public class DwarfTest
         assertEquals("Bifur",bifur.getNome());
         assertNotSame("Odin",bifur.getNome());
     }
-    
+    @Test
+    public void DwarfTemNumeroSorteValido(){
+        DataTerceiraEra data=new DataTerceiraEra(1,1,2016);
+        Dwarf bifur=new Dwarf("Bifur",data);
+        Elfo elf=new Elfo("Jack");
+        elf.atacDwarf(bifur);
+        elf.atacDwarf(bifur);
+        elf.atacDwarf(bifur);
+        assertEquals(-3333,bifur.getNumeroSorte(),0.0001);
+    }
+    @Test
+    public void DwarfSeixasTemNumeroSorteValido(){
+        DataTerceiraEra data=new DataTerceiraEra(1,1,2015);
+        Dwarf bifur=new Dwarf("Seixas",data);
+        assertEquals(33,bifur.getNumeroSorte(),0.0001);
+    }
 }
