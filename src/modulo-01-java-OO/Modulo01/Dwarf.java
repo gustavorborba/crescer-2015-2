@@ -44,10 +44,10 @@ public class Dwarf{
     }
     public double getNumeroSorte(){
         double sorte=101.0;
-        if(this.dataNascimento.ehBissexto() && (this.getVida()>=80 && this.getVida()<=90)){
+        if(this.dataNascimento.ehBissexto()==true && (this.getVida()>=80 && this.getVida()<=90)){
             sorte=sorte * -33;
         }
-        if(!this.dataNascimento.ehBissexto() && (this.nome.equals("Seixas") || this.nome.equals("Meireles"))){
+        if(this.dataNascimento.ehBissexto()==false && (this.getNome()=="Seixas" || this.getNome()=="Meireles")){
             sorte=(sorte * 33) %100;
         }
         return sorte;
