@@ -110,4 +110,13 @@ public class DwarfTest
         assertEquals(100,odin.getVida());  //Recebeu o dano
         assertEquals(0,odin.getExperiencia()); //não pode ter ganho experiencia
     }
+    @Test
+    public void DwarfNasceComDataEspecifica(){
+    DataTerceiraEra data=new DataTerceiraEra(06,06,2006);
+    Dwarf ollin=new Dwarf("Ollin",data);
+    assertEquals(06,ollin.getNascimento().getDia());
+    assertEquals(06,ollin.getNascimento().getMes());
+    assertEquals(2006,ollin.getNascimento().getAno());
+    
+    }
 }
