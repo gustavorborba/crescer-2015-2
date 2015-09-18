@@ -45,19 +45,23 @@ public class DwarfTest
         
     }
     @Test
-    public void DwarfNasceComNome(){
-        Dwarf bifur=new Dwarf("Bifur");
-        assertEquals("Bifur",bifur.getNome());
-        assertNotSame("Odin",bifur.getNome());
-    }
-    @Test
-    public void dwarfMorreEm0DeVida(){
+    public void dwarfMorreEm0DeVidaENaoTemVidaNegativa(){
         Elfo elf=new Elfo("Odin");
         Dwarf anao=new Dwarf("Gloin");
         for(int i=0;i<11;i++){
             elf.atacDwarf(anao);
         }
         assertEquals(Status.MORTO,anao.getStatus());
+        elf.atacDwarf(anao);
+        elf.atacDwarf(anao);
+        assertEquals(0,anao.getVida());
+    }
+    @Test
+    public void DwarfNasceComNome(){
+        Dwarf bifur=new Dwarf("Bifur");
+        assertEquals("Bifur",bifur.getNome());
+        assertNotSame("Odin",bifur.getNome());
+        assertEquals(1,bifur.dataNascimento.getAno());
     }
     
 }
