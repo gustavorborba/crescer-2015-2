@@ -19,8 +19,12 @@ public class Dwarf{
         return vida;
     }
     public void atacado(){
-        if(this.status!=Status.MORTO){
-              this.vida-=10;
+        double numSorte=this.getNumeroSorte();
+        if(numSorte<0 && this.vida!=0){
+            this.experiencia+=2;
+        }
+        if(numSorte>100 && this.vida !=0){
+            this.vida-=10;
         }
         if(this.vida==0){
             this.status=Status.MORTO;
@@ -33,7 +37,10 @@ public class Dwarf{
         return this.status;
     }
     public DataTerceiraEra getNascimento(){
-        return dataNascimento;
+        return this.dataNascimento;
+    }
+    public int getExperiencia(){
+        return this.experiencia;
     }
     public double getNumeroSorte(){
         double sorte=101.0;
