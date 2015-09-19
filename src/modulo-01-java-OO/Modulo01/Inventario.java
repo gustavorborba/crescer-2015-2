@@ -22,4 +22,14 @@ public class Inventario
     public int getTamanhoArray(){
         return inventario.size();
     }
+    public String getDescricoesItens(){
+        String descricoes="";
+        for(int i=0;i<inventario.size();i++){
+            descricoes+=inventario.get(i).getDescricao();
+            if(i+1 != inventario.size()){
+                descricoes+=",";
+            }
+        }
+        return descricoes;
+    }
 }

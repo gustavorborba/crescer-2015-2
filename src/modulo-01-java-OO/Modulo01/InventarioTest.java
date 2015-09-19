@@ -40,6 +40,7 @@ public class InventarioTest
         inventario.perderItem(inventario.getItemEspecifico(0));
         assertEquals(0,inventario.getTamanhoArray());
     }
+    @Test
      public void RemoveVariosItemArrayInventario(){
         Inventario inventario=new Inventario();
         inventario.adicionarItem(new Item("Machado",1));
@@ -52,5 +53,31 @@ public class InventarioTest
         Item itemComparacao=new Item("Flecha",4);
         assertEquals(true,inventario.getItemEspecifico(2).equals(itemComparacao)); //o local dois deve ser o objeto 3 antes de realizar a perda;
         assertEquals(4,inventario.getTamanhoArray());
+    }
+   @Test
+   public void RetornaDescricaoSeparadosVirgula(){
+       String desc="";
+       Item item1=new Item("Machado",1);
+       Item item2=new Item("Magia",2);
+       Item item3=new Item("Arco",5);
+       desc+=item1.getDescricao();
+       desc+=",";
+       desc+=item2.getDescricao();
+       desc+=",";
+       desc+=item3.getDescricao();
+       Inventario inventario=new Inventario();
+       inventario.adicionarItem(new Item("Machado",1));
+       inventario.adicionarItem(new Item("Magia",2));
+       inventario.adicionarItem(new Item("Arco",5));
+       assertEquals(true,inventario.getDescricoesItens().equals(desc));
+    }
+   @Test
+    public void RetornaDescricaoSemVirgula(){
+       String desc="";
+       Item item1=new Item("Machado",1);
+       desc+=item1.getDescricao();
+       Inventario inventario=new Inventario();
+       inventario.adicionarItem(new Item("Machado",1));
+       assertEquals(true,inventario.getDescricoesItens().equals(desc));
     }
 }
