@@ -14,10 +14,14 @@ public class Item
        this.descricao=novaDesc;
        this.quantidade=novaQuant;
    }
-   public String getDesc(){
-       return descricao;
+   public String getDescricao(){
+       return this.descricao;
     }
-   public int getQuant(){
-       return quantidade;
+   public int getQuantidade(){
+       return this.quantidade;
+    }
+   public boolean equals(Object obj){
+       Item item=(Item)obj;
+       return this.descricao == item.getDescricao() && this.quantidade==item.getQuantidade();
     }
 }

@@ -16,7 +16,7 @@ public class ItemTest
     @Test
     public void construtorItem(){
         Item item=new Item("Machado",2);
-        assertEquals("Machado",item.getDesc());
-        assertEquals(2,item.getQuant());
+        assertEquals("Machado",item.getDescricao());
+        assertEquals(2,item.getQuantidade());
     }
 }
