@@ -3,6 +3,7 @@ public class Dwarf{
     private int vida,experiencia;
     private Status status;
     private DataTerceiraEra dataNascimento;
+    private Inventario inventario=new Inventario();
     public Dwarf(String novoNome){
         this.nome=novoNome;
         this.vida=110;
@@ -51,5 +52,15 @@ public class Dwarf{
             sorte=(sorte * 33) %100;
         }
         return sorte;
+    }
+    public Inventario getInventario(){
+        return inventario;
+    }
+    public void tentarSorte(){
+        if(getNumeroSorte()==-3333.0){
+            for(int i=0;i<inventario.getTamanhoArray();i++){
+                inventario.getItemEspecifico(i).sortudo();
+            }
+        }
     }
 }

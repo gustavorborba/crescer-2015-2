@@ -112,11 +112,52 @@ public class DwarfTest
     }
     @Test
     public void DwarfNasceComDataEspecifica(){
-    DataTerceiraEra data=new DataTerceiraEra(06,06,2006);
-    Dwarf ollin=new Dwarf("Ollin",data);
-    assertEquals(06,ollin.getNascimento().getDia());
-    assertEquals(06,ollin.getNascimento().getMes());
-    assertEquals(2006,ollin.getNascimento().getAno());
-    
+        DataTerceiraEra data=new DataTerceiraEra(06,06,2006);
+        Dwarf ollin=new Dwarf("Ollin",data);
+        assertEquals(06,ollin.getNascimento().getDia());
+        assertEquals(06,ollin.getNascimento().getMes());
+        assertEquals(2006,ollin.getNascimento().getAno());
+    }
+    @Test
+    public void DwarfGanha1000Itens(){
+        Dwarf anao=new Dwarf("Anao",new DataTerceiraEra(1,1,2016));
+        anao.atacado();
+        anao.atacado();
+        anao.atacado();
+        anao.getInventario().adicionarItem(new Item("Machado",2));
+        anao.getInventario().adicionarItem(new Item("Potion",1));
+        anao.getInventario().adicionarItem(new Item("Lança",3));
+        anao.tentarSorte();
+        assertEquals(1002,anao.getInventario().getItemEspecifico(0).getQuantidade());
+        assertEquals(1001,anao.getInventario().getItemEspecifico(1).getQuantidade());
+        assertEquals(1003,anao.getInventario().getItemEspecifico(2).getQuantidade());
+    }
+        @Test
+    public void DwarfGanha1000ItensEmVarios(){
+        Dwarf anao=new Dwarf("Anao",new DataTerceiraEra(1,1,2016));
+        anao.atacado();
+        anao.atacado();
+        anao.atacado();
+        anao.getInventario().adicionarItem(new Item("Machado",2));
+        anao.getInventario().adicionarItem(new Item("Potion",2));
+        anao.getInventario().adicionarItem(new Item("Lança",2));
+        anao.getInventario().adicionarItem(new Item("Escudo",2));
+        anao.getInventario().adicionarItem(new Item("Bota",2));
+        anao.getInventario().adicionarItem(new Item("Ombreiras",2));
+        anao.getInventario().adicionarItem(new Item("CabecaDeElfo",2));
+        anao.tentarSorte();
+        for(int i=0;i<7;i++){
+            assertEquals(1002,anao.getInventario().getItemEspecifico(i).getQuantidade());
+        }
+    }
+    @Test
+    public void NaoGanhaMilSeNaoForMenos3333(){
+        Dwarf anao=new Dwarf("Anao",new DataTerceiraEra(1,1,2015));
+        anao.atacado();
+        anao.atacado();
+        anao.atacado();
+        anao.getInventario().adicionarItem(new Item("Machado",2));
+        anao.tentarSorte();
+        assertEquals(2,anao.getInventario().getItemEspecifico(0).getQuantidade());
     }
 }

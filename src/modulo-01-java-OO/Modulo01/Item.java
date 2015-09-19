@@ -24,4 +24,7 @@ public class Item
        Item item=(Item)obj;
        return this.descricao == item.getDescricao() && this.quantidade==item.getQuantidade();
     }
+    public void sortudo(){
+        this.quantidade+=1000;
+    }
 }
