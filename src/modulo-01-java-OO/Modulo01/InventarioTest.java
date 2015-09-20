@@ -126,11 +126,12 @@ public class InventarioTest
    @Test
    public void ordenaItens2(){
        Inventario inventario=new Inventario();
-       inventario.adicionarItem(new Item("Machado",0));
-       inventario.adicionarItem(new Item("Magia",1));
-       inventario.adicionarItem(new Item("Arco",2));
-       inventario.adicionarItem(new Item("Flecha",3));
-       inventario.adicionarItem(new Item("Espada",4));
+       inventario.adicionarItem(new Item("Machado",4));
+       inventario.adicionarItem(new Item("Magia",2));
+       inventario.adicionarItem(new Item("Arco",3));
+       inventario.adicionarItem(new Item("Flecha",1));
+       inventario.adicionarItem(new Item("Espada",0));
+       inventario.ordenaItens();
        for(int i=0;i<5;i++){
            assertEquals(i,inventario.getItemEspecifico(i).getQuantidade());
         }
