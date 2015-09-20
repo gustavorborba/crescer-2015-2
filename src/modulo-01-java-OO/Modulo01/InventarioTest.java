@@ -107,4 +107,32 @@ public class InventarioTest
        inventario.adicionarItem(new Item("Machado",1));
        assertEquals(1,inventario.getItemComMaiorQuantidade().getQuantidade());
     }
+   @Test
+   public void ordenaItens(){
+       Inventario inventario=new Inventario();
+       inventario.adicionarItem(new Item("Machado",5));
+       inventario.adicionarItem(new Item("Magia",7));
+       inventario.adicionarItem(new Item("Arco",6));
+       inventario.adicionarItem(new Item("Flecha",3));
+       inventario.adicionarItem(new Item("Espada",1));
+       inventario.ordenaItens();
+       assertEquals(1,inventario.getItemEspecifico(0).getQuantidade());
+       assertEquals("Espada",inventario.getItemEspecifico(0).getDescricao());
+       assertEquals(3,inventario.getItemEspecifico(1).getQuantidade());
+       assertEquals("Flecha",inventario.getItemEspecifico(1).getDescricao());
+       assertEquals(6,inventario.getItemEspecifico(3).getQuantidade());
+       assertEquals("Arco",inventario.getItemEspecifico(3).getDescricao());
+    }
+   @Test
+   public void ordenaItens2(){
+       Inventario inventario=new Inventario();
+       inventario.adicionarItem(new Item("Machado",0));
+       inventario.adicionarItem(new Item("Magia",1));
+       inventario.adicionarItem(new Item("Arco",2));
+       inventario.adicionarItem(new Item("Flecha",3));
+       inventario.adicionarItem(new Item("Espada",4));
+       for(int i=0;i<5;i++){
+           assertEquals(i,inventario.getItemEspecifico(i).getQuantidade());
+        }
+    }
 }

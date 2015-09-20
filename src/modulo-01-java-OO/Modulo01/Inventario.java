@@ -11,21 +11,21 @@ public class Inventario
     private ArrayList<Item> inventario=new ArrayList<Item>();
     
     public void adicionarItem(Item itemAdicionado){
-        inventario.add(itemAdicionado);
+        this.inventario.add(itemAdicionado);
     }
     public void perderItem(Item itemPerdido){
-        inventario.remove(itemPerdido);
+        this.inventario.remove(itemPerdido);
     }
     public Item getItemEspecifico(int i){
-        return inventario.get(i);
+        return this.inventario.get(i);
     }
     public int getTamanhoArray(){
-        return inventario.size();
+        return this.inventario.size();
     }
     public String getDescricoesItens(){
         String descricoes="";
         for(int i=0;i<inventario.size();i++){
-            descricoes+=inventario.get(i).getDescricao();
+            descricoes+=this.inventario.get(i).getDescricao();
             if(i+1 != inventario.size()){
                 descricoes+=",";
             }
@@ -35,10 +35,25 @@ public class Inventario
     public Item getItemComMaiorQuantidade(){
     Item maior=inventario.get(0);
         for(int i=0;i<inventario.size();i++){
-            if(inventario.get(i).getQuantidade()>maior.getQuantidade()){
-                maior=inventario.get(i);
+            if(this.inventario.get(i).getQuantidade()>maior.getQuantidade()){
+                maior=this.inventario.get(i);
             }
         }
         return maior;
+    }
+    public void ordenaItens(){
+        int menor;
+        Item swap;
+        for(int i=0;i<this.inventario.size()-1;i++){
+            menor=i;
+            for(int j=i+1;j<inventario.size();j++){
+                if(this.inventario.get(j).getQuantidade()<this.inventario.get(menor).getQuantidade()){
+                    menor=j;
+                }
+            }
+            swap=this.inventario.get(i);
+            this.inventario.set(i,inventario.get(menor));
+            this.inventario.set(menor,swap);
+        }
     }
 }
