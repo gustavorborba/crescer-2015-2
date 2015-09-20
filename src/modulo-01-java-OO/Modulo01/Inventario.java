@@ -32,4 +32,13 @@ public class Inventario
         }
         return descricoes;
     }
+    public Item getItemComMaiorQuantidade(){
+    Item maior=inventario.get(0);
+        for(int i=0;i<inventario.size();i++){
+            if(inventario.get(i).getQuantidade()>maior.getQuantidade()){
+                maior=inventario.get(i);
+            }
+        }
+        return maior;
+    }
 }

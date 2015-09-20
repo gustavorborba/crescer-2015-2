@@ -14,7 +14,7 @@ import org.junit.Test;
 public class InventarioTest
 {
     @Test
-    public void AdicionaItemArrayInventario(){
+    public void adicionaItemArrayInventario(){
         Inventario inventario=new Inventario();
         inventario.adicionarItem(new Item("Machado",1));
         Item itemComparacao=new Item("Machado",1); //Achei melhor criar um novo para deixar explicito que é outro objeto
@@ -22,7 +22,7 @@ public class InventarioTest
         assertEquals(1,inventario.getTamanhoArray());
     }
     @Test
-    public void AdicionaVariosItemInventario(){
+    public void adicionaVariosItemInventario(){
         Inventario inventario=new Inventario();
         inventario.adicionarItem(new Item("Machado",1));
         inventario.adicionarItem(new Item("Magia",2));
@@ -33,7 +33,7 @@ public class InventarioTest
         assertEquals(true,inventario.getItemEspecifico(2).equals(new Item("Arco",5)));
     }
    @Test 
-   public void RemoveItemArrayInventario(){
+   public void removeItemArrayInventario(){
         Inventario inventario=new Inventario();
         inventario.adicionarItem(new Item("Machado",1));
         assertEquals(1,inventario.getTamanhoArray());
@@ -41,7 +41,7 @@ public class InventarioTest
         assertEquals(0,inventario.getTamanhoArray());
     }
     @Test
-     public void RemoveVariosItemArrayInventario(){
+     public void removeVariosItemArrayInventario(){
         Inventario inventario=new Inventario();
         inventario.adicionarItem(new Item("Machado",1));
         inventario.adicionarItem(new Item("Magia",2));
@@ -55,7 +55,7 @@ public class InventarioTest
         assertEquals(4,inventario.getTamanhoArray());
     }
    @Test
-   public void RetornaDescricaoSeparadosVirgula(){
+   public void retornaDescricaoSeparadosVirgula(){
        String desc="";
        Item item1=new Item("Machado",1);
        Item item2=new Item("Magia",2);
@@ -72,12 +72,39 @@ public class InventarioTest
        assertEquals(true,inventario.getDescricoesItens().equals(desc));
     }
    @Test
-    public void RetornaDescricaoSemVirgula(){
+    public void retornaDescricaoSemVirgula(){
        String desc="";
        Item item1=new Item("Machado",1);
        desc+=item1.getDescricao();
        Inventario inventario=new Inventario();
        inventario.adicionarItem(new Item("Machado",1));
        assertEquals(true,inventario.getDescricoesItens().equals(desc));
+    }
+   @Test
+   public void retornaMaiorQuantidade(){
+       Inventario inventario=new Inventario();
+       inventario.adicionarItem(new Item("Machado",1));
+       inventario.adicionarItem(new Item("Magia",2));
+       inventario.adicionarItem(new Item("Arco",5));
+       inventario.adicionarItem(new Item("Flecha",4));
+       inventario.adicionarItem(new Item("Espada",2));
+       assertEquals(5,inventario.getItemComMaiorQuantidade().getQuantidade());
+       assertEquals(true,inventario.getItemComMaiorQuantidade().equals(new Item("Arco",5)));
+       inventario.adicionarItem(new Item("Flecha",6));
+       assertEquals(6,inventario.getItemComMaiorQuantidade().getQuantidade());
+    }
+   @Test
+   public void retornaMaiorQuantidade2(){
+       Inventario inventario=new Inventario();
+       inventario.adicionarItem(new Item("Machado",1));
+       inventario.adicionarItem(new Item("Magia",2));
+       assertEquals(2,inventario.getItemComMaiorQuantidade().getQuantidade());
+       assertEquals(true,inventario.getItemComMaiorQuantidade().equals(new Item("Magia",2)));
+    }
+   @Test
+   public void retornaMaiorQuantidadeUmItem(){
+       Inventario inventario=new Inventario();
+       inventario.adicionarItem(new Item("Machado",1));
+       assertEquals(1,inventario.getItemComMaiorQuantidade().getQuantidade());
     }
 }
