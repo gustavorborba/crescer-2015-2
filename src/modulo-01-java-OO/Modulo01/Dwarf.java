@@ -1,9 +1,9 @@
 public class Dwarf{
-    private String nome;
-    private int vida,experiencia;
-    private Status status;
-    private DataTerceiraEra dataNascimento;
-    private Inventario inventario=new Inventario();
+    protected String nome;
+    protected int vida,experiencia;
+    protected Status status;
+    protected DataTerceiraEra dataNascimento;
+    protected Inventario inventario=new Inventario();
     public Dwarf(String novoNome){
         this.nome=novoNome;
         this.vida=110;
@@ -58,6 +58,9 @@ public class Dwarf{
     }
     public void adicionarItem(Item item){
         this.inventario.adicionarItem(item);
+    }
+     public int getQuantidadeEspecifica(int i){
+        return this.inventario.getItemEspecifico(i).getQuantidade();
     }
     public void tentarSorte(){
         if(getNumeroSorte()==-3333.0){
