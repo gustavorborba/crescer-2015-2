@@ -4,6 +4,7 @@ public class Dwarf{
     protected Status status;
     protected DataTerceiraEra dataNascimento;
     protected Inventario inventario=new Inventario();
+    public Dwarf(){}
     public Dwarf(String novoNome){
         this.nome=novoNome;
         this.vida=110;
