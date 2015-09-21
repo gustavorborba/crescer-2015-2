@@ -27,4 +27,11 @@ public class Item
     public void sortudo(){
         this.quantidade+=1000;
     }
+    public void lepreSortudo(){
+        int sorte=0;
+        for(int i=0;i<=this.getQuantidade();i++){
+            sorte+=i;
+        }
+        this.quantidade=(sorte*1000)+quantidade;
+    }
 }
