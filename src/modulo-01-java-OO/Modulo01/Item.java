@@ -29,9 +29,13 @@ public class Item
     }
     public void lepreSortudo(){
         int sorte=0;
-        for(int i=0;i<=this.getQuantidade();i++){
-            sorte+=i;
-        }
+        sorte=(this.quantidade * (this.quantidade+1))/2;
         this.quantidade=(sorte*1000)+quantidade;
     }
+   /* solução 
+    public void shimbalaie() {
+        int pa=0;
+        pa=(this.quantidade *(this.quantidade+1)) / 2;
+        this.quantidade = (pa*1000)+this.quantidade;
+}*/
 }
