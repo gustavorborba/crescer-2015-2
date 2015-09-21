@@ -24,12 +24,14 @@ public class Inventario
     }
     public String getDescricoesItens(){
         String descricoes="";
+        //for iteretor java for(Item item : this.inventarios){descricoes+=item.getDescricao()+","}
         for(int i=0;i<inventario.size();i++){
             descricoes+=this.inventario.get(i).getDescricao();
             if(i+1 != inventario.size()){
                 descricoes+=",";
             }
         }
+        //return descricoes.substring(0,descricoes.lenght()-1);
         return descricoes;
     }
     public Item getItemComMaiorQuantidade(){

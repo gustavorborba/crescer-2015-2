@@ -56,6 +56,9 @@ public class Dwarf{
     public Inventario getInventario(){
         return inventario;
     }
+    public void adicionarItem(Item item){
+        this.inventario.adicionarItem(item);
+    }
     public void tentarSorte(){
         if(getNumeroSorte()==-3333.0){
             for(int i=0;i<inventario.getTamanhoArray();i++){
