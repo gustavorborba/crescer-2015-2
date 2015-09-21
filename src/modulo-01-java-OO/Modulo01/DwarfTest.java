@@ -160,4 +160,17 @@ public class DwarfTest
         anao.tentarSorte();
         assertEquals(2,anao.getInventario().getItemEspecifico(0).getQuantidade());
     }
+   @Test
+   public void dwarfTemitens(){
+       String desc="";
+       Dwarf anao=new Dwarf("Machado");
+       anao.getInventario().adicionarItem(new Item("Martelo",1));
+       anao.getInventario().adicionarItem(new Item("Varinha",2));
+       Item item2=new Item("Martelo",1);
+       Item item3=new Item("Varinha",2);
+       desc+=item2.getDescricao();
+       desc+=",";
+       desc+=item3.getDescricao();
+       assertEquals(true,anao.getInventario().getDescricoesItens().equals(desc));
+    }
 }
