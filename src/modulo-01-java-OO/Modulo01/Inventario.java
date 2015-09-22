@@ -70,5 +70,9 @@ public class Inventario
         
         return null;
     }
+        public boolean equals(Object obj) {
+        Inventario outroInventario = (Inventario)obj;
+        return this.inventario.equals(outroInventario.getItens());
+    }
    
 }

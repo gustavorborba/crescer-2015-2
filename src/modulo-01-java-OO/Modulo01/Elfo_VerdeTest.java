@@ -20,11 +20,10 @@ public class Elfo_VerdeTest
         assertEquals(2,elfo.getExperiencia());
     }
     @Test
-    public void GanhaApenasDoisItens(){
+    public void elfoVerdeAdicionaItemComDescricaoInvalida() {
         ElfoVerde sortudo = new ElfoVerde("Sortudo");
-        sortudo.adicionarItem(new Item("Espada de aço valiriano",1));
+        sortudo.adicionarItem(new Item("Molejão",1));
         Inventario esperado = new Inventario();
-        esperado.adicionarItem(new Item("Espada de aço valiriano",1));
         assertEquals(esperado, sortudo.getInventario());
     }
 }
