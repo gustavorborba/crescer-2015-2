@@ -31,7 +31,7 @@ public class SnagaTest
         ur.atacarDwarf(anao);
         ur.atacarDwarf(anao);
         ur.atacarDwarf(anao);
-        assertEquals(0,ur.getInventario().getItemEspecifico(1).getQuantidade());
+        assertEquals(0,ur.getInventario().getItemEspecifico(1).getQuantidade()); //acabou flexas
     }
 
 }
