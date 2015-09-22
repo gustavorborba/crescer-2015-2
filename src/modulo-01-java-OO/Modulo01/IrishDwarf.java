@@ -11,12 +11,10 @@ public class IrishDwarf extends Dwarf
     
     public IrishDwarf(String novoNome){
         super(novoNome);
-        nome=novoNome;
+       
     }
     public IrishDwarf(String novoNome,DataTerceiraEra data){
         super(novoNome,data);
-        nome=novoNome;
-        dataNascimento=data;
     }
    
     public void tentarSorte(){
