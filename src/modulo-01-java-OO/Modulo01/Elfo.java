@@ -5,6 +5,7 @@ public class Elfo {
     private String nome;
     private int flechas, experiencia;
     private Status status;
+    private int vida;
     /* Type initializer
      * Executa antes de cada construtor
     {
@@ -15,6 +16,7 @@ public class Elfo {
         this.nome = nome;
         this.flechas = flechas;
         this.status=Status.VIVO;
+        this.vida=80;
     }
     
     public Elfo(String nome) {
@@ -52,7 +54,9 @@ public class Elfo {
     public int getFlecha(){
         return flechas;
     }
-    
+    public int getVida(){
+        return this.vida;
+    }
     public void setFlecha(int novaFlecha){
         if(novaFlecha>this.flechas){
             this.flechas=novaFlecha;
@@ -64,6 +68,14 @@ public class Elfo {
     public void atacDwarf(Dwarf anao){
         atirarFlecha();
         anao.atacado();
+    }
+        public void atacadoPorOrc(int n){
+        if(this.vida !=0){
+            this.vida-=n;
+        }
+        if(this.vida==0 && this.status==Status.VIVO){
+            this.status=Status.MORTO;
+        }
     }
     public String toString(){
         boolean singular = Math.abs(this.flechas)==1;
