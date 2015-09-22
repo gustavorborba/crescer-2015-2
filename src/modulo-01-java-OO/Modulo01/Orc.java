@@ -7,11 +7,10 @@ import java.util.Random;
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class Orc
+public class Orc extends Personagem
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     protected int vida;
-    protected Inventario inventario=new Inventario();
     protected Status status;
     /**
      * COnstrutor para objetos da classe orc
@@ -39,41 +38,43 @@ public class Orc
     public Status getStatus(){
         return status;
     }
-    public void atacadoPorElfo(){
-    if(this.vida>0){
-        this.vida-=8;
-    }
-    if(this.vida==0 && this.status==Status.VIVO){
+    public void perderVida(int quantida){
+        if(this.vida>0){
+            this.vida-=quantida;
+        } if(this.vida==0 && this.status==Status.VIVO){
         this.status=Status.MORTO;
     }
+        
+    }
+    public void atacadoPorElfo(){
+        this.perderVida(8);
     }
     public void atacarDwarf(Dwarf anao) {
-       if(inventario.encontraEspecifico(new Item("Arco",1))){
-           if(this.orcTemflexa()){
+       if(getItem("Arco")!=null){
+           if(getItem("Flexa")==null && getItem("Flexa").getQuantidade()>0){
                anao.atacadoPorOrc(8);
-            }else{
-                status=Status.FUGINDO;
+               this.debitarFlexa();
             }
         }
     }  
+    
     public void atacarElfo(Elfo elf) {
-       if(inventario.encontraEspecifico(new Item("Arco",1))){
-           if(this.orcTemflexa()){
+       if(getItem("Arco")!=null){
+           if(getItem("Flexa")!=null && getItem("Flexa").getQuantidade()>0){
                elf.atacadoPorOrc(8);
-            }else{
-                status=Status.FUGINDO;
             }
         }
     }  
-    public boolean orcTemflexa(){
-        for(Item it : inventario.getItens()){
-            if(it.equals2(new Item("Flecha",0))){
-                if(it.getQuantidade()>=1){
-                    it.perdeUmItem();
-                    return true;
-                }
-            }
+    public Item getItem(String descricao){
+        return this.inventario.getItemPorDescricao(descricao);
+    }
+    public void debitarFlexa(){
+        Item item=getItem("Flecha");
+        if(item.getQuantidade()>0){
+            item.perdeUmItem();
         }
-        return false;
+        if(item.getQuantidade()==0){
+            status=Status.FUGINDO;
+        }
     }
 }
