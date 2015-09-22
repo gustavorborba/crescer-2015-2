@@ -20,9 +20,13 @@ public class Item
    public int getQuantidade(){
        return this.quantidade;
     }
-   public boolean equals(Object obj){
+    public boolean equals(Object obj){
        Item item=(Item)obj;
        return this.descricao == item.getDescricao() && this.quantidade==item.getQuantidade();
+    }
+    public boolean equals2(Object obj){
+       Item item=(Item)obj;
+       return this.descricao == item.getDescricao();
     }
     public void sortudo(){
         this.quantidade+=1000;
@@ -31,6 +35,9 @@ public class Item
         int sorte=0;
         sorte=(this.quantidade * (this.quantidade+1))/2;
         this.quantidade=(sorte*1000)+quantidade;
+    }
+    public void perdeUmItem(){
+        this.quantidade=quantidade-1;
     }
    /* solução 
     public void shimbalaie() {

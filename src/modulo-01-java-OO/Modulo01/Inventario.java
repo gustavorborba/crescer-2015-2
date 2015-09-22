@@ -22,6 +22,9 @@ public class Inventario
     public int getTamanhoArray(){
         return this.inventario.size();
     }
+    public ArrayList<Item> getItens() {
+        return this.inventario;
+    }
     public String getDescricoesItens(){
         String descricoes="";
         //for iteretor java for(Item item : this.inventarios){descricoes+=item.getDescricao()+","}
@@ -58,4 +61,13 @@ public class Inventario
             this.inventario.set(menor,swap);
         }
     }
+    public boolean encontraEspecifico(Item item){
+        for(Item it : inventario){
+            if(it.equals(item)){
+                return true;
+            }
+        }
+        return false;
+    }
+   
 }
