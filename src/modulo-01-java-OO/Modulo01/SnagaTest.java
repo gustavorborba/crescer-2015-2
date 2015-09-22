@@ -19,30 +19,5 @@ public class SnagaTest
        assertEquals("Arco",ur.getInventario().getItemEspecifico(0).getDescricao());
        assertEquals("Flecha",ur.getInventario().getItemEspecifico(1).getDescricao());
     }
-   @Test
-    public void snagakAtacaGeral(){
-        Snaga ur=new Snaga();
-        Elfo elf=new Elfo("EE");
-        ur.atacarElfo(elf);
-        assertEquals(72,elf.getVida());
-        Dwarf anao=new Dwarf("A");
-        ur.atacarDwarf(anao);
-        assertEquals(102,anao.getVida());
-        ur.atacarDwarf(anao);
-        ur.atacarDwarf(anao);
-        ur.atacarDwarf(anao);
-        assertEquals(0,ur.getInventario().getItemEspecifico(1).getQuantidade()); //acabou flexas
-    }
-   @Test
-   public void snagaSemFlexaFoge(){
-       Snaga orcao=new Snaga();
-       Elfo elf=new Elfo("EE");
-       orcao.atacarElfo(elf);
-       orcao.atacarElfo(elf);
-       orcao.atacarElfo(elf);
-       orcao.atacarElfo(elf);
-       orcao.atacarElfo(elf);
-       orcao.atacarElfo(elf);
-       assertEquals(Status.FUGINDO,orcao.getStatus());
-    }
+   
 }
