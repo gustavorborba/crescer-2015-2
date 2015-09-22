@@ -23,7 +23,7 @@ public class ElfoTest
     public void elfoAtiraFlechaGanhaExperie(){
         Elfo elrond=new Elfo("Elrond");
         elrond.atirarFlecha();
-        assertEquals(1,elrond.getExp());
+        assertEquals(1,elrond.getExperiencia());
     }
     
     @Test
@@ -78,7 +78,7 @@ public class ElfoTest
         fraseTeste += " possui ";
         fraseTeste += galadriel.getFlecha();
         fraseTeste += " flechas e ";
-        fraseTeste += galadriel.getExp();
+        fraseTeste += galadriel.getExperiencia();
         fraseTeste += " niveis de experiencia";
         assertEquals(fraseTeste,galadriel.toString());
     }

@@ -17,6 +17,6 @@ public class Elfo_VerdeTest
     public void ganha2Experiencia(){
         ElfoVerde elfo=new ElfoVerde("Legu");
         elfo.atirarFlexa();
-        assertEquals(2,elfo.getExp());
+        assertEquals(2,elfo.getExperiencia());
     }
 }

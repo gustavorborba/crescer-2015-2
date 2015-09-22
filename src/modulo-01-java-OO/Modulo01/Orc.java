@@ -7,14 +7,12 @@ import java.util.Random;
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class Orc extends Personagem
+public class Orc
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     protected int vida;
     protected Status status;
-    /**
-     * COnstrutor para objetos da classe orc
-     */
+    protected Inventario inventario=new Inventario();
     public Orc()
     {
         status=Status.VIVO;
