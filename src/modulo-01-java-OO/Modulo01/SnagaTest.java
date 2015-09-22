@@ -15,13 +15,13 @@ public class SnagaTest
 {
    @Test
    public void nasceComArcoEFlexa(){
-       Snaga ur=new Snaga("");
+       Snaga ur=new Snaga();
        assertEquals("Arco",ur.getInventario().getItemEspecifico(0).getDescricao());
        assertEquals("Flecha",ur.getInventario().getItemEspecifico(1).getDescricao());
     }
    @Test
     public void snagakAtacaGeral(){
-        Snaga ur=new Snaga("");
+        Snaga ur=new Snaga();
         Elfo elf=new Elfo("EE");
         ur.atacarElfo(elf);
         assertEquals(72,elf.getVida());
@@ -35,7 +35,7 @@ public class SnagaTest
     }
    @Test
    public void snagaSemFlexaFoge(){
-       Snaga orcao=new Snaga("Xablau");
+       Snaga orcao=new Snaga();
        Elfo elf=new Elfo("EE");
        orcao.atacarElfo(elf);
        orcao.atacarElfo(elf);

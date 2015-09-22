@@ -7,7 +7,7 @@
  */
 public class Snaga extends Orc
 {
-    public Snaga(String n){
+    public Snaga(){
         super();
         this.inventario.adicionarItem(new Item("Arco",1));
         this.inventario.adicionarItem(new Item("Flecha",5));
