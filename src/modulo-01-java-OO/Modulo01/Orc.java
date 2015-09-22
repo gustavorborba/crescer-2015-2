@@ -12,11 +12,15 @@ public class Orc
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     protected int vida;
     protected Inventario inventario=new Inventario();
+    protected Status status;
     /**
      * COnstrutor para objetos da classe orc
      */
     public Orc()
     {
+        status=Status.VIVO;
+    }
+    public Orc(String n){
         randomVidaEEscudo();
     }
     public void randomVidaEEscudo(){
@@ -37,19 +41,36 @@ public class Orc
         return inventario;
     }
     public void atacadoPorDwarf(){
+        if(this.vida>0){
         if(inventario.encontraEspecifico(new Item("Escudo Uruk Hai",1))){
             vida-=5;
         }else{
             vida-=10;
         }
     }
-    public void atacadoPorElfo(){
-        this.vida-=10;
+    if(this.vida==0 && this.status==Status.VIVO){
+        this.status=Status.MORTO;
     }
-    public void atacarAnao(Dwarf anao) {
+    }
+    public void atacadoPorElfo(){
+    if(this.vida>0){
+        this.vida-=8;
+    }
+    if(this.vida==0 && this.status==Status.VIVO){
+        this.status=Status.MORTO;
+    }
+    }
+    public void atacarDwarf(Dwarf anao) {
        if(inventario.encontraEspecifico(new Item("Arco",1))){
            if(this.orcTemflexa()){
-               anao.atacado();
+               anao.atacadoPorOrc(8);
+            }
+        }
+    }  
+    public void atacarElfo(Elfo elf) {
+       if(inventario.encontraEspecifico(new Item("Arco",1))){
+           if(this.orcTemflexa()){
+               elf.atacadoPorOrc(8);
             }
         }
     }  
