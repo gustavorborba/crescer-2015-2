@@ -26,9 +26,10 @@ public class Elfo extends Personagem{
      *      public void atirarFlechaDeFogo
     */
    
-    public void atirarFlecha() {
+    public void atirarFlecha(Dwarf anao) {
         flechas--;
         experiencia++;
+        anao.atacado();
         //experiencia += 1;
         //experiencia = experiencia + 1;
     }
@@ -52,10 +53,6 @@ public class Elfo extends Personagem{
         if(novaFlecha>this.flechas){
             this.flechas=novaFlecha;
         }
-    }
-    public void atacDwarf(Dwarf anao){
-        atirarFlecha();
-        anao.atacado();
     }
     public void atacadoPorOrc(int n){
         if(this.vida !=0){

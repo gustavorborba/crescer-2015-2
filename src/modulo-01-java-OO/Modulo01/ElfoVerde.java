@@ -11,14 +11,15 @@ public class ElfoVerde extends Elfo
    public ElfoVerde(String novoNome){
        super(novoNome);
     }
-   public void adicionarItem(){
-       Item item1=new Item("Espada de aço valiriano",1);
-       Item item2=new Item("Arco e Flecha de Vidro",1);
-       inventario.adicionarItem(item1);
-       inventario.adicionarItem(item2);
+   public void adicionarItem(Item item){
+       boolean podeAdicionar=item.getDescricao().equals("Espada de aço valiriano") || item.getDescricao().equals("Arco e Flecha de Vidro");
+       if(podeAdicionar){
+           super.adicionarItem(item);
+        }
     }
-    public void atirarFlexa(){
+    public void atirarFlecha(Dwarf anao){
         this.experiencia+=2;
         this.flechas--;
+        anao.atacado();
     }
 }

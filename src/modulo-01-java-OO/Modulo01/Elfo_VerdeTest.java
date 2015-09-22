@@ -16,7 +16,15 @@ public class Elfo_VerdeTest
     @Test
     public void ganha2Experiencia(){
         ElfoVerde elfo=new ElfoVerde("Legu");
-        elfo.atirarFlexa();
+        elfo.atirarFlecha(new Dwarf(""));
         assertEquals(2,elfo.getExperiencia());
+    }
+    @Test
+    public void GanhaApenasDoisItens(){
+        ElfoVerde sortudo = new ElfoVerde("Sortudo");
+        sortudo.adicionarItem(new Item("Espada de aço valiriano",1));
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item("Espada de aço valiriano",1));
+        assertEquals(esperado, sortudo.getInventario());
     }
 }
