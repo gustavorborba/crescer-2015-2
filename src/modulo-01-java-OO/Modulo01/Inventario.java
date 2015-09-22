@@ -61,13 +61,14 @@ public class Inventario
             this.inventario.set(menor,swap);
         }
     }
-    public boolean encontraEspecifico(Item item){
-        for(Item it : inventario){
-            if(it.equals(item)){
-                return true;
+    public Item getItemPorDescricao(String descricao){
+        for(Item item : this.inventario){
+            if(item.getDescricao().equals(descricao)) {
+                return item;
             }
         }
-        return false;
+        
+        return null;
     }
    
 }
