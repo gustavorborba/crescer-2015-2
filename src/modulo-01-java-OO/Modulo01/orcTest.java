@@ -15,7 +15,7 @@ public class orcTest
 {
    @Test
    public void orcTemEscudoOuArco(){
-       Orc orc=new Orc();
+       Orc orc=new Orc("");
        if(orc.getVida()<=100){
            assertEquals(true,orc.getInventario().getItemEspecifico(0).equals(new Item("Escudo Uruk Hai",1)));
         }else{
@@ -24,7 +24,7 @@ public class orcTest
     }
    @Test
    public void atacadoPorDwarfPerde10Ou5(){
-       Orc orc=new Orc();
+       Orc orc=new Orc("");
        int esperado=orc.getVida();
        if(orc.getVida()<=100){
            orc.atacadoPorDwarf();
@@ -36,11 +36,11 @@ public class orcTest
     }
    @Test
    public void orcAtacaAnaoEPerdeFlexa(){
-       Orc orc=new Orc();
+       Orc orc=new Orc("");
        Dwarf anao=new Dwarf("Soneca");
        if(orc.getVida()>=100){
-           orc.atacarAnao(anao);
-           assertEquals(100,anao.getVida());
+           orc.atacarDwarf(anao);
+           assertEquals(102,anao.getVida());
            assertEquals(9,orc.getInventario().getItemEspecifico(1).getQuantidade());
         }
     }
