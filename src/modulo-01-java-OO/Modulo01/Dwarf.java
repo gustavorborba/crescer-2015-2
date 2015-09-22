@@ -1,9 +1,8 @@
-public class Dwarf{
+public class Dwarf extends Personagem{
     protected String nome;
     protected int vida,experiencia;
     protected Status status;
     protected DataTerceiraEra dataNascimento;
-    protected Inventario inventario=new Inventario();
     public Dwarf(){}
     public Dwarf(String novoNome){
         this.nome=novoNome;
@@ -65,9 +64,6 @@ public class Dwarf{
             sorte=(sorte * 33) %100;
         }
         return sorte;
-    }
-    public Inventario getInventario(){
-        return inventario;
     }
     public void adicionarItem(Item item){
         this.inventario.adicionarItem(item);

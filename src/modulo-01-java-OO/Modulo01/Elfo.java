@@ -1,11 +1,11 @@
 /**
  * Representa objetos do tipo Elfo.
  */
-public class Elfo {
-    private String nome;
-    private int flechas, experiencia;
-    private Status status;
-    private int vida;
+public class Elfo extends Personagem{
+    protected String nome;
+    protected int flechas, experiencia;
+    protected Status status;
+    protected int vida;
     /* Type initializer
      * Executa antes de cada construtor
     {
@@ -69,7 +69,7 @@ public class Elfo {
         atirarFlecha();
         anao.atacado();
     }
-        public void atacadoPorOrc(int n){
+    public void atacadoPorOrc(int n){
         if(this.vida !=0){
             this.vida-=n;
         }
