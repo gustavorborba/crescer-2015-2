@@ -7,23 +7,14 @@ import java.util.Random;
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
-public class Orc
+public class Orc extends Personagem
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    protected int vida;
-    protected Status status;
-    protected Inventario inventario=new Inventario();
     public Orc()
     {
         status=Status.VIVO;
     }
     public Orc(String n){
-    }
-    public int getVida(){
-        return vida;
-    }
-    public Inventario getInventario(){
-        return inventario;
     }
     public void atacadoPorDwarf(){
             if(this.vida>0){
@@ -32,9 +23,6 @@ public class Orc
          if(this.vida==0 && this.status==Status.VIVO){
              this.status=Status.MORTO;
     }
-    }
-    public Status getStatus(){
-        return status;
     }
     public void perderVida(int quantida){
         if(this.vida>0){

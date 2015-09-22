@@ -12,7 +12,7 @@ public class Personagem
    protected Inventario inventario=new Inventario();
    protected Status status;
    public Inventario getInventario(){
-       return inventario;
+       return this.inventario;
     }
     public void adicionarItem(Item item){
         this.inventario.adicionarItem(item);
