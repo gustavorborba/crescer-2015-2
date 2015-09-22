@@ -22,10 +22,6 @@ public class Item
     }
     public boolean equals(Object obj){
        Item item=(Item)obj;
-       return this.descricao == item.getDescricao() && this.quantidade==item.getQuantidade();
-    }
-    public boolean equals2(Object obj){
-       Item item=(Item)obj;
        return this.descricao == item.getDescricao();
     }
     public void sortudo(){
