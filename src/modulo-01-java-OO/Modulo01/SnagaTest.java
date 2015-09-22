@@ -33,5 +33,16 @@ public class SnagaTest
         ur.atacarDwarf(anao);
         assertEquals(0,ur.getInventario().getItemEspecifico(1).getQuantidade()); //acabou flexas
     }
-
+   @Test
+   public void snagaSemFlexaFoge(){
+       Snaga orcao=new Snaga("Xablau");
+       Elfo elf=new Elfo("EE");
+       orcao.atacarElfo(elf);
+       orcao.atacarElfo(elf);
+       orcao.atacarElfo(elf);
+       orcao.atacarElfo(elf);
+       orcao.atacarElfo(elf);
+       orcao.atacarElfo(elf);
+       assertEquals(Status.FUGINDO,orcao.getStatus());
+    }
 }

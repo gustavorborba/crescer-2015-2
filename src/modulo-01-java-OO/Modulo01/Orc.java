@@ -36,7 +36,9 @@ public class Orc
              this.status=Status.MORTO;
     }
     }
-    
+    public Status getStatus(){
+        return status;
+    }
     public void atacadoPorElfo(){
     if(this.vida>0){
         this.vida-=8;
@@ -49,6 +51,8 @@ public class Orc
        if(inventario.encontraEspecifico(new Item("Arco",1))){
            if(this.orcTemflexa()){
                anao.atacadoPorOrc(8);
+            }else{
+                status=Status.FUGINDO;
             }
         }
     }  
@@ -56,6 +60,8 @@ public class Orc
        if(inventario.encontraEspecifico(new Item("Arco",1))){
            if(this.orcTemflexa()){
                elf.atacadoPorOrc(8);
+            }else{
+                status=Status.FUGINDO;
             }
         }
     }  
