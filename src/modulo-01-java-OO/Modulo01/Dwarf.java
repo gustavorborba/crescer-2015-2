@@ -32,6 +32,18 @@ public class Dwarf{
             this.status=Status.MORTO;
         }
     }
+    public void atacadoPorOrc(int n){
+        double numSorte=this.getNumeroSorte();
+        if(numSorte<0 && this.vida!=0){
+            this.experiencia+=2;
+        }
+        if(numSorte>100 && this.vida !=0){
+            this.vida-=n;
+        }
+        if(this.vida==0 && this.status==Status.VIVO){
+            this.status=Status.MORTO;
+        }
+    }
     public String getNome(){
         return this.nome;
     }
