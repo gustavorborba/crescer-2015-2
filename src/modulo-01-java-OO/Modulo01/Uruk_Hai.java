@@ -15,9 +15,12 @@ public class Uruk_Hai extends Orc
         this.vida=150;
     }
      public void atacarDwarf(Dwarf anao) {
-               anao.atacadoPorOrc(12);
+        anao.atacadoPorOrc(12);
     }  
     public void atacarElfo(Elfo elf) {
-               elf.atacadoPorOrc(12);  
+        elf.atacadoPorOrc(12);  
 }
+    public void atacadoPorDwarf(){
+        this.vida-=5;
+    }
 }

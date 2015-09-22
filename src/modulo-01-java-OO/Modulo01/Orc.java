@@ -21,18 +21,6 @@ public class Orc
         status=Status.VIVO;
     }
     public Orc(String n){
-        randomVidaEEscudo();
-    }
-    public void randomVidaEEscudo(){
-      
-        int i=randInt();
-        this.vida=i;
-        if(i<=100){
-            this.inventario.adicionarItem(new Item("Escudo Uruk Hai",1));
-        }else{
-            this.inventario.adicionarItem(new Item("Arco",1));
-            this.inventario.adicionarItem(new Item("Flecha",10));
-        }
     }
     public int getVida(){
         return vida;
@@ -41,17 +29,14 @@ public class Orc
         return inventario;
     }
     public void atacadoPorDwarf(){
-        if(this.vida>0){
-        if(inventario.encontraEspecifico(new Item("Escudo Uruk Hai",1))){
-            vida-=5;
-        }else{
+            if(this.vida>0){
             vida-=10;
         }
+         if(this.vida==0 && this.status==Status.VIVO){
+             this.status=Status.MORTO;
     }
-    if(this.vida==0 && this.status==Status.VIVO){
-        this.status=Status.MORTO;
     }
-    }
+    
     public void atacadoPorElfo(){
     if(this.vida>0){
         this.vida-=8;
@@ -74,17 +59,6 @@ public class Orc
             }
         }
     }  
-    public static int randInt() {
-
-    // Usually this can be a field rather than a method variable
-    Random rand = new Random();
-
-    // nextInt is normally exclusive of the top value,
-    // so add 1 to make it inclusive
-    int randomNum = rand.nextInt((200 - 1) + 1) + 1;
-
-    return randomNum;
-}
     public boolean orcTemflexa(){
         for(Item it : inventario.getItens()){
             if(it.equals2(new Item("Flecha",0))){
