@@ -14,53 +14,41 @@ public class Orc extends Personagem
     {
         status=Status.VIVO;
     }
-    public Orc(String n){
-    }
-    public void atacadoPorDwarf(){
-            if(this.vida>0){
-            vida-=10;
+    public void perderVida(){
+        if(this.vida>0 && this.getItem("Escudo Uruk-Hai")==null){
+            this.vida-=10;
+        } 
+        if(this.vida>0 && this.getItem("Escudo Uruk-Hai") !=null ){
+            this.vida-=6;
         }
-         if(this.vida==0 && this.status==Status.VIVO){
-             this.status=Status.MORTO;
-    }
-    }
-    public void perderVida(int quantida){
-        if(this.vida>0){
-            this.vida-=quantida;
-        } if(this.vida==0 && this.status==Status.VIVO){
+        if(this.vida==0 && this.status==Status.VIVO){
         this.status=Status.MORTO;
+    }   
     }
-        
-    }
-    public void atacadoPorElfo(){
-        this.perderVida(8);
-    }
-    public void atacarDwarf(Dwarf anao) {
-       if(getItem("Arco")!=null){
-           if(getItem("Flexa")==null && getItem("Flexa").getQuantidade()>0){
-               anao.atacadoPorOrc(8);
-               this.debitarFlexa();
+    public void orcAtacar(Personagem person){
+        Item esp=new Item("Espada",1);
+        Item arc=new Item("Arco",1);
+        Item flec=new Item("Flecha",1);
+        if(getItem("Espada")!=null){
+            person.atacadoPorOrc(12);
+        }
+        if(getItem("Arco")!= null){
+            if(getItem("Flecha").getQuantidade()>0){
+                person.atacadoPorOrc(8);
+                this.debitarFlecha();
             }
         }
-    }  
-    
-    public void atacarElfo(Elfo elf) {
-       if(getItem("Arco")!=null){
-           if(getItem("Flexa")!=null && getItem("Flexa").getQuantidade()>0){
-               elf.atacadoPorOrc(8);
-            }
+        if(getItem("Espada")==null && getItem("Arco")==null && getItem("Flecha").getQuantidade()==0){
+            this.status=Status.FUGINDO;
         }
-    }  
+    }
     public Item getItem(String descricao){
         return this.inventario.getItemPorDescricao(descricao);
     }
-    public void debitarFlexa(){
+    public void debitarFlecha(){
         Item item=getItem("Flecha");
         if(item.getQuantidade()>0){
             item.perdeUmItem();
-        }
-        if(item.getQuantidade()==0){
-            status=Status.FUGINDO;
         }
     }
 }
