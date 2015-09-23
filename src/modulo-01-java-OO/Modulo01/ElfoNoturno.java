@@ -10,19 +10,13 @@ public class ElfoNoturno extends Elfo{
         super(novoNome);
     }
     public void atirarFlecha(Dwarf anao){
-      if(status==Status.VIVO){
-      flechas--;
-      experiencia+=3;
-      anao.atacado();
-      double vidaPerder=vida*0.05;
-      this.vida-=vidaPerder;
-    }
-    if(this.vida<1){
+        if(vida > 1){
+        super.atirarFlecha(anao);
+        experiencia+=2;
+        double perdeVida=vida*0.05;
+        vida-=perdeVida;
+    }else{
         status=Status.MORTO;
     }
-}
-    public void perdeVida(){
-      double vidaPerder=vida*0.05;
-      this.vida-=vidaPerder;
-    }  
+   }
 }
