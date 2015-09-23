@@ -13,5 +13,13 @@ import org.junit.Test;
  */
 public class orcTest
 {
+    @Test 
+    public void orcSemItemFoge(){
+        Orc orc=new Orc();
+        Dwarf anao=new Dwarf("Dunga");
+        orc.orcAtacar(anao);
+        assertEquals(110,anao.getVida());
+        assertEquals(Status.FUGINDO,orc.getStatus());
+    }
 }
 

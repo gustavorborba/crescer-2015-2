@@ -32,14 +32,13 @@ public class Orc extends Personagem
         if(getItem("Espada")!=null){
             person.atacadoPorOrc(12);
         }
-        if(getItem("Arco")!= null){
+        else if(getItem("Arco")!= null){
             if(getItem("Flecha").getQuantidade()>0){
                 person.atacadoPorOrc(8);
                 this.debitarFlecha();
             }
-        }
-        if(getItem("Espada")==null && getItem("Arco")==null && getItem("Flecha").getQuantidade()==0){
-            this.status=Status.FUGINDO;
+        }else{
+            status=Status.FUGINDO;
         }
     }
     public Item getItem(String descricao){
