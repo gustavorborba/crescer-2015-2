@@ -10,9 +10,9 @@ public class Elfo extends Personagem{
     }
     */
     public Elfo(String nome, int flechas) {
+        super();
         this.nome = nome;
         this.flechas = flechas;
-        this.status=Status.VIVO;
         this.vida=80;
     }
     
