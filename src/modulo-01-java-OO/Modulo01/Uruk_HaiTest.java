@@ -19,15 +19,19 @@ public class Uruk_HaiTest
        assertEquals("Escudo Uruk-Hai",ur.getInventario().getItemEspecifico(0).getDescricao());
        assertEquals("Espada",ur.getInventario().getItemEspecifico(1).getDescricao());
     }
-    @Test
-    public void urukAtacaGeral(){
-        Uruk_Hai ur=new Uruk_Hai();
-        Elfo elf=new Elfo("EE");
-        ur.atacarElfo(elf);
-        assertEquals(68,elf.getVida());
-        Dwarf anao=new Dwarf("A");
-        ur.atacarDwarf(anao);
+   @Test
+   public void urukAtacaGeral(){
+        Uruk_Hai uruk=new Uruk_Hai();
+        Dwarf anao=new Dwarf("Gloin");
+        assertEquals(110,anao.getVida());
+        uruk.orcAtacar(anao);
         assertEquals(98,anao.getVida());
     }
-
+   @Test 
+   public void urukaAtacaElfoVerde(){
+        Uruk_Hai uruk=new Uruk_Hai();
+        ElfoVerde elfo=new ElfoVerde("Greengolas");
+        uruk.orcAtacar(elfo);
+        assertEquals(68,elfo.getVida());
+    }
 }

@@ -19,5 +19,20 @@ public class SnagaTest
        assertEquals("Arco",ur.getInventario().getItemEspecifico(0).getDescricao());
        assertEquals("Flecha",ur.getInventario().getItemEspecifico(1).getDescricao());
     }
-   
+    @Test
+    public void snagaAtacaGeralEPerdeFlecha(){
+        Snaga snag=new Snaga();
+        Dwarf anao=new Dwarf("Gloin");
+        assertEquals(110,anao.getVida());
+        snag.orcAtacar(anao);
+        assertEquals(102,anao.getVida());
+        assertEquals(4,snag.getItem("Flecha").getQuantidade());
+    }
+   @Test 
+   public void snagaAtacaIrishDwarf(){
+        Snaga snag=new Snaga();
+        IrishDwarf anao=new IrishDwarf("Gloin");
+        snag.orcAtacar(anao);
+        assertEquals(102,anao.getVida());
+    }
 }

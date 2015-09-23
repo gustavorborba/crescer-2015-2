@@ -14,13 +14,4 @@ public class Uruk_Hai extends Orc
         inventario.adicionarItem(new Item("Espada",1));
         this.vida=150;
     }
-     public void atacarDwarf(Dwarf anao) {
-        anao.atacadoPorOrc(12);
-    }  
-    public void atacarElfo(Elfo elf) {
-        elf.atacadoPorOrc(12);  
-}
-    public void atacadoPorDwarf(){
-        this.vida-=5;
-    }
 }
