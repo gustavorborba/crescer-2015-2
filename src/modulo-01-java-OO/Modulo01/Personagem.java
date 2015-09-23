@@ -11,6 +11,9 @@ public class Personagem
    protected int vida,experiencia;
    protected Inventario inventario=new Inventario();
    protected Status status;
+   public Personagem(){
+       this.status=Status.VIVO;
+    }
    public Inventario getInventario(){
        return this.inventario;
     }
@@ -32,7 +35,8 @@ public class Personagem
    public Status getStatus(){
        return status;
     }
-   public void atacadoPorOrc(int n){
+   public void atacadoPorOrc(Orc orc){
+       int n=orc.getDanoDeAtaque();
        if(this.vida !=0){
            this.vida-=n;
         }

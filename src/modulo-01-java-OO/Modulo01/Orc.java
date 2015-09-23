@@ -12,7 +12,7 @@ public class Orc extends Personagem
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     public Orc()
     {
-        status=Status.VIVO;
+        super();
     }
     public void perderVida(){
         if(this.vida>0 && this.getItem("Escudo Uruk-Hai")==null){
@@ -26,15 +26,12 @@ public class Orc extends Personagem
     }   
     }
     public void orcAtacar(Personagem person){
-        Item esp=new Item("Espada",1);
-        Item arc=new Item("Arco",1);
-        Item flec=new Item("Flecha",1);
         if(getItem("Espada")!=null){
-            person.atacadoPorOrc(12);
+            person.atacadoPorOrc(this);
         }
         else if(getItem("Arco")!= null){
             if(getItem("Flecha").getQuantidade()>0){
-                person.atacadoPorOrc(8);
+                person.atacadoPorOrc(this);
                 this.debitarFlecha();
             }
         }else{
@@ -49,5 +46,30 @@ public class Orc extends Personagem
         if(item.getQuantidade()>0){
             item.perdeUmItem();
         }
+    }
+    public void atacadoPorOrc(Orc orc){
+       orc.perderVida();
+    }
+        private boolean podeAtacarComEspada() {
+        return getItem("Espada") != null;
+    }
+    
+    private boolean podeAtacarComArco(){
+        boolean temArco = getItem("Arco") != null;
+        Item flecha = getItem("Flecha");
+        boolean temFlechaProArco = flecha != null && flecha.getQuantidade() > 0;
+        
+        return temArco && temFlechaProArco;
+    }
+        public int getDanoDeAtaque(){
+        if(podeAtacarComEspada()){
+            return 12;
+        }
+        
+        if(podeAtacarComArco()){
+            return 8;
+        }
+        
+        return 0;
     }
 }
