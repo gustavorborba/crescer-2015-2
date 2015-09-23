@@ -35,4 +35,11 @@ public class SnagaTest
         snag.orcAtacar(anao);
         assertEquals(102,anao.getVida());
     }
+   @Test
+   public void sanagaAtacadoPorElfo(){
+       Snaga snag=new Snaga();
+       Elfo elfo=new Elfo("Elf");
+       elfo.atacarOrc(snag);
+       assertEquals(60,snag.getVida());
+    }
 }

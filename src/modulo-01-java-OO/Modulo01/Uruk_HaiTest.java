@@ -34,4 +34,11 @@ public class Uruk_HaiTest
         uruk.orcAtacar(elfo);
         assertEquals(68,elfo.getVida());
     }
+   @Test
+   public void uruk_HaiAtacadoPorElfo(){
+       Uruk_Hai uruk=new Uruk_Hai();
+       Elfo elfo=new Elfo("Elf");
+       elfo.atacarOrc(uruk);
+       assertEquals(144,uruk.getVida());
+    }
 }
