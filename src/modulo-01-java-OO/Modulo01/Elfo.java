@@ -54,14 +54,6 @@ public class Elfo extends Personagem{
             this.flechas=novaFlecha;
         }
     }
-    public void atacadoPorOrc(int n){
-        if(this.vida !=0){
-            this.vida-=n;
-        }
-        if(this.vida==0 && this.status==Status.VIVO){
-            this.status=Status.MORTO;
-        }
-    }
     public String toString(){
         boolean singular = Math.abs(this.flechas)==1;
         String flech=singular ? "flecha" : "flechas";
