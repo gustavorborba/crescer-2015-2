@@ -33,7 +33,11 @@ public class Elfo extends Personagem{
         //experiencia += 1;
         //experiencia = experiencia + 1;
     }
-    
+    public void atacarOrc(Orc orc){
+        flechas--;
+        experiencia++;
+        orc.perderVida();
+    }
     /*
      * 
      * public atirarFlechaRefactory(this.flechas, this.experiencia){
