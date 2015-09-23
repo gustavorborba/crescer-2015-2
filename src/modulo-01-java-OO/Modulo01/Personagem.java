@@ -32,4 +32,12 @@ public class Personagem
     public Status getStatus(){
         return status;
     }
+    public void atacadoPorOrc(int n){
+        if(this.vida !=0){
+            this.vida-=n;
+        }
+        if(this.vida==0 && this.status==Status.VIVO){
+            this.status=Status.MORTO;
+        }
+    }
 }
