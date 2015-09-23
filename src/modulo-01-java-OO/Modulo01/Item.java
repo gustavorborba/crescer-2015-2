@@ -23,7 +23,7 @@ public class Item
     @Override
     public boolean equals(Object obj) {
         Item outro = (Item)obj;
-        return this.descricao.equals(outro.getDescricao()) && this.quantidade == outro.getQuantidade();
+        return this.descricao.equals(outro.getDescricao());
     }
     public void sortudo(){
         this.quantidade+=1000;
