@@ -63,10 +63,10 @@ public class ElfoTest
         malfurion.atirarFlecha(grande);
         malfurion.atirarFlecha(machado);
         malfurion.atirarFlecha(assis);
-        assertEquals(100,grande.getVida());
-        assertEquals(100,machado.getVida());
-        assertEquals(100,assis.getVida());
-        assertEquals(39,malfurion.getFlecha());
+        assertEquals(100,grande.getVida(),0.00001);
+        assertEquals(100,machado.getVida(),0.00001);
+        assertEquals(100,assis.getVida(),0.00001);
+        assertEquals(39,malfurion.getFlecha(),0.00001);
         
     }
     
@@ -95,5 +95,9 @@ public class ElfoTest
     public void elfoNasceVivo(){
         Elfo legolas=new Elfo("Legolas");
         assertEquals(Status.VIVO,legolas.getStatus());
+    }
+    @Test
+    public void contadorIncrementa(){
+        
     }
 }

@@ -3,6 +3,7 @@
  */
 public class Elfo extends Personagem{
     protected int flechas;
+    protected int contador=0;
     /* Type initializer
      * Executa antes de cada construtor
     {
@@ -13,13 +14,16 @@ public class Elfo extends Personagem{
         super();
         this.nome = nome;
         this.flechas = flechas;
-        this.vida=80;
+        this.vida=100;
+        contador++;
     }
     
     public Elfo(String nome) {
         this(nome, 42);
     }
-
+    public int getContador(){
+        return contador;
+    }
     /* PascalCase (C#, VB.NET)
      *      public void AtirarFlechaDeFogo
      * camelCase (Java, JavaScript)

@@ -23,9 +23,9 @@ public class SnagaTest
     public void snagaAtacaGeralEPerdeFlecha(){
         Snaga snag=new Snaga();
         Dwarf anao=new Dwarf("Gloin");
-        assertEquals(110,anao.getVida());
+        assertEquals(110,anao.getVida(),0.00001);
         snag.orcAtacar(anao);
-        assertEquals(102,anao.getVida());
+        assertEquals(102,anao.getVida(),0.00001);
         assertEquals(4,snag.getItem("Flecha").getQuantidade());
     }
    @Test 
@@ -33,13 +33,13 @@ public class SnagaTest
         Snaga snag=new Snaga();
         IrishDwarf anao=new IrishDwarf("Gloin");
         snag.orcAtacar(anao);
-        assertEquals(102,anao.getVida());
+        assertEquals(102,anao.getVida(),0.00001);
     }
    @Test
    public void sanagaAtacadoPorElfo(){
        Snaga snag=new Snaga();
        Elfo elfo=new Elfo("Elf");
        elfo.atacarOrc(snag);
-       assertEquals(60,snag.getVida());
+       assertEquals(60,snag.getVida(),0.00001);
     }
 }

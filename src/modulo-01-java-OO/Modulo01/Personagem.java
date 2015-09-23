@@ -8,7 +8,8 @@
 public class Personagem
 {
    protected String nome;
-   protected int vida,experiencia;
+   protected int experiencia;
+   protected double vida;
    protected Inventario inventario=new Inventario();
    protected Status status;
    public Personagem(){
@@ -26,7 +27,7 @@ public class Personagem
    public String getNome(){
        return this.nome;
     }
-   public int getVida(){
+   public double getVida(){
        return this.vida;
     }
    public int getExperiencia(){

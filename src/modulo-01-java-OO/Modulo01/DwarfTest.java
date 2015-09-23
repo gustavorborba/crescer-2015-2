@@ -16,32 +16,31 @@ public class DwarfTest
    @Test
    public void DwarfNasceCom110DeVida(){
        Dwarf gimli=new Dwarf("O");
-       assertEquals(110,gimli.getVida());
+       assertEquals(110,gimli.getVida(),0.00001);
     }
    @Test
     public void dwarfPerdeVidaSerFlechado(){
         Elfo elrond=new Elfo("Elrond");
         Dwarf gloin=new Dwarf("Gloin");
         elrond.atirarFlecha(gloin);
-        assertEquals(100,gloin.getVida());
+        assertEquals(100,gloin.getVida(),0.00001);
     }
     @Test
     public void dwarfNaoPerdeVidaSerFlechado(){
         Elfo elrond=new Elfo("Elrond");
         Dwarf gloin=new Dwarf("Gloin");
         elrond.atirarFlecha(gloin);
-        assertNotSame(110,gloin.getVida());
+        assertEquals(100,gloin.getVida(),0.00001);
     }
     @Test
     public void dwarfPerdeVidasSempreQueAtacado(){
         Elfo elrond=new Elfo("Elrond");
         Dwarf gloin=new Dwarf("Gloin");
         elrond.atirarFlecha(gloin);
-        assertEquals(100,gloin.getVida());
-        assertNotSame(95,gloin.getVida());
+        assertEquals(100,gloin.getVida(),0.00001);
         elrond.atirarFlecha(gloin);
         elrond.atirarFlecha(gloin);
-        assertEquals(80,gloin.getVida());
+        assertEquals(80,gloin.getVida(),0.00001);
         
     }
     @Test
@@ -54,7 +53,7 @@ public class DwarfTest
         assertEquals(Status.MORTO,anao.getStatus());
         elf.atirarFlecha(anao);
         elf.atirarFlecha(anao);
-        assertEquals(0,anao.getVida());
+        assertEquals(0,anao.getVida(),0.00001);
     }
     @Test
     public void DwarfNasceComNome(){
@@ -87,7 +86,7 @@ public class DwarfTest
         elf.atirarFlecha(bifur);
         elf.atirarFlecha(bifur);
         assertEquals(-3333,bifur.getNumeroSorte(),0.0001); //seu numero da sorte é menor que 0
-        assertEquals(90,bifur.getVida());   //tem que possuir obrigatoriamente 90 de vida
+        assertEquals(90,bifur.getVida(),0.00001);   //tem que possuir obrigatoriamente 90 de vida
         assertEquals(2,bifur.getExperiencia()); //e 2 pontos de experiencia
     }
     @Test
@@ -97,7 +96,7 @@ public class DwarfTest
         Elfo johnny=new Elfo("Johnny");
         johnny.atirarFlecha(bifur);
         assertEquals(33,bifur.getNumeroSorte(),0.0001); //seu numero e maior que 0 e menor que 100, nada deve acontecer
-        assertEquals(110,bifur.getVida());  //Não pode ter tomado dano
+        assertEquals(110,bifur.getVida(),0.00001);  //Não pode ter tomado dano
         assertEquals(0,bifur.getExperiencia()); //não pode ter ganho experiencia
     }
     @Test
@@ -107,7 +106,7 @@ public class DwarfTest
         Elfo johnny=new Elfo("Johnny");
         johnny.atirarFlecha(odin);
         assertEquals(101.0,odin.getNumeroSorte(),0.0001); //seu numero da sorte obrigatoriamente é 101.0
-        assertEquals(100,odin.getVida());  //Recebeu o dano
+        assertEquals(100,odin.getVida(),0.00001);  //Recebeu o dano
         assertEquals(0,odin.getExperiencia()); //não pode ter ganho experiencia
     }
     @Test

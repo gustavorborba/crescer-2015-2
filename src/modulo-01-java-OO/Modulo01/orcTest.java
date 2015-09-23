@@ -18,7 +18,7 @@ public class orcTest
         Orc orc=new Orc();
         Dwarf anao=new Dwarf("Dunga");
         orc.orcAtacar(anao);
-        assertEquals(110,anao.getVida());
+        assertEquals(110,anao.getVida(),0.00001);
         assertEquals(Status.FUGINDO,orc.getStatus());
     }
 }

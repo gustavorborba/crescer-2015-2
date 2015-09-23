@@ -23,22 +23,22 @@ public class Uruk_HaiTest
    public void urukAtacaGeral(){
         Uruk_Hai uruk=new Uruk_Hai();
         Dwarf anao=new Dwarf("Gloin");
-        assertEquals(110,anao.getVida());
+        assertEquals(110,anao.getVida(),0.00001);
         uruk.orcAtacar(anao);
-        assertEquals(98,anao.getVida());
+        assertEquals(98,anao.getVida(),0.00001);
     }
    @Test 
    public void urukaAtacaElfoVerde(){
         Uruk_Hai uruk=new Uruk_Hai();
         ElfoVerde elfo=new ElfoVerde("Greengolas");
         uruk.orcAtacar(elfo);
-        assertEquals(68,elfo.getVida());
+        assertEquals(88,elfo.getVida(),0.00001);
     }
    @Test
    public void uruk_HaiAtacadoPorElfo(){
        Uruk_Hai uruk=new Uruk_Hai();
        Elfo elfo=new Elfo("Elf");
        elfo.atacarOrc(uruk);
-       assertEquals(144,uruk.getVida());
+       assertEquals(144,uruk.getVida(),0.00001);
     }
 }
