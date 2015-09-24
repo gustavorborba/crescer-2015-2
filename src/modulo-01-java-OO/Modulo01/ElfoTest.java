@@ -96,8 +96,10 @@ public class ElfoTest
         Elfo legolas=new Elfo("Legolas");
         assertEquals(Status.VIVO,legolas.getStatus());
     }
-    @Test
-    public void contadorIncrementa(){
-        
+   @Test
+   public void elfoCriadoIncrementaQuantidade(){
+       int esperado=Elfo.getQuantidadeElfos()+1;
+       Elfo elfo=new Elfo("Tet");
+       assertEquals(esperado,Elfo.getQuantidadeElfos());
     }
 }

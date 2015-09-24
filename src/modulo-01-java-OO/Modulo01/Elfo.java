@@ -3,7 +3,7 @@
  */
 public class Elfo extends Personagem{
     protected int flechas;
-    protected int contador=0;
+    private static int quantidade;
     /* Type initializer
      * Executa antes de cada construtor
     {
@@ -15,14 +15,11 @@ public class Elfo extends Personagem{
         this.nome = nome;
         this.flechas = flechas;
         this.vida=100;
-        contador++;
+        this.quantidade++;
     }
     
     public Elfo(String nome) {
         this(nome, 42);
-    }
-    public int getContador(){
-        return contador;
     }
     /* PascalCase (C#, VB.NET)
      *      public void AtirarFlechaDeFogo
@@ -30,6 +27,9 @@ public class Elfo extends Personagem{
      *      public void atirarFlechaDeFogo
     */
    
+    public static int getQuantidadeElfos(){
+        return quantidade;
+    }
     public void atirarFlecha(Dwarf anao) {
         flechas--;
         experiencia++;
