@@ -21,4 +21,5 @@ public class ElfoNoturnoTest
         assertEquals(95,elfo.getVida(),0.00001);
         assertEquals(3,elfo.getExperiencia());
     }
+    
 }

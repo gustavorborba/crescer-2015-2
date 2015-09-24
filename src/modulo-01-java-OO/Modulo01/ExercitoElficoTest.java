@@ -33,11 +33,10 @@ public class ExercitoElficoTest
         exer.alistarElfo(elf);
         exer.alistarElfo(elfoV);
         exer.agruparPorStatus();
-        ExercitoElfico esperado=new ExercitoElfico();
-        esperado.alistarElfo(elf);
-        esperado.alistarElfo(elfoV);
-        esperado.agruparPorStatus();
-        assertEquals(true,exer.equals(esperado));
+        ArrayList<Elfo> esperado=new ArrayList<Elfo>();
+        esperado.add(elf);
+        esperado.add(elfoV);
+        assertEquals(esperado,exer.buscar(Status.VIVO));
     }
     @Test
     public void agrupadoTemElfoCorreto(){
@@ -89,11 +88,11 @@ public class ExercitoElficoTest
         vivos.add(elfo4);
         vivos.add(elfo3);
         
-        exer.alistarElfo(elfo4);
-        exer.alistarElfo(elfo3);
-        exer.alistarElfo(elfo2);
-        exer.alistarElfo(elfo1);
         exer.alistarElfo(elfo);
+        exer.alistarElfo(elfo1);
+        exer.alistarElfo(elfo2);
+        exer.alistarElfo(elfo3);
+        exer.alistarElfo(elfo4);
         exer.agruparPorStatus();
         
         ArrayList<Elfo> corretos=new ArrayList<Elfo>();
