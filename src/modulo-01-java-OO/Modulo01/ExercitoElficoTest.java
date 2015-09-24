@@ -72,25 +72,30 @@ public class ExercitoElficoTest
         ElfoVerde elfo2=new ElfoVerde("Daregolas");
         ElfoVerde elfo3=new ElfoVerde("Pinlegolas");
         ElfoVerde elfo4=new ElfoVerde("yelleolas");
+        
         Uruk_Hai uruk=new Uruk_Hai();
         for(int i=0;i<11;i++){
             uruk.orcAtacar(elfo);
             uruk.orcAtacar(elfo1);
             uruk.orcAtacar(elfo2);
         }
+        
         ArrayList<Elfo> mortos=new ArrayList<Elfo>();
         mortos.add(elfo2);
         mortos.add(elfo1);
         mortos.add(elfo);
+        
         ArrayList<Elfo> vivos=new ArrayList<Elfo>();
         vivos.add(elfo4);
         vivos.add(elfo3);
+        
         exer.alistarElfo(elfo4);
         exer.alistarElfo(elfo3);
         exer.alistarElfo(elfo2);
         exer.alistarElfo(elfo1);
         exer.alistarElfo(elfo);
         exer.agruparPorStatus();
+        
         ArrayList<Elfo> corretos=new ArrayList<Elfo>();
         corretos=exer.getAgrupado().get(Status.VIVO);
         assertEquals(vivos,corretos);
