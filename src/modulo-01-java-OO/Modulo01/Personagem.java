@@ -5,7 +5,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Personagem
+public abstract class Personagem
 {
    protected String nome;
    protected int experiencia;
