@@ -51,4 +51,17 @@ public class ExercitoElficoTest
         elfos=exer.getAgrupado().get(Status.VIVO);
         assertEquals(elf,elfos.get(0));
     }
+    @Test
+    public void buscarPorStatus(){
+        ExercitoElfico exer=new ExercitoElfico();
+        ElfoNoturno elf=new ElfoNoturno("Malfurion");
+        ElfoVerde elfoV=new ElfoVerde("Tempesfuria");
+        exer.alistarElfo(elf);
+        exer.alistarElfo(elfoV);
+        exer.agruparPorStatus();
+        ArrayList<Elfo> elfos=new ArrayList<Elfo>();
+        elfos.add(elf);
+        elfos.add(elfoV);
+        assertEquals(elfos,exer.buscar(Status.VIVO));
+    }
 }

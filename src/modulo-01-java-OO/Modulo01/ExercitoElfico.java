@@ -34,4 +34,10 @@ public class ExercitoElfico
         ExercitoElfico outroExercito=(ExercitoElfico)obj;
         return this.agrupado.equals(outroExercito.getAgrupado());
     }
+    public ArrayList<Elfo> buscar(Status status){
+        if(agrupado.isEmpty()){
+            agruparPorStatus();
+        }
+        return agrupado.get(status);
+    }
 }
