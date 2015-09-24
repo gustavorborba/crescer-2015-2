@@ -41,7 +41,7 @@ public class Personagem
        if(this.vida >1){
            this.vida-=n;
         }
-       if(this.vida<1 && this.status==Status.VIVO){
+       if(this.vida<0 && this.status==Status.VIVO){
            this.status=Status.MORTO;
        }
     }

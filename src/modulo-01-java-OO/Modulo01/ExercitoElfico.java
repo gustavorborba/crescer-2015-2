@@ -13,7 +13,10 @@ public class ExercitoElfico
     private  HashMap<Status,ArrayList<Elfo>> agrupado = new HashMap<Status,ArrayList<Elfo>>();
     public ExercitoElfico(){}
     public void alistarElfo(Elfo elfo){
+        boolean podeAlistar= elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
+        if(podeAlistar){
         exercito.put(elfo.getNome(),elfo);
+    }
     }
     public Elfo getElfoPorNome(String nome){
        Elfo elfo=exercito.get(nome);
@@ -35,6 +38,7 @@ public class ExercitoElfico
         return this.agrupado.equals(outroExercito.getAgrupado());
     }
     public ArrayList<Elfo> buscar(Status status){
+        agrupado.clear();
         if(agrupado.isEmpty()){
             agruparPorStatus();
         }
