@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * Representa objetos do tipo Elfo.
  */
