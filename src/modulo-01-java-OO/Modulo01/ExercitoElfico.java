@@ -39,9 +39,7 @@ public class ExercitoElfico
     }
     public ArrayList<Elfo> buscar(Status status){
         agrupado.clear();
-        if(agrupado.isEmpty()){
-            agruparPorStatus();
-        }
+        agruparPorStatus();
         return agrupado.get(status);
     }
 }
