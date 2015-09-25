@@ -14,7 +14,7 @@ import org.junit.Test;
 public class ElfoVerdeTest
 {
   @Test
-  public void ElfoVerdePodeApenas2Item(){
+  public void elfoVerdePodeApenas2Item(){
       ElfoVerde elfo=new ElfoVerde("Odin");
       Item item1=new Item("Espada de aço valiriano",1);
       Item item2=new Item("Escudo",1);
@@ -32,5 +32,11 @@ public class ElfoVerdeTest
       elfo.adicionarItem(item4);
       
       assertEquals(true,elfo.getInventario().equals(esperado));
+    }
+   @Test 
+   public void elfoVerdeAtiraFlechaEGanha2Experiencia(){
+      ElfoVerde elfo=new ElfoVerde("Thor");
+      elfo.atirarFlecha(new Dwarf("SemNomeDaErro"));
+      assertEquals(2,elfo.getExperiencia());
     }
 }
