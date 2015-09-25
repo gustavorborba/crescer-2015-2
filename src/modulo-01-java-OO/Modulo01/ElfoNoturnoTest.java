@@ -21,5 +21,12 @@ public class ElfoNoturnoTest
         assertEquals(95,elfo.getVida(),0.00001);
         assertEquals(3,elfo.getExperiencia());
     }
-    
+    @Test
+    public void elfoAtacaMuitoEMorre(){
+        ElfoNoturno elfo=new ElfoNoturno("Malfurion");
+        for(int i=0;i<90;i++){
+            elfo.atirarFlecha(new Dwarf("ae"));
+        }
+        assertEquals(Status.MORTO,elfo.getStatus());
+    }
 }
