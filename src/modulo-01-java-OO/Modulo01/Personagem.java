@@ -45,4 +45,7 @@ public abstract class Personagem
            this.status=Status.MORTO;
        }
     }
+   public Item getItemPorDescricao(String nomeItem){
+       return this.inventario.getItemPorDescricao(nomeItem);
+    }
 }
