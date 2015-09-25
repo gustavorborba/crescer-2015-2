@@ -101,4 +101,11 @@ public class ExercitoElficoTest
         assertEquals(mortos,exer.buscar(Status.MORTO));
         assertEquals(vivos,exer.buscar(Status.VIVO));
     }
+   @Test
+   public void exercitoNaoTemElfoComum(){
+       Elfo intrometido=new Elfo("Intrometus");
+       ExercitoElfico exer=new ExercitoElfico();
+       exer.alistarElfo(intrometido);
+       assertEquals(null,exer.getElfoPorNome(intrometido.getNome()));
+    }
 }
