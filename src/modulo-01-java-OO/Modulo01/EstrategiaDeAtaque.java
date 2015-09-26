@@ -6,6 +6,6 @@ import java.util.ArrayList;
  * @version (a version number or a date)
  */
 public interface EstrategiaDeAtaque{
-    void atacar(ArrayList<Dwarf> anoes);
+    void atacar(ArrayList<Dwarf> anoesHorda,ArrayList<Elfo> elfosArmy);
     
 }
