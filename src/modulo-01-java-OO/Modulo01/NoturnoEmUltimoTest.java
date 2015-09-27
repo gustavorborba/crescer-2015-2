@@ -76,5 +76,28 @@ public class NoturnoEmUltimoTest
         assertEquals(esperado,exer.getUltimoAtaque());
         
     }
+    @Test 
+    public void noturnoPorUltimoMultiplosElfos(){
+    int quantVerde=70;
+    int quantNoturno=65;
+    ExercitoElfico exer=new ExercitoElfico();
+    for(int i=0;i<quantNoturno;i++){
+        exer.alistarElfo(new ElfoNoturno("N"+i));
+    }
+    for(int i=0;i<quantVerde;i++){
+        exer.alistarElfo(new ElfoVerde("V"+i));
+    }
+    ArrayList<Dwarf> anoes=new ArrayList<>();
+    anoes.add(new Dwarf("A1"));
+    anoes.add(new Dwarf("A2"));
+    anoes.add(new Dwarf("A3"));
     
+    exer.atacarNoturnoUltimo(anoes);
+    
+    boolean esperado1= exer.getUltimoAtaque().get(69) instanceof ElfoVerde;
+    boolean esperado2=exer.getUltimoAtaque().get(70) instanceof ElfoNoturno;
+    
+    assertEquals(true,esperado1);
+    assertEquals(true,esperado2);
+    }
 }
