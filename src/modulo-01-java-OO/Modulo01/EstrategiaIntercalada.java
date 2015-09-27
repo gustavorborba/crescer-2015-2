@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 public class EstrategiaIntercalada extends EstrategiaPreparacao implements EstrategiaDeAtaque{
     private ArrayList<Elfo> ultimoAtaque=new ArrayList<>();
-    //-----------------                 //                  //                      //              -----------------
-    //Estou trabalhando para desenvolver um codigo mais claro, assim que foi resolvido esse comentário será apagado
-    //-----------------                 //                  //                      //              -----------------
     public int getMenorQuantidade(ArrayList<Elfo> elfosArmy){
         int quantidadeVerde=0,quantidadeNoturno=0;
             for(Elfo elfo : elfosArmy){
@@ -44,8 +41,8 @@ public class EstrategiaIntercalada extends EstrategiaPreparacao implements Estra
             for(Dwarf anao : anoesHorda){
                 elfo.atirarFlecha(anao);
             }
-            ultimoAtaque.add(elfo);
         }
+        ultimoAtaque=elfosArmy;
     }
     public ArrayList<Elfo> getUltimoAtaque(){
         return ultimoAtaque;
