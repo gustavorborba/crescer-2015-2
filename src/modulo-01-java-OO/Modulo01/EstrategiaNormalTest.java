@@ -23,7 +23,7 @@ public class EstrategiaNormalTest
         ArrayList<Dwarf> anao=new ArrayList<>();
         anao.add(new Dwarf("O"));
         anao.add(new Dwarf("a"));
-        exer.atacarAnoes(anao);
+        exer.atacarNormal(anao);
         assertEquals(80,anao.get(0).getVida(),0.00001);
     }
     @Test
@@ -35,7 +35,7 @@ public class EstrategiaNormalTest
         ArrayList<Dwarf> anao=new ArrayList<>();
         anao.add(new Dwarf("O"));
         anao.add(new Dwarf("a"));
-        exer.atacarAnoes(anao);
+        exer.atacarNormal(anao);
         assertEquals(90,anao.get(0).getVida(),0.00001);
     }
    

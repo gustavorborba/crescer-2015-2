@@ -7,5 +7,5 @@ import java.util.ArrayList;
  */
 public interface EstrategiaDeAtaque{
     void atacar(ArrayList<Dwarf> anoesHorda,ArrayList<Elfo> elfosArmy);
-    
+     ArrayList<Elfo> getUltimoAtaque();
 }

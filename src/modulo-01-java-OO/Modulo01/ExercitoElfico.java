@@ -11,7 +11,7 @@ public class ExercitoElfico
 {
     private  HashMap<String,Elfo> exercito = new HashMap<String,Elfo>();
     private  HashMap<Status,ArrayList<Elfo>> agrupado = new HashMap<Status,ArrayList<Elfo>>();
-    private EstrategiaDeAtaque ataque=new EstrategiaNormal();
+    private EstrategiaDeAtaque ataque;
     public ExercitoElfico(){}
     public void alistarElfo(Elfo elfo){
         boolean podeAlistar= elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
@@ -44,7 +44,15 @@ public class ExercitoElfico
         return agrupado.get(status);
     }
     
-    public void atacarAnoes(ArrayList<Dwarf> anoesHorda){
+    public void atacarNormal(ArrayList<Dwarf> anoesHorda){
+        ataque=new EstrategiaNormal();
         ataque.atacar(anoesHorda,this.buscar(Status.VIVO));
+    }
+    public void atacarNoturnoUltimo(ArrayList<Dwarf> anoesHorda){
+        ataque=new NoturnoEmUltimo();
+        ataque.atacar(anoesHorda,this.buscar(Status.VIVO));
+    }
+    public ArrayList<Elfo> getUltimoAtaque(){
+         return ataque.getUltimoAtaque();
     }
 }

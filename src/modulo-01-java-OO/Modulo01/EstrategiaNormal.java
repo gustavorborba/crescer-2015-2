@@ -5,15 +5,9 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EstrategiaNormal implements EstrategiaDeAtaque{
-    ArrayList<Elfo> ultimoAtaque=new ArrayList<>();
+public class EstrategiaNormal extends EstrategiaPreparacao implements EstrategiaDeAtaque{
+    private ArrayList<Elfo> ultimoAtaque=new ArrayList<>();
     public EstrategiaNormal(){}
-    public boolean eElfoNoturno(Elfo elfo){
-        if(elfo instanceof ElfoNoturno){
-            return true;
-        }
-        return false;
-    }    
     public void atacar(ArrayList<Dwarf> anoesHorda,ArrayList<Elfo> elfosArmy){
         int intencao=anoesHorda.size()*elfosArmy.size();
         int elfosNoturnosQuePodem=(int)(intencao*0.3);
