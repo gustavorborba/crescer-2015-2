@@ -3,6 +3,7 @@ class NoturnoEmUltimo extends EstrategiaPreparacao implements EstrategiaDeAtaque
     private ArrayList<Elfo> ultimoAtaque=new ArrayList<>();
     public NoturnoEmUltimo(){}
     public void atacar(ArrayList<Dwarf> anoesHorda,ArrayList<Elfo> elfosArmy){
+        this.ultimoAtaque.clear();
         for(Elfo elfo : elfosArmy){
             if(eElfoVerde(elfo)){
                 ultimoAtaque.add(elfo);
