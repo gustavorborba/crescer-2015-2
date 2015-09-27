@@ -32,6 +32,7 @@ public class NoturnoEmUltimoTest
         exer.atacarNoturnoUltimo(anoes);
         
         assertEquals(esperado,exer.getUltimoAtaque());
+        assertEquals(80,anoes.get(0).getVida(),0.00001);
         
     }
     @Test
