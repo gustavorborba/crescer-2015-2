@@ -40,5 +40,29 @@ public class EstrategiaIntercaladaTest
         
         exer.atacarIntercalado(anoes);
         assertEquals(esperado,exer.getUltimoAtaque());
+        assertEquals(70,anoes.get(0).getVida(),0.00001);
+    }
+    @Test
+    public void elfoMuitoAtaqueIntercalado(){
+    ExercitoElfico exer=new ExercitoElfico();
+    int quantNoturno=115;
+    int quantVerde=147;
+    
+    for(int i=0;i<quantNoturno;i++){
+        exer.alistarElfo(new ElfoNoturno("N"+i));
+    }
+    for(int i=0;i<quantVerde;i++){
+        exer.alistarElfo(new ElfoVerde("V"+i));
+    }
+    
+    ArrayList<Dwarf> anoes=new ArrayList<>();
+    anoes.add(new Dwarf("AS"));
+    anoes.add(new Dwarf("At"));
+    anoes.add(new Dwarf("AE"));
+    
+    exer.atacarIntercalado(anoes);
+    
+    int esperado=2*quantNoturno;
+    assertEquals(esperado,exer.getUltimoAtaque().size());
     }
 }
