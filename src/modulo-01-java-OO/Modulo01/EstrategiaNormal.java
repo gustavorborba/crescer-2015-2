@@ -9,6 +9,7 @@ public class EstrategiaNormal extends EstrategiaPreparacao implements Estrategia
     private ArrayList<Elfo> ultimoAtaque=new ArrayList<>();
     public EstrategiaNormal(){}
     public void atacar(ArrayList<Dwarf> anoesHorda,ArrayList<Elfo> elfosArmy){
+        this.ultimoAtaque.clear();
         int intencao=anoesHorda.size()*elfosArmy.size();
         int elfosNoturnosQuePodem=(int)(intencao*0.3);
         int contadorElfos=0;
