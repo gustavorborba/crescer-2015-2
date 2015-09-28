@@ -15,7 +15,7 @@ public class ElfoNoturnoTest
 {
     @Test
     public void elfoNoturnoPerde5DeVida(){
-        ElfoNoturno elfo=new ElfoNoturno("Malfurion");
+        ElfoNoturno elfo=new ElfoNoturno("Malfurion",1000);
         Dwarf anao=new Dwarf("Gloin");
         elfo.atirarFlecha(anao);
         assertEquals(95,elfo.getVida(),0.00001);
@@ -23,9 +23,9 @@ public class ElfoNoturnoTest
     }
     @Test
     public void elfoAtacaMuitoEMorre(){
-        ElfoNoturno elfo=new ElfoNoturno("Malfurion");
-        for(int i=0;i<90;i++){
-            elfo.atirarFlecha(new Dwarf("ae"));
+        ElfoNoturno elfo=new ElfoNoturno("Malfurion",1000);
+        for(int i=0;i<200;i++){
+            elfo.atirarFlecha(new Dwarf("ae"+i));
         }
         assertEquals(Status.MORTO,elfo.getStatus());
     }
