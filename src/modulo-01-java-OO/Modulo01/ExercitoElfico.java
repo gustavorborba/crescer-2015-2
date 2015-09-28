@@ -56,6 +56,10 @@ public class ExercitoElfico
         ataque=new EstrategiaIntercalada();
         ataque.atacar(anoesHorda,this.buscar(Status.VIVO));
     }
+    public void atacarFriamente(ArrayList<Dwarf> anoesHorda){
+        ataque=new EstrategiaFriamenteCalculado();
+        ataque.atacar(anoesHorda,this.buscar(Status.VIVO));
+    }
     public ArrayList<Elfo> getUltimoAtaque(){
          return ataque.getUltimoAtaque();
     }
