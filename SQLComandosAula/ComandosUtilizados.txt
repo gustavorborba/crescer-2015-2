@@ -1,7 +1,7 @@
-CONSULTA GovernadorRS
+CONSULTA Governador
 ->
 select Nome, DATEDIFF(year, DataNascimento,InicioMandato) as IdadeMandato, 
 DATEDIFF(month,InicioMandato,FimMandato) as TempoMandato
 from 
-GovernadorRS
+Governador
 ---------------------------------------------------------------------------
