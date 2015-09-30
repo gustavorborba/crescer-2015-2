@@ -5,3 +5,53 @@ DATEDIFF(month,InicioMandato,FimMandato) as TempoMandato
 from 
 Governador
 ---------------------------------------------------------------------------
+Consulta Primeiro Nome
+->
+select 
+	substring(Nome,1,charindex(' ',Nome)-1) as PrimeiroNome
+from Associado
+---------------------------------------------------------------------------
+Consulta Idade Associado
+->
+select
+	Nome,
+	datediff(year,DataNascimento,getdate()) as Idade
+from Associado
+---------------------------------------------------------------------------
+Consulta MesesTrabalhados
+->
+select 
+	NomeEmpregado,
+	datediff(month,DataAdmissao,convert(datetime,'31/12/2000',103)) as MesesTrabalhados
+from Empregado
+where 
+DataAdmissao between convert(datetime,'01/05/1980',103) and convert(datetime,'20/01/1982',103)
+---------------------------------------------------------------------------
+Consulta Maior quantidade cargo
+->
+select
+top 1 (Cargo) as Cargo,
+count(1) as Quantidade
+from
+Empregado
+group by Cargo
+order by count(1) desc
+---------------------------------------------------------------------------
+Culsulta Maior Quantidade Caracteres
+->
+select 
+	top 1
+	Nome,
+	len(Nome) as Caracteres
+from
+Associado
+order by len(Nome) desc
+---------------------------------------------------------------------------
+Consulta Data com Cinquenta anos
+->
+select 
+	   nome,
+       dateadd(year, 50, DataNascimento) as DataComCinquenta,
+       datename(dw,dateadd(year, 50, DataNascimento)) as DiaDaSemana
+from associado; 
+---------------------------------------------------------------------------
