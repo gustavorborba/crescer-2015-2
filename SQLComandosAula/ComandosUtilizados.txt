@@ -83,7 +83,7 @@ Inserir cidades e UFs Distintos em CidadeAux
 -> 10
 insert into CidadeAux
 select 
-distinct min(IDCidade) as ID,Nome,UF
+min(IDCidade) as ID,Nome,UF
 from Cidade
 group by  Nome,UF
 order by min(IDCidade) asc
