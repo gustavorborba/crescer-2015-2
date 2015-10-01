@@ -79,8 +79,14 @@ select
 max(IDAssociado) +1 as "Proximo ID"
 from Associado
 ---------------------------------------------------------------------------
-
+Inserir cidades e UFs Distintos em CidadeAux
 -> 10
+insert into CidadeAux
+select 
+distinct min(IDCidade) as ID,Nome,UF
+from Cidade
+group by  Nome,UF
+order by min(IDCidade) asc
 ---------------------------------------------------------------------------
 -> 11
 ---------------------------------------------------------------------------
