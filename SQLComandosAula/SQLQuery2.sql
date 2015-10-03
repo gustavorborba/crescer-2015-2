@@ -1,3 +1,10 @@
+select * from Material
+select * from PedidoItem
+select * from Pedido
+select * from ProdutoMaterial
+select * from Produto
+select * from Cliente
+
 --1)
 select count(DataPedido) as TotalPedidos
 from Pedido
@@ -22,3 +29,34 @@ from Produto
 where not exists(select 1 from PedidoItem where PedidoItem.IDProduto=Produto.IDProduto)
 
 --5)
+
+
+
+--6)
+select Ped.IDPedido,Ped.DataEntrega,Ped.ValorPedido, 
+		PedItem.Quantidade,
+		Clien.Nome,clien.RazaoSocial,
+		Clien.Situacao,Clien.CEP,Clien.Endereco,Clien.Bairro
+from Pedido as Ped
+inner join Cliente as Clien
+on
+Clien.IDCliente=Ped.IDCliente
+inner join PedidoItem as PedItem
+on
+PedItem.IDPedido=Ped.IDPedido
+inner join Produto as Prod
+on
+PedItem.IDProduto=Prod.IDProduto
+inner join ProdutoMaterial as ProdMat
+on
+ProdMat.IDProduto=Prod.IDProduto
+inner join Material as Mater
+on
+ProdMat.IDMaterial=Mater.IDMaterial
+where
+Mater.Descricao like '%#%'
+
+
+
+
+
