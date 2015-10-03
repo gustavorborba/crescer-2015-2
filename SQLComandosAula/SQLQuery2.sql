@@ -56,6 +56,19 @@ ProdMat.IDMaterial=Mater.IDMaterial
 where
 Mater.Descricao like '%#%'
 
+--7)
+select Prod.Nome,Prod.DataCadastro,
+		Prod.PrecoCusto,Prod.PrecoVenda,
+		Prod.Situacao
+from Produto as Prod
+inner join ProdutoMaterial as ProdMat
+on
+ProdMat.IDProduto=Prod.IDProduto
+inner join Material as Mat
+on
+ProdMat.IDMaterial=Mat.IDMaterial
+where
+Mat.IDMaterial=15836
 
 
 
