@@ -54,7 +54,9 @@ inner join Material as Mater
 on
 	ProdMat.IDMaterial=Mater.IDMaterial
 where
-Mater.Descricao like '%#%'
+Mater.Descricao like '%#%' and
+month(DataEntrega)=10 and
+year(DataEntrega)=2015
 
 --7)
 select Prod.Nome,Prod.DataCadastro,
