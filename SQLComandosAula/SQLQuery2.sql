@@ -53,11 +53,10 @@ on
 inner join Material as Mater
 on
 	ProdMat.IDMaterial=Mater.IDMaterial
-where
-Mater.Descricao like '%#%' and
-month(DataEntrega)=10 and
-year(DataEntrega)=2015
-
+where ProdMat.IDMaterial in 
+   (14650,15703,15836,16003,16604,17226)
+    and month(Ped.DataEntrega) = 10
+    and year(Ped.DataEntrega) = 2015
 --7)
 select Prod.Nome,Prod.DataCadastro,
 		Prod.PrecoCusto,Prod.PrecoVenda,
