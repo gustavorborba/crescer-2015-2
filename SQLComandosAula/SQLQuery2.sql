@@ -85,6 +85,7 @@ select top 1
 		count(1) as QuantidadeDeRepeticoes
 from Cliente
 group by SUBSTRING(Nome, 1, CHARINDEX(' ', Nome) - 1)
-order by PrimeiroNome desc
+order by count(1) desc
+
 
 
