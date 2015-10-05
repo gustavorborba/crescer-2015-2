@@ -28,8 +28,24 @@ select *
 from Produto
 where not exists(select 1 from PedidoItem where PedidoItem.IDProduto=Produto.IDProduto)
 
---5)
-
+--5) 
+	select * from
+	(select top 1 C.UF as UF, count(Cl.IDCidade) as Maior
+	from Cidade as C
+	inner join Cliente as Cl
+	on
+	Cl.IDCidade=C.IDCidade
+	group by UF
+	order by count(Cl.IDCliente) desc)abc
+	Union all
+	select * from
+	(select top 1 Ci.UF as UF, count(Cli.IDCidade) as Menor
+	from Cidade as Ci
+	inner join Cliente as Cli
+	on
+	Cli.IDCidade=Ci.IDCidade
+	group by UF
+	order by count(Cli.IDCliente) asc)absc
 
 
 --6)
