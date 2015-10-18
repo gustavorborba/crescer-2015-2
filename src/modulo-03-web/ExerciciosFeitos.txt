@@ -1,0 +1,43 @@
+Ex1:
+function daisyGame(numero){
+	if(numero%2===0){
+		return 'Love me not'
+	}else{ 
+		return 'Love me'}}
+
+
+Ex2:
+function maiorText(texto){
+	var tamanho = 0;
+	var maior='';
+for(var i=0; i < texto.length; i++){
+    if(texto[i].length > tamanho){
+        var tamanho = texto[i].length;
+        maior = texto[i];
+    }      
+} 
+	return maior
+}
+
+EX3
+var instrutores=['bernardo', 'nunes', 'dudu', 'ben-hur', 'fabrício', 'zanatta'];
+function funcao(nome){
+  console.log('olá querido instrutor:', nome);
+}
+function imprime(arrai,funcao){ 
+  for(var i=0; i < arrai.length; i++){
+   funcao(arrai[i]);
+}
+}
+
+EX4
+function fibo(num){
+	var penult=0,ultimo=1, atual=0,soma=1; 
+	for(var i=1; i < num; i++){
+		atual=penult+ultimo;
+		penult=ultimo;
+		ultimo=atual; 
+		soma+=atual;
+}
+	return soma;
+}
