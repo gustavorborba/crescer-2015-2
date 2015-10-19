@@ -25,9 +25,11 @@ function funcao(nome){
   console.log('olá querido instrutor:', nome);
 }
 function imprime(arrai,funcao){ 
-  for(var i=0; i < arrai.length; i++){
-   funcao(arrai[i]);
+  if(typeof funcao==='function'){
+	for(var i=0; i < arrai.length; i++){
+	funcao(arrai[i]);
 }
+ }
 }
 
 EX4
@@ -58,12 +60,6 @@ return valor;
 
 EX querocafe
 
-// ==ClosureCompiler==
-// @compilation_level SIMPLE_OPTIMIZATIONS
-// @output_file_name default.js
-// ==/ClosureCompiler==
-
-// ADD YOUR CODE HERE
 function querocafe(valor,arrai){
   var ascend=[];
   var string='';
