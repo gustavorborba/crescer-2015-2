@@ -55,3 +55,18 @@ return valor;
 
 //criei apartir daqui:
 //http://stackoverflow.com/questions/9905533/convert-excel-column-alphabet-e-g-aa-to-number-e-g-25
+
+EX querocafe
+
+function querocafe(valor,arrai){
+  var ascend=[];
+  var string='';
+  for(var i=0;i<arrai.length;i++){
+   if(arrai[i]<=valor){
+     ascend.push(arrai[i]);
+}
+}
+  ascend.sort();
+  string=ascend.join(',');
+  return string;
+}
