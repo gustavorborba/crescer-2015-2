@@ -14,8 +14,8 @@ month(DataPedido)=09 and year(DataPedido)=2015
 --2)
 select * from Cliente
 where
-Nome like '%Ltda' or 
-RazaoSocial like '%Ltda'
+Nome like '%Ltda%' or 
+RazaoSocial like '%Ltda%'
 
 --3)
 insert into Produto
@@ -39,7 +39,7 @@ where not exists(select 1 from PedidoItem where PedidoItem.IDProduto=Produto.IDP
 	order by count(Cl.IDCliente) desc)abc
 	Union all
 	select * from
-	(select top 1 Ci.UF as UF, count(Cli.IDCidade) as Menor
+	(select top 1 Ci.UF as UF, count(Cli.IDCliente) as Menor
 	from Cidade as Ci
 	inner join Cliente as Cli
 	on
@@ -49,6 +49,7 @@ where not exists(select 1 from PedidoItem where PedidoItem.IDProduto=Produto.IDP
 
 
 --6)
+--Com indice o desempenho foi melhor
 select Ped.IDPedido,Ped.DataEntrega,Ped.ValorPedido, 
 		PedItem.Quantidade,
 		Clien.Nome,clien.RazaoSocial,
