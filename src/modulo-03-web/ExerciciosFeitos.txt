@@ -44,23 +44,14 @@ function fibo(num){
 }
 
 EX5
-
 function excell(letra){
-  
 var base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  
 var valor=0;
-  
-for(var i=0;i < letra.length;i++){
-  
+for(var i=0;i < letra.length;i++){ 
 valor+=Math.pow(base.length,i)*(base.indexOf(letra.substr(((i + 1) * -1), 1)) + 1);
-
 }
-
 return valor;
-
 }
-
 
 //criei apartir daqui:
 //http://stackoverflow.com/questions/9905533/convert-excel-column-alphabet-e-g-aa-to-number-e-g-25
