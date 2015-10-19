@@ -58,6 +58,12 @@ return valor;
 
 EX querocafe
 
+// ==ClosureCompiler==
+// @compilation_level SIMPLE_OPTIMIZATIONS
+// @output_file_name default.js
+// ==/ClosureCompiler==
+
+// ADD YOUR CODE HERE
 function querocafe(valor,arrai){
   var ascend=[];
   var string='';
@@ -66,7 +72,9 @@ function querocafe(valor,arrai){
      ascend.push(arrai[i]);
 }
 }
-  ascend.sort();
+  ascend.sort(function(a, b){
+   return a > b? 1 : 0;
+});
   string=ascend.join(',');
   return string;
 }
