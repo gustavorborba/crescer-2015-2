@@ -52,3 +52,11 @@ function apenasOsMelhores(arrai){
     return elem.titulos[0].qtd > 18;
   });
 }
+
+//4
+function calcularIdadeMedia(arrai){
+  var datahoje=new Date().getFullYear();
+  return arrai.reduce(function(acumulador,elem){
+    return acumulador + datahoje-elem.fundacao.getFullYear();
+  },0)/arrai.length;
+}
