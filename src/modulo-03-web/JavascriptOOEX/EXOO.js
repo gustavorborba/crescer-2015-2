@@ -12,7 +12,9 @@ function CarrinhoDeCompras(){
 //Metodos CARRINHODECOMPRAS
 
 CarrinhoDeCompras.prototype.adicionarItem= function(item){
-  this.itens.push(item);
+  if(item instanceof Item){
+      this.itens.push(item);
+  }
 }
 CarrinhoDeCompras.prototype.encontrarPorSku=function(skus){
   for(var i=0;i<this.itens.length;i++){
