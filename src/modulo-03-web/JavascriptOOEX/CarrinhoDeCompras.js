@@ -43,3 +43,15 @@ CarrinhoDeCompras.prototype.totalValorCarrinho=function(){
 CarrinhoDeCompras.prototype.sorteDeDwarf=function(){
   return Math.floor((Math.random() * 10) + 1);
 }
+CarrinhoDeCompras.prototype.forcarCompra=function(){
+  this.times=setInterval(
+    function(){
+      this.itens.forEach(function(elem){
+          elem.valorunitario+=elem.valorunitario*0.1;
+      })}.bind(this),5000);
+}
+
+CarrinhoDeCompras.prototype.concluirPedido=function(){
+  clearInterval(this.times);
+  delete.this.times;
+}
