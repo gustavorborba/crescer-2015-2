@@ -7,25 +7,18 @@ CarrinhoDeCompras.prototype.adicionarItem= function(item){
       this.itens.push(item);
   }
 }
-CarrinhoDeCompras.prototype.encontrarPorSku=function(skus){
-  for(var i=0;i<this.itens.length;i++){
-    if(this.itens[i].sku===skus){
-      return i;
-    }
-  }
-  return -1;
-}
 CarrinhoDeCompras.prototype.removerItem=function(skuExcluir){
-  var index=this.encontrarPorSku(skuExcluir);
-  if(index>-1){
-    this.itens.splice(index,1);
-  }
+  this.itens = this.itens.filter(function(item) {
+    return item.sku !== sku;
+  });
 }
 CarrinhoDeCompras.prototype.atualizarQuantidade=function(skuAtt,novaQuantidade){
-  var index=this.encontrarPorSku(skuAtt);
-  if(index>-1){
-    this.itens[index].quantidade=novaQuantidade;
-  }
+  this.itens.map(function(item) {
+    if (item.sku === skuAtt) {
+      item.quantidade = novaQuantidade;
+    }
+    return item;
+  });
 }
 CarrinhoDeCompras.prototype.totalValorCarrinho=function(){
   var sorte=this.sorteDeDwarf();
