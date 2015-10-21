@@ -2,8 +2,6 @@ function CarrinhoDeCompras(){
     this.itens=new Array();
 }
 
-//Metodos CARRINHODECOMPRAS
-
 CarrinhoDeCompras.prototype.adicionarItem= function(item){
   if(item instanceof Item){
       this.itens.push(item);
@@ -53,5 +51,5 @@ CarrinhoDeCompras.prototype.forcarCompra=function(){
 
 CarrinhoDeCompras.prototype.concluirPedido=function(){
   clearInterval(this.times);
-  delete.this.times;
+  delete this.times;
 }
