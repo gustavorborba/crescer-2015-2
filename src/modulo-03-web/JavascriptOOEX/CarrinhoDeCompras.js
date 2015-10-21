@@ -1,10 +1,3 @@
-  function Item(sku,descricao,quantidade,valorunitario){
-  this.sku=sku;
-  this.descricao=descricao;
-  this.quantidade=quantidade;
-  this.valorunitario=valorunitario;
-}
-
 function CarrinhoDeCompras(){
     this.itens=new Array();
 }
@@ -49,10 +42,4 @@ CarrinhoDeCompras.prototype.totalValorCarrinho=function(){
 }
 CarrinhoDeCompras.prototype.sorteDeDwarf=function(){
   return Math.floor((Math.random() * 10) + 1);
-}
-
-//Metodos ITEM
-
-Item.prototype.calcularSubTotal=function(){
-  return this.valorunitario*this.quantidade;
 }
