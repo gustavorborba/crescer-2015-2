@@ -11,8 +11,8 @@ String.prototype.isPalindrome=function(){
 //EX2
 Date.prototype.bissexto=function(){
   var ano=this.getFullYear();
-  if(ano % 4 == 0 && (ano % 100 != 0) || (ano % 400 == 0)){
+  if(ano % 4 === 0 && (ano % 100 != 0) || (ano % 400 === 0)){
     return true;
   }
-  return false
+  return false;
 }
