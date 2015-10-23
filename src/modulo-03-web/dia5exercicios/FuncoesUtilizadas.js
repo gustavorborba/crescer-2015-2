@@ -9,6 +9,7 @@ var albums=function(album) {
       $('h2').append(
         $('<img>')
         .attr('src', elem.images[1].url)
+        .attr('alt', 'AlbumBanda')
       )
     });
   });
@@ -28,10 +29,10 @@ $('#Pesquisar').click(function(){
     var rand=Math.floor((Math.random() * 10) + 1);
     if(rand>8){
     pesquisarIDNome('Justin Bieber');
-  }else{
-    albums('Douchebag');
+  }else  if(!albums('Douchebag')){
     alert("Erro 404, existia ou não uma pagina aqui, eis a questão");
-  }
+}
+
 }else{
     pesquisarIDNome($('#Artista').val());
 }
