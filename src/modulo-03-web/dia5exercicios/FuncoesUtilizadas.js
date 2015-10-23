@@ -15,6 +15,7 @@ var albums=function(album) {
   });
 };
 
+//procura pelo nome do artista, seu id
 var pesquisarIDNome=function(nome){
   nome.replace(' ','+');
   $.get('https://api.spotify.com/v1/search?q='+nome+'&type=artist')
@@ -23,6 +24,7 @@ var pesquisarIDNome=function(nome){
   })
 };
 
+//trabalha com os campos imput e bottun, para fazer as pesquisas de artistas
 $('#Pesquisar').click(function(){
   console.log('Entrou ae');
   if($('#Artista').val().toUpperCase()==='JUSTIN BIEBER'){
