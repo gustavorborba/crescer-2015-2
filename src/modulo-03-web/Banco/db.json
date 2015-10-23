@@ -1,0 +1,17 @@
+{
+  "pessoas": [
+    {
+      "nome": "Odin",
+      "Pontuacao": 66
+    },
+    {
+      "nome": "Thor",
+      "Pontuacao": 2
+    },
+    {
+      "nome": "Odin",
+      "Pontuacao": 0,
+      "id": "6fec03cd-37de-4c14-ae99-0fb9f87f07a4"
+    }
+  ]
+}
