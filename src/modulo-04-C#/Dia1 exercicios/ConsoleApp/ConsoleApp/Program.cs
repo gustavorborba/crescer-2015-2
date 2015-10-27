@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ConsoleApp
 {
     class Program
@@ -11,9 +12,15 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             int opcao = 1;
-            string nome;
-            int numero;
+
             var agenda = new Agenda();
+            Metodos metodo = new Metodos();
+            const int cadastrar=1;
+            const int listar=2;
+            const int listarAsc=3;
+            const int excluirNome=4;
+            const int excluirNumero=5;
+
             Console.WriteLine("Olá digite uma das seguintes opções:");
             while (opcao != 0)
             {
@@ -26,40 +33,25 @@ namespace ConsoleApp
                 opcao = int.Parse(Console.ReadLine());
                 switch (opcao)
                 {
-                    case 1:
-                        Console.WriteLine("Digite o nome seguido do numero");
-                        nome = Console.ReadLine();
-                        numero = int.Parse(Console.ReadLine());
-                        agenda.AdicionarContato(new Contato() { Nome = nome, Numero = numero });
-                        Console.WriteLine("Cadastro efetuado com sucesso!!");
+                    case cadastrar:
+                        metodo.Cadastro(agenda);
                         break;
-                    case 2:
-                        foreach (var contato in agenda.ListarContatos())
-                        {
-                            Console.WriteLine("Nome: "+contato.Nome);
-                            Console.WriteLine("Telefone: " + contato.Numero);                            
-                        }
+                    case listar:
+                        metodo.Listar(agenda);
                         break;
-                    case 3:
-                        foreach (var contato in agenda.ListarContatosOrdenados())
-                        {
-                            Console.WriteLine("Nome: " + contato.Nome);
-                            Console.WriteLine("Telefone: " + contato.Numero);
-                        }
+                    case listarAsc:
+                        metodo.ListarOrdenadoAsc(agenda);
                         break;
-                    case 4:
-                        Console.WriteLine("Digite o nome a ser excluido");
-                        nome = Console.ReadLine();
-                        agenda.RemoverContatoPorNome(nome);
+                    case excluirNome:
+                        metodo.ExcluirNome(agenda);
                         break;
-                    case 5:
-                        Console.WriteLine("Digite o numero a ser excluido");
-
+                    case excluirNumero:
+                        metodo.ExcluirNumero(agenda);
                         break;
 
                 }
             }
-            
+
         }
     }
 }

@@ -17,17 +17,17 @@ namespace ConsoleApp
 
         public void RemoverContatoPorNome(string nomeContato)
         {
-            var indexSeremRemovidos = new List<int>();
+            var contatosASeremRemovidos = new List<Contato>();
+
             for (int i = 0; i < contatos.Count; i++)
             {
                 if (contatos[i].Nome == nomeContato)
-                {
-                    indexSeremRemovidos.Add(i);
-                }
+                    contatosASeremRemovidos.Add(contatos[i]);
             }
-            foreach (var indice in indexSeremRemovidos)
+
+            foreach (var contato in contatosASeremRemovidos)
             {
-                contatos.RemoveAt(indice);
+                contatos.Remove(contato);
             }
         }
         public List<Contato> ListarContatos()
@@ -37,7 +37,7 @@ namespace ConsoleApp
         public List<Contato> ListarContatosOrdenados()
         {
             var ordenado = contatos;
-            ordenado.Sort((a, b) => a.Nome.CompareTo(b.Nome));
+            ordenado.Sort((a, b) => a.Nome.CompareTo(b.Nome)); //não consegui fazer na mão à tempo, deixei por enquanto
             return ordenado;
         }
         public int GetQuantidadeContatos()
@@ -46,11 +46,17 @@ namespace ConsoleApp
         }
         public void RemoverPorNumero(int numero)
         {
+            var contatosASeremRemovidos = new List<Contato>();
+
             for (int i = 0; i < contatos.Count; i++)
             {
-                if (contatos[i].Numero == numero) {
-                    contatos.RemoveAt(i);
-                }
+                if (contatos[i].Numero == numero)
+                    contatosASeremRemovidos.Add(contatos[i]);
+            }
+
+            foreach (var contato in contatosASeremRemovidos)
+            {
+                contatos.Remove(contato);
             }
         }
     }
