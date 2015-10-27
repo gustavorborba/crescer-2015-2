@@ -14,8 +14,8 @@ namespace ConsoleApp.testes
             agenda.AdicionarContato(new Contato() { Nome="Mephisto",Numero=6667});
             Assert.AreEqual(agenda.GetQuantidadeContatos(), 1);
         }
-        [TestMethod]
 
+        [TestMethod]
         public void AgendaTemListagemAscendente()
         {
             var agenda = new Agenda();

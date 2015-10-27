@@ -6,48 +6,49 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
-    class Metodos
+    class AgendaMenu
     {
+        private Agenda agenda = new Agenda();
         string nome;
         int numero;
-        public void Cadastro(Agenda agenda)
+        public void Cadastro()
         {
             Console.WriteLine("Digite o nome seguido do numero");
             nome = Console.ReadLine();
             numero = int.Parse(Console.ReadLine());
-            agenda.AdicionarContato(new Contato() { Nome = nome, Numero = numero });
+            this.agenda.AdicionarContato(new Contato() { Nome = nome, Numero = numero });
             Console.WriteLine("Cadastro efetuado com sucesso!!");
         }
 
-        public void Listar(Agenda agenda)
+        public void Listar()
         {
-            foreach (var contato in agenda.ListarContatos())
+            foreach (var contato in this.agenda.ListarContatos())
             {
                 Console.WriteLine("Nome: " + contato.Nome);
                 Console.WriteLine("Telefone: " + contato.Numero);
             }
         }
-        public void ListarOrdenadoAsc(Agenda agenda)
+        public void ListarOrdenadoAsc()
         {
-            foreach (var contato in agenda.ListarContatosOrdenados())
+            foreach (var contato in this.agenda.ListarContatosOrdenados())
             {
                 Console.WriteLine("Nome: " + contato.Nome);
                 Console.WriteLine("Telefone: " + contato.Numero);
             }
         }
 
-        public void ExcluirNome(Agenda agenda)
+        public void ExcluirNome()
         {
             Console.WriteLine("Digite o nome a ser excluido");
             nome = Console.ReadLine();
-            agenda.RemoverContatoPorNome(nome);
+            this.agenda.RemoverContatoPorNome(nome);
             Console.WriteLine("Removido com sucesso!");
         }
-        public void ExcluirNumero(Agenda agenda)
+        public void ExcluirNumero()
         {
             Console.WriteLine("Digite o numero a ser excluido");
             numero = int.Parse(Console.ReadLine());
-            agenda.RemoverPorNumero(numero);
+            this.agenda.RemoverPorNumero(numero);
             Console.WriteLine("Removido com sucesso!");
         }
     }

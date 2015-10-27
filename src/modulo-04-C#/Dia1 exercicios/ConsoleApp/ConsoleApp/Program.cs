@@ -12,9 +12,8 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             int opcao = 1;
-
-            var agenda = new Agenda();
-            Metodos metodo = new Metodos();
+                       
+            AgendaMenu MenuAgenda = new AgendaMenu();
             const int cadastrar=1;
             const int listar=2;
             const int listarAsc=3;
@@ -35,19 +34,19 @@ namespace ConsoleApp
                 switch (opcao)
                 {
                     case cadastrar:
-                        metodo.Cadastro(agenda);
+                        MenuAgenda.Cadastro();
                         break;
                     case listar:
-                        metodo.Listar(agenda);
+                        MenuAgenda.Listar();
                         break;
                     case listarAsc:
-                        metodo.ListarOrdenadoAsc(agenda);
+                        MenuAgenda.ListarOrdenadoAsc();
                         break;
                     case excluirNome:
-                        metodo.ExcluirNome(agenda);
+                        MenuAgenda.ExcluirNome();
                         break;
                     case excluirNumero:
-                        metodo.ExcluirNumero(agenda);
+                        MenuAgenda.ExcluirNumero();
                         break;
                     default:
                         opcao = 0;
