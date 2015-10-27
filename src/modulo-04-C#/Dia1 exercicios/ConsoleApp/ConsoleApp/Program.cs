@@ -31,6 +31,7 @@ namespace ConsoleApp
                 Console.WriteLine("4-Excluir por nome");
                 Console.WriteLine("5-Excluir por numero");
                 opcao = int.Parse(Console.ReadLine());
+                Console.Clear();
                 switch (opcao)
                 {
                     case cadastrar:
@@ -47,6 +48,9 @@ namespace ConsoleApp
                         break;
                     case excluirNumero:
                         metodo.ExcluirNumero(agenda);
+                        break;
+                    default:
+                        opcao = 0;
                         break;
 
                 }
