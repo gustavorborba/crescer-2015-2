@@ -10,7 +10,6 @@ namespace LocadoraUI
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }

@@ -8,10 +8,10 @@ namespace Locadora.Dominio
 {
     public class Jogo
     {
-        public string ID { get; private set; }
-        public string Nome { get; private set; }
-        public string Preco { get; private set; }
-        public string Categoria { get; private set; }
+        private string ID;
+        private string Nome;
+        private string Preco;
+        private string Categoria;
 
         public Jogo(string id, string nome, string preco, string categoria)
         {
