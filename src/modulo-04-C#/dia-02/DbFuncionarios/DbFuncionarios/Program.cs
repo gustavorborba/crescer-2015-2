@@ -11,9 +11,6 @@ namespace DbFuncionarios
         static void Main(string[] args)
         {
            
-            var exer = new Exercicios();
-            var ordenado = exer.BuscarPorNome("Lucas Leal");
-            exer.FuncionarioMaixComplexo();
             Console.Read();
         }
 

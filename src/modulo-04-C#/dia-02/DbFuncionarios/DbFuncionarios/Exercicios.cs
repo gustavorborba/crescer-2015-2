@@ -79,10 +79,6 @@ namespace DbFuncionarios
             return aniversariantes;
         }
 
-        public int FuncionarioMaixComplexo()
-        {
-           
-        }
     }
     
 }
