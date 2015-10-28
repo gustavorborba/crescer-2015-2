@@ -11,12 +11,8 @@ namespace LocadoraUI
         static void Main(string[] args)
         {
             Banco banco = new Banco();
-            var a=banco.BuscarPorNome("LOL");
-            foreach (var item in a)
-            {
-                item.EditarJogo("League of Legends", "1", "MAISOUMENOS");
-                banco.EditarJogo(item);
-            }
+            Jogo jogo = new Jogo("World of Warcraft","120",ECategoria.RPG);
+            banco.CadastrarJogoEmXML(jogo);
             Console.Read();
         }
     }

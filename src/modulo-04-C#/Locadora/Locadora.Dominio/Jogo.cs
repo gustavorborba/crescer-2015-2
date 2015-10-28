@@ -12,16 +12,16 @@ namespace Locadora.Dominio
         public int ID { get; private set; } = -1;
         public string Nome { get; private set; }
         public string Preco { get; private set; }
-        public string Categoria { get; private set; }
+        public ECategoria Categoria { get; private set; }
 
-        public Jogo(int id, string nome, string preco, string categoria)
+        public Jogo(int id, string nome, string preco, ECategoria categoria)
         {
             this.ID = id;
             this.Nome = nome;
             this.Preco = preco;
             this.Categoria = categoria;
         }
-        public Jogo(string nome, string preco, string categoria)
+        public Jogo(string nome, string preco, ECategoria categoria)
         {
             this.Nome = nome;
             this.Preco = preco;
@@ -43,7 +43,7 @@ namespace Locadora.Dominio
            return jogoToXml;
         }
 
-        public void EditarJogo(string nome, string preco,string categoria)
+        public void EditarJogo(string nome, string preco, ECategoria categoria)
         {
             Nome = nome;
             Preco = preco;

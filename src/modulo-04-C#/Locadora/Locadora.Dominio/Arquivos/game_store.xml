@@ -103,13 +103,11 @@
   <jogo id="21">
     <nome>Halo</nome>
     <preco>93</preco>
-    <categoria>BESTGAMES</categoria>
+    <categoria>AVENTURA</categoria>
   </jogo>
-  <jogo>
-    <jogo id="22">
-      <nome>League of Legends</nome>
-      <preco>1</preco>
-      <categoria>MAISOUMENOS</categoria>
-    </jogo>
+  <jogo id="22">
+    <nome>World of Warcraft</nome>
+    <preco>120</preco>
+    <categoria>RPG</categoria>
   </jogo>
 </jogos>
