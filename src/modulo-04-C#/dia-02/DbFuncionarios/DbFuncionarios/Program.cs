@@ -13,25 +13,7 @@ namespace DbFuncionarios
            
             var exer = new Exercicios();
             var ordenado = exer.BuscarPorNome("Lucas Leal");
-            /*
-            foreach (dynamic item in ordenado)
-            {
-                Console.WriteLine(item.Nome);
-                Console.WriteLine(item.Titulo);
-            }
-            */
-            /*
-
-            foreach (var item in ordenado)
-            {
-                Console.WriteLine(item.);
-            }
-            */
-
-            foreach (var item in ordenado)
-            {
-                Console.WriteLine(item.Nome);
-            }
+            exer.FuncionarioMaixComplexo();
             Console.Read();
         }
 

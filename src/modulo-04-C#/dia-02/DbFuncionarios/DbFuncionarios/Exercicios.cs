@@ -72,6 +72,17 @@ namespace DbFuncionarios
             return soma / qtdFuncionarios.Count;
 
         }
+
+        public IList<Funcionario> AniversariantesDoMes()
+        {
+            var aniversariantes = funcionarios.Where(funcionario => DateTime.Now.Month == funcionario.DataNascimento.Month).ToList();
+            return aniversariantes;
+        }
+
+        public int FuncionarioMaixComplexo()
+        {
+           
+        }
     }
     
 }
