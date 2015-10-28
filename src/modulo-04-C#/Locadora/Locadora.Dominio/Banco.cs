@@ -13,24 +13,29 @@ namespace Locadora.Dominio
         public IList<Jogo> BuscarPorNome(string nome)
         {
             List<Jogo> ListaJogo = new List<Jogo>();
-            XElement jogosBanco = XElement.Load(this.local);
-            foreach (XElement item in jogosBanco.Elements("jogo"))
+            var jogosBanco = XElement.Load(this.local);
+            foreach (XElement item in jogosBanco.Elements("jogo").Where(it => it.Element("nome").Value==nome))
             {
-                if(item.Element("nome").Value == nome)
-                {
-                    ListaJogo.Add(new Jogo(item.Attribute("id").Value, item.Element("nome").Value, item.Element("preco").Value, item.Element("categoria").Value));
-                }
-
+                 ListaJogo.Add(new Jogo(Convert.ToInt32(item.Attribute("id").Value), item.Element("nome").Value, item.Element("preco").Value, item.Element("categoria").Value));
             }
             return ListaJogo;
         }
+
         public void  CadastrarJogoEmXML(Jogo jogo)
         {
             int id = XElement.Load(this.local).Elements().Max(it => Convert.ToInt32(it.Attribute("id").Value)) +1;
             XElement jogosBanco = XElement.Load(local);
-            jogosBanco.Add(jogo.ToXml(id.ToString()));
+            jogosBanco.Add(jogo.ToXml(id));
             jogosBanco.Save(local);
+        }
 
+        public void EditarJogo(Jogo jogo)
+        {
+            var jogosBanco = XElement.Load(this.local);
+            foreach (XElement ae in jogosBanco.Elements("jogo").Where(it => Convert.ToInt32(it.Attribute("id").Value) == jogo.ID))
+            {
+                
+            }
         }
     }
 }

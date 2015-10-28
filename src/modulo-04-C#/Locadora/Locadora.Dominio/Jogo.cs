@@ -9,12 +9,12 @@ namespace Locadora.Dominio
 {
     public class Jogo
     {
-        private string ID = null;;
+        public int ID = -1;
         public string Nome { get; private set; }
         public string Preco { get; private set; }
         public string Categoria { get; private set; }
 
-        public Jogo(string id, string nome, string preco, string categoria)
+        public Jogo(int id, string nome, string preco, string categoria)
         {
             this.ID = id;
             this.Nome = nome;
@@ -27,8 +27,9 @@ namespace Locadora.Dominio
             this.Preco = preco;
             this.Categoria = categoria;
         }
-        public XElement ToXml(string id)
+        public XElement ToXml(int id)
         {
+            this.ID = id;
             XElement jogoToXml = new XElement("jogo",
                 new XAttribute("id", id),
                 new XElement("nome", Nome),

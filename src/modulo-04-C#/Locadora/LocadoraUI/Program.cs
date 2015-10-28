@@ -12,7 +12,10 @@ namespace LocadoraUI
         {
             Banco banco = new Banco();
             Jogo jogo = new Jogo("LOL", "0", "CHATO");
-            banco.CadastrarJogoEmXML(jogo);
+            foreach(Jogo jogos in banco.BuscarPorNome("Halo"))
+            {
+                Console.WriteLine(jogos.Nome);
+            }
             Console.Read();
         }
     }
