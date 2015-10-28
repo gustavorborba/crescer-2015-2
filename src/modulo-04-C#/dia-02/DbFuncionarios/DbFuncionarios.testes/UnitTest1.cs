@@ -20,6 +20,7 @@ namespace DbFuncionarios.testes
             Exercicios exer = new Exercicios();
             var busca = exer.BuscarPorNome("Lucas Leal").ToList();
             Assert.AreEqual(busca.Count,1);
+            Assert.AreEqual(busca.First().Nome,"Lucas Leal");
         }
     }
 }
