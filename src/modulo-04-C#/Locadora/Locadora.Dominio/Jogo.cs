@@ -9,10 +9,10 @@ namespace Locadora.Dominio
 {
     public class Jogo
     {
-        private string ID=null;
-        private string Nome;
-        private string Preco;
-        private string Categoria;
+        private string ID = null;;
+        public string Nome { get; private set; }
+        public string Preco { get; private set; }
+        public string Categoria { get; private set; }
 
         public Jogo(string id, string nome, string preco, string categoria)
         {
