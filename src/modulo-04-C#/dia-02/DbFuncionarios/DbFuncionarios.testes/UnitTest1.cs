@@ -11,8 +11,8 @@ namespace DbFuncionarios.testes
         public void OrdenadoPorCargo()
         {
             Exercicios exer = new Exercicios();
-            var ordenado = exer.OrdenadoPorCargo();
-            Assert.AreNotEqual(ordenado, exer.funcionarios);
+            var ordenado = exer.OrdenadoPorCargo().ToList();
+            Assert.AreEqual(ordenado.First().Cargo.Titulo, "Analista");
         }
         [TestMethod]
         public void BuscaPorNome()
