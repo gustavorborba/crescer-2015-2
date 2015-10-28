@@ -23,19 +23,23 @@ namespace Locadora.Dominio
 
         public void  CadastrarJogoEmXML(Jogo jogo)
         {
-            int id = XElement.Load(this.local).Elements().Max(it => Convert.ToInt32(it.Attribute("id").Value)) +1;
             XElement jogosBanco = XElement.Load(local);
-            jogosBanco.Add(jogo.ToXml(id));
+            jogosBanco.Add(jogo.ToXml());
             jogosBanco.Save(local);
         }
 
         public void EditarJogo(Jogo jogo)
         {
             var jogosBanco = XElement.Load(this.local);
-            foreach (XElement ae in jogosBanco.Elements("jogo").Where(it => Convert.ToInt32(it.Attribute("id").Value) == jogo.ID))
+            foreach (XElement jogos in jogosBanco.Elements("jogo").Where(it => Convert.ToInt32(it.Attribute("id").Value) == jogo.ID))
             {
-                
+                jogos.ReplaceAll(jogo.ToXml());
             }
+            jogosBanco.Save(local);
+        }
+        public int ProcimoID()
+        {
+            return  XElement.Load(this.local).Elements().Max(it => Convert.ToInt32(it.Attribute("id").Value)) + 1;
         }
     }
 }

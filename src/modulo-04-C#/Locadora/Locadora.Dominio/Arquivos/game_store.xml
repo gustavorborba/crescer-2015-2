@@ -105,9 +105,11 @@
     <preco>93</preco>
     <categoria>BESTGAMES</categoria>
   </jogo>
-  <jogo id="22">
-    <nome>LOL</nome>
-    <preco>0</preco>
-    <categoria>CHATO</categoria>
+  <jogo>
+    <jogo id="22">
+      <nome>League of Legends</nome>
+      <preco>1</preco>
+      <categoria>MAISOUMENOS</categoria>
+    </jogo>
   </jogo>
 </jogos>

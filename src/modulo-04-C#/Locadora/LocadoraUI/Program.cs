@@ -11,10 +11,11 @@ namespace LocadoraUI
         static void Main(string[] args)
         {
             Banco banco = new Banco();
-            Jogo jogo = new Jogo("LOL", "0", "CHATO");
-            foreach(Jogo jogos in banco.BuscarPorNome("Halo"))
+            var a=banco.BuscarPorNome("LOL");
+            foreach (var item in a)
             {
-                Console.WriteLine(jogos.Nome);
+                item.EditarJogo("League of Legends", "1", "MAISOUMENOS");
+                banco.EditarJogo(item);
             }
             Console.Read();
         }

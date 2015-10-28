@@ -9,7 +9,7 @@ namespace Locadora.Dominio
 {
     public class Jogo
     {
-        public int ID = -1;
+        public int ID { get; private set; } = -1;
         public string Nome { get; private set; }
         public string Preco { get; private set; }
         public string Categoria { get; private set; }
@@ -27,17 +27,27 @@ namespace Locadora.Dominio
             this.Preco = preco;
             this.Categoria = categoria;
         }
-        public XElement ToXml(int id)
+        public XElement ToXml()
         {
-            this.ID = id;
+            if (ID == -1)
+            {
+                Banco banco = new Banco();
+                ID = banco.ProcimoID();
+            }
             XElement jogoToXml = new XElement("jogo",
-                new XAttribute("id", id),
+                new XAttribute("id", ID),
                 new XElement("nome", Nome),
                 new XElement("preco", Preco),
                 new XElement("categoria", Categoria)
                 );
-                return jogoToXml;
+           return jogoToXml;
+        }
 
+        public void EditarJogo(string nome, string preco,string categoria)
+        {
+            Nome = nome;
+            Preco = preco;
+            Categoria = categoria;
         }
     }
 }
