@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <jogos>
   <jogo id="1">
     <nome>Chrono Trigger</nome>
@@ -99,5 +99,15 @@
     <nome>Mickey to Donald: Magical Adventure 3</nome>
     <preco>32.9</preco>
     <categoria>AVENTURA</categoria>
+  </jogo>
+  <jogo id="21">
+    <nome>Halo</nome>
+    <preco>93</preco>
+    <categoria>BESTGAMES</categoria>
+  </jogo>
+  <jogo id="22">
+    <nome>LOL</nome>
+    <preco>0</preco>
+    <categoria>CHATO</categoria>
   </jogo>
 </jogos>

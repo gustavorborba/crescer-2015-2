@@ -24,5 +24,13 @@ namespace Locadora.Dominio
             }
             return ListaJogo;
         }
+        public void  CadastrarJogoEmXML(Jogo jogo)
+        {
+            int id = XElement.Load(this.local).Elements().Max(it => Convert.ToInt32(it.Attribute("id").Value)) +1;
+            XElement jogosBanco = XElement.Load(local);
+            jogosBanco.Add(jogo.ToXml(id.ToString()));
+            jogosBanco.Save(local);
+
+        }
     }
 }

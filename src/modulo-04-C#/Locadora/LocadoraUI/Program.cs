@@ -10,6 +10,10 @@ namespace LocadoraUI
     {
         static void Main(string[] args)
         {
+            Banco banco = new Banco();
+            Jogo jogo = new Jogo("LOL", "0", "CHATO");
+            banco.CadastrarJogoEmXML(jogo);
+            Console.Read();
         }
     }
 }
