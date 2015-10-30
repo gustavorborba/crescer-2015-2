@@ -55,6 +55,23 @@ namespace Locadora.Dominio
             }   
         }
 
+        public int QuantidadeJogos()
+        {
+            return XElement.Load(this.local).Nodes().Count();
+        }
+
+        public double ValorMedioJogo()
+        {
+            var quantidade = QuantidadeJogos();
+            return XElement.Load(this.local).Elements().Sum(it => Convert.ToDouble(it.Element("preco").Value))/quantidade;
+        }
+        public string JogoMaisBarato()
+        {
+            string maisCaro = XElement.Load(this.local).Elements().Min(it => double.Parse(it.Element("preco").Value)).ToString();
+            var jogo = XElement.Load(this.local).Elements("jogo").FirstOrDefault(it => it.Element("preco").Value == maisCaro);
+            return jogo.Element("nome").Value;
+            
+        }
     }
 }
 

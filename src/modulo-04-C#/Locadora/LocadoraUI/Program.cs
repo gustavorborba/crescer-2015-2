@@ -11,8 +11,7 @@ namespace LocadoraUI
         static void Main(string[] args)
         {
             Banco banco = new Banco();
-            Jogo jogo = new Jogo("World of Warcraft","120",ECategoria.RPG);
-            banco.CadastrarJogoEmXML(jogo);
+            Console.WriteLine(banco.JogoMaisBarato());
             Console.Read();
         }
     }
