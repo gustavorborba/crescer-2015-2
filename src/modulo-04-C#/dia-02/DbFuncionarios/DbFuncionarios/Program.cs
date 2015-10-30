@@ -10,7 +10,12 @@ namespace DbFuncionarios
     {
         static void Main(string[] args)
         {
-           
+            Exercicios exer = new Exercicios();
+            var a = exer.FiltarPorIdadeAprocimada(18);
+            foreach (var b in a)
+            {
+                Console.WriteLine(b.Nome);
+            }
             Console.Read();
         }
 

@@ -65,12 +65,19 @@ namespace DbFuncionarios
             return resultado;
         }
 
-        public double SalarioMedio(TurnoTrabalho turno)
+        public double SalarioMedio(TurnoTrabalho? turno)
         {
-            var qtdFuncionarios = funcionarios.Where(funcionario => turno.Equals(funcionario.TurnoTrabalho)).ToList();            
-            double soma = qtdFuncionarios.Sum(funcionario => funcionario.Cargo.Salario);
-            return soma / qtdFuncionarios.Count;
+            List<Funcionario> qtdFuncionarios = new List<Funcionario>();
+            double soma;
+            if (turno.HasValue)
+            {
+                qtdFuncionarios = funcionarios.Where(funcionario => turno.Equals(funcionario.TurnoTrabalho)).ToList();
+                soma = qtdFuncionarios.Sum(funcionario => funcionario.Cargo.Salario);
+                return soma / qtdFuncionarios.Count;
+            }
 
+            soma = funcionarios.Sum(func => func.Cargo.Salario);
+            return soma / funcionarios.Count;     
         }
 
         public IList<Funcionario> AniversariantesDoMes()
