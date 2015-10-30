@@ -53,6 +53,23 @@ namespace DbFuncionarios.testes
             Assert.AreEqual(funcionarios.Any(it => it.Nome == "Eduardo Arnold"), false);
 
         }
+
+        [TestMethod]
+        public void SalarioMedio()
+        {
+            Exercicios exer = new Exercicios();
+            var salario = exer.SalarioMedio(TurnoTrabalho.Noite);
+            Assert.AreEqual(salario,190);
+        }
+
+        [TestMethod]
+        public void SalarioMedio2()
+        {
+            Exercicios exer = new Exercicios();
+            var salario = exer.SalarioMedio(TurnoTrabalho.Manha);
+            Assert.AreEqual(salario, 274.1);
+        }
+
         [TestMethod]
         public void AniversariantesDoMes()
         {
