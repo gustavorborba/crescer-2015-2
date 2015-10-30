@@ -10,7 +10,7 @@ namespace LocadoraUI
     {
         static void Main(string[] args)
         {
-            Banco banco = new Banco();
+            Relatorio banco = new Relatorio();
             Console.WriteLine(banco.JogoMaisBarato());
             Console.Read();
         }
