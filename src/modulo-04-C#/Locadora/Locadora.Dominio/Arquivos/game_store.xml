@@ -117,7 +117,7 @@
     <preco>28</preco>
     <categoria>AVENTURA</categoria>
     <quantidade>1</quantidade>
-   <disponivel>SIM</disponivel>
+    <disponivel>SIM</disponivel>
   </jogo>
   <jogo id="18">
     <nome>Sunset Riders</nome>
@@ -153,5 +153,33 @@
     <categoria>RPG</categoria>
     <quantidade>1</quantidade>
     <disponivel>SIM</disponivel>
+  </jogo>
+  <jogo id="23">
+    <nome>Halo 5</nome>
+    <preco>150</preco>
+    <categoria>AVENTURA</categoria>
+    <quantidade>2</quantidade>
+    <disponivel>SIM</disponivel>
+  </jogo>
+  <jogo id="24">
+    <nome>Halo reach</nome>
+    <preco>40</preco>
+    <categoria>AVENTURA</categoria>
+    <quantidade>0</quantidade>
+    <disponivel>NAO</disponivel>
+  </jogo>
+  <jogo id="25">
+    <nome>Habo</nome>
+    <preco>199</preco>
+    <categoria>RPG</categoria>
+    <quantidade>1</quantidade>
+    <disponivel>SIM</disponivel>
+  </jogo>
+  <jogo id="26">
+    <nome>Dota</nome>
+    <preco>1</preco>
+    <categoria>RPG</categoria>
+    <quantidade>0</quantidade>
+    <disponivel>NAO</disponivel>
   </jogo>
 </jogos>

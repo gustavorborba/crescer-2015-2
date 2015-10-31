@@ -10,8 +10,9 @@ namespace LocadoraUI
     {
         static void Main(string[] args)
         {
-            Relatorio banco = new Relatorio();
-            banco.GerarRelatiorio();
+            JogoUI jogo = new JogoUI();
+            jogo.CadastrarJogo();
+            Console.Read();
         }
     }
 }

@@ -25,11 +25,17 @@ namespace Locadora.Dominio
             return ListaJogo;
         }
 
-        public void CadastrarJogoEmXML(Jogo jogo)
+        public int CadastrarJogoEmXML(Jogo jogo)
         {
-            XElement jogosBanco = XElement.Load(local);
-            jogosBanco.Add(jogo.ToXml());
-            jogosBanco.Save(local);
+            var repetido = XElement.Load(this.local).Elements().FirstOrDefault(it => it.Element("nome").Value.ToUpper() == jogo.Nome.ToUpper());
+            if(repetido == null)
+            {
+                var jogosBanco = XElement.Load(local);
+                jogosBanco.Add(jogo.ToXml());
+                jogosBanco.Save(local);
+                return 0;
+            }
+            return -1;
         }
 
         public void EditarJogo(Jogo jogo)

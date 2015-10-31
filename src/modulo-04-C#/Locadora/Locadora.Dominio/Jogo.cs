@@ -13,7 +13,7 @@ namespace Locadora.Dominio
         public string Nome { get; private set; }
         public string Preco { get; private set; }
         public ECategoria Categoria { get; private set; }
-        public string Quantidade { get; private set; }
+        public string Quantidade { get;  set; }
         public EDisponibilidade Disponivel { get; private set; }
 
         public Jogo(int id, string nome, string preco, ECategoria categoria,string quantidade, EDisponibilidade disponivel)
@@ -36,7 +36,8 @@ namespace Locadora.Dominio
         }
         public XElement ToXml()
         {
-            if (ID == -1)
+            const int semID = -1;
+            if (ID == semID)
             {
                 Banco banco = new Banco();
                 ID = banco.ProcimoID();
@@ -45,7 +46,9 @@ namespace Locadora.Dominio
                 new XAttribute("id", ID),
                 new XElement("nome", Nome),
                 new XElement("preco", Preco),
-                new XElement("categoria", Categoria)
+                new XElement("categoria", Categoria),
+                new XElement("quantidade", Quantidade),
+                new XElement("disponivel",Disponivel)
                 );
            return jogoToXml;
         }
