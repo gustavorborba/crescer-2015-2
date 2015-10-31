@@ -25,5 +25,20 @@ namespace Testes.Locadora
             var jogoBanco = banco.BuscarPorNome("Mario Verde");
             Assert.AreEqual(jogoBanco.Nome,"Mario Verde");
         }
+
+        [TestMethod]
+        public void EditarJogo()
+        {
+            Jogo jogo = new Jogo("Mario Verde", "25", ECategoria.AVENTURA, "0", EDisponibilidade.NAO);
+            banco.CadastrarJogoEmXML(jogo);
+            var jogoBanco = banco.BuscarPorNome("Mario Verde");
+            Assert.AreEqual(jogoBanco.Nome, "Mario Verde");
+
+            jogoBanco.Nome = "Luidi";
+            banco.EditarJogo(jogoBanco);
+
+            var jogoBanco2 = banco.BuscarPorNome("Luidi");
+            Assert.AreEqual(jogoBanco2.Nome,"Luidi");
+        }
     }
 }
