@@ -44,10 +44,7 @@ namespace Locadora.Dominio
         public void EditarJogo(Jogo jogo)
         {
             var jogosBanco = XElement.Load(this.local);
-            foreach (XElement jogos in jogosBanco.Elements("jogo").Where(it => Convert.ToInt32(it.Attribute("id").Value) == jogo.ID))
-            {
-                jogos.ReplaceWith(jogo.ToXml());
-            }
+            jogosBanco.Elements("jogo").FirstOrDefault((it => Convert.ToInt32(it.Attribute("id").Value) == jogo.ID)).ReplaceWith(jogo.ToXml());
             jogosBanco.Save(local);
         }
         public int ProcimoID()

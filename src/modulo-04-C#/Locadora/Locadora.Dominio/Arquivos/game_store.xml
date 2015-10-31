@@ -143,8 +143,8 @@
   <jogo id="21">
     <nome>Halo</nome>
     <preco>93</preco>
-    <categoria>RPG</categoria>
-    <quantidade>3</quantidade>
+    <categoria>AVENTURA</categoria>
+    <quantidade>1</quantidade>
     <disponivel>SIM</disponivel>
   </jogo>
   <jogo id="22">
