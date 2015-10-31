@@ -17,5 +17,13 @@ namespace Testes.Locadora
             Assert.AreEqual(jogo.ID,21);          
         }
 
+        [TestMethod]
+        public void CadastrarJogoEmXML()
+        {
+            Jogo jogo = new Jogo("Mario Verde", "25", ECategoria.AVENTURA, "0", EDisponibilidade.NAO);
+            banco.CadastrarJogoEmXML(jogo);
+            var jogoBanco = banco.BuscarPorNome("Mario Verde");
+            Assert.AreEqual(jogoBanco.Nome,"Mario Verde");
+        }
     }
 }
