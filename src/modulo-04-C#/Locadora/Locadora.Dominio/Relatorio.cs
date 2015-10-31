@@ -75,19 +75,19 @@ namespace Locadora.Dominio
             string horario = (DateTime.Now.ToString("HH:mm:ss"));
             string relatorioJogos = "                               Relatorio de jogos                              ";
             string espacamento = "================================================================================";
+            string segundoEspacamento = "--------------------------------------------------------------------------------";
             string jogos = "ID     CATEGORIA         NOME                                     PRECO";
             string quebraLinha = Environment.NewLine;
             string[] jogo = new string[lista.Count];
             for(int i = 0; i < lista.Count; i++)
             {
-                // jogo[i] = string.Format("{0}\t{1}\t{2}\t{3}", lista[i].ID, lista[i].Categoria,
-                //  lista[i].Nome, lista[i].Preco);
                 jogo[i] = string.Format("{0}\t{1}\t{2}\t  R$:{3}",Espacamento(Truncate(Convert.ToString(lista[i].ID), 7),7), 
                                                               Espacamento(Truncate(Convert.ToString(lista[i].Categoria),15),15),
                                                               Espacamento(Truncate(lista[i].Nome,38),38), 
                                                               Espacamento(Truncate(lista[i].Preco,8),8));
             }
-            string jogoMaisCaro = "Jogo Mais Caro";
+            string jogoMaisCaro = ("Jogo Mais Caro"+quebraLinha + "\t"+JogoMaisCaro());
+            string jogoMaisBarato = ("Jogo mais Barato"+quebraLinha + "\t" + JogoMaisBarato());
             using (var file = new StreamWriter(caminho, false))
             {
                 file.WriteLine(cabecalho);
@@ -103,6 +103,10 @@ namespace Locadora.Dominio
                 {
                     file.WriteLine(jogo[i]);
                 }
+                file.WriteLine(segundoEspacamento);
+                file.WriteLine(jogoMaisCaro);
+                file.WriteLine(jogoMaisBarato);
+                file.WriteLine(espacamento);
             }
         }
     }
