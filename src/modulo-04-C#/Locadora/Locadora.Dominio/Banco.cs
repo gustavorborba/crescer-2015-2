@@ -17,7 +17,10 @@ namespace Locadora.Dominio
             var jogosBanco = XElement.Load(this.local);
             foreach (XElement item in jogosBanco.Elements("jogo").Where(it => it.Element("nome").Value == nome))
             {
-                ListaJogo.Add(new Jogo(Convert.ToInt32(item.Attribute("id").Value), item.Element("nome").Value, item.Element("preco").Value, (ECategoria)(Enum.Parse(typeof(ECategoria), item.Element("categoria").Value))));
+                ListaJogo.Add(new Jogo(Convert.ToInt32(item.Attribute("id").Value), item.Element("nome").Value, item.Element("preco").Value, 
+                                                             (ECategoria)(Enum.Parse(typeof(ECategoria), item.Element("categoria").Value)),
+                                                                 item.Element("quantidade").Value,
+                                                                 (EDisponibilidade)(Enum.Parse(typeof(EDisponibilidade),item.Element("disponivel").Value))));
             }
             return ListaJogo;
         }

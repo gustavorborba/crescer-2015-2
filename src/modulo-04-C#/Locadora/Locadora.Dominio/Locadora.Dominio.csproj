@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Banco.cs" />
     <Compile Include="ECategoria.cs" />
+    <Compile Include="EDisponibilidade.cs" />
     <Compile Include="Jogo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Relatorio.cs" />

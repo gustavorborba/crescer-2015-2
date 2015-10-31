@@ -45,7 +45,10 @@ namespace Locadora.Dominio
                          Convert.ToInt32(f.Attribute("id").Value),
                           f.Element("nome").Value,
                          f.Element("preco").Value,
-                          (ECategoria)Enum.Parse(typeof(ECategoria), f.Element("categoria").Value)));
+                          (ECategoria)Enum.Parse(typeof(ECategoria), f.Element("categoria").Value),
+                          f.Element("quantidade").Value, 
+                          (EDisponibilidade)(Enum.Parse(typeof(EDisponibilidade), 
+                          f.Element("disponivel").Value))));
             };
             return jogoLista;
         }
@@ -76,15 +79,16 @@ namespace Locadora.Dominio
             string relatorioJogos = "                               Relatorio de jogos                              ";
             string espacamento = "================================================================================";
             string segundoEspacamento = "--------------------------------------------------------------------------------";
-            string jogos = "ID     CATEGORIA         NOME                                     PRECO";
+            string jogos = "ID     CATEGORIA         NOME                                     PRECO   Disponivel";
             string quebraLinha = Environment.NewLine;
             string[] jogo = new string[lista.Count];
             for(int i = 0; i < lista.Count; i++)
             {
-                jogo[i] = string.Format("{0}\t{1}\t{2}\t  R$:{3}",Espacamento(Truncate(Convert.ToString(lista[i].ID), 7),7), 
-                                                              Espacamento(Truncate(Convert.ToString(lista[i].Categoria),15),15),
+                jogo[i] = string.Format("{0}\t{1}\t{2}\t  R$:{3}   {4}",Espacamento(Truncate(Convert.ToString(lista[i].ID), 7),7), 
+                                                              Espacamento(Truncate(Convert.ToString(lista[i].Categoria),10),10),
                                                               Espacamento(Truncate(lista[i].Nome,38),38), 
-                                                              Espacamento(Truncate(lista[i].Preco,8),8));
+                                                              Espacamento(Truncate(lista[i].Preco,5),5),
+                                                              Espacamento(Truncate(Convert.ToString(lista[i].Disponivel),3),3));
             }
             string jogoMaisCaro = ("Jogo Mais Caro"+quebraLinha + "\t"+JogoMaisCaro());
             string jogoMaisBarato = ("Jogo mais Barato"+quebraLinha + "\t" + JogoMaisBarato());

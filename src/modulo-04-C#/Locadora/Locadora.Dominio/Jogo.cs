@@ -13,19 +13,26 @@ namespace Locadora.Dominio
         public string Nome { get; private set; }
         public string Preco { get; private set; }
         public ECategoria Categoria { get; private set; }
+        public string Quantidade { get; private set; }
+        public EDisponibilidade Disponivel { get; private set; }
 
-        public Jogo(int id, string nome, string preco, ECategoria categoria)
+        public Jogo(int id, string nome, string preco, ECategoria categoria,string quantidade, EDisponibilidade disponivel)
         {
             this.ID = id;
             this.Nome = nome;
             this.Preco = preco;
             this.Categoria = categoria;
+            this.Quantidade = quantidade;
+            this.Disponivel = disponivel;
         }
-        public Jogo(string nome, string preco, ECategoria categoria)
+        public Jogo(string nome, string preco, ECategoria categoria, string quantidade ,EDisponibilidade disponivel)
         {
             this.Nome = nome;
             this.Preco = preco;
             this.Categoria = categoria;
+            this.Quantidade = quantidade;
+            this.Disponivel = disponivel;
+
         }
         public XElement ToXml()
         {
