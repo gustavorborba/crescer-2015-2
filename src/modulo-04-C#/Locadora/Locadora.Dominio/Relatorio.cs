@@ -71,15 +71,15 @@ namespace Locadora.Dominio
         public void GerarRelatiorio()
         {
             var lista = ListarJogos();
-            string caminho = @"C:\Users\Gustavo\Desktop\Crescer2\src\modulo-04-C#\Locadora\Locadora.Dominio\Arquivos\relatorio.txt";
-            string cabecalho = "                              LOCADORA NUNES GAMES                              ";
+            const string caminho = @"C:\Users\Gustavo\Desktop\Crescer2\src\modulo-04-C#\Locadora\Locadora.Dominio\Arquivos\relatorio.txt";
+            const string cabecalho = "                              LOCADORA NUNES GAMES                              ";
             string data = (DateTime.Now.ToString("dd:MM:yyyy"));
-            string espaco = ("                                                            ");
+            const string espaco = ("                                                            ");
             string horario = (DateTime.Now.ToString("HH:mm:ss"));
-            string relatorioJogos = "                               Relatorio de jogos                              ";
-            string espacamento = "================================================================================";
-            string segundoEspacamento = "--------------------------------------------------------------------------------";
-            string jogos = "ID     CATEGORIA         NOME                                     PRECO   Disponivel";
+            const string relatorioJogos = "                               Relatorio de jogos                              ";
+            const string espacamento = "================================================================================";
+            const string segundoEspacamento = "--------------------------------------------------------------------------------";
+            const string jogos = "ID     CATEGORIA         NOME                                     PRECO   Disponivel";
             string quebraLinha = Environment.NewLine;
             string[] jogo = new string[lista.Count];
             for(int i = 0; i < lista.Count; i++)
