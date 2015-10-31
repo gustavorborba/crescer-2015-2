@@ -8,9 +8,9 @@ namespace LocadoraUI
 {
     public class JogoUI
     {
+        Banco banco = new Banco();
         public int CadastrarJogo()
         {
-            Banco banco = new Banco();
             string nome;
             string preco;
             int quantidade;
@@ -46,5 +46,23 @@ namespace LocadoraUI
             }
             return 0;
         } 
+        public void BucarPorNome()
+        {
+            string nome;
+            Console.WriteLine("Digite o nome do jogo");
+            nome = Console.ReadLine().ToUpper();
+            var jogo=banco.BuscarPorNome(nome);
+            try
+            {
+                Console.WriteLine("ID: " + jogo.ID);
+                Console.WriteLine("Nome " + jogo.Nome);
+                Console.WriteLine("Preco " + jogo.Preco);
+                Console.WriteLine("Quantidade " + jogo.Quantidade);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Jogo informado nao se encontra no banco de dados");
+            }
+        }
     }
 }

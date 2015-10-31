@@ -11,18 +11,21 @@ namespace Locadora.Dominio
     public class Banco
     {
         string local = @"C:\Users\Gustavo\Desktop\Crescer2\src\modulo-04-C#\Locadora\Locadora.Dominio\Arquivos\game_store.xml";
-        public IList<Jogo> BuscarPorNome(string nome)
+        public Jogo BuscarPorNome(string nome)
         {
-            List<Jogo> ListaJogo = new List<Jogo>();
-            var jogosBanco = XElement.Load(this.local);
-            foreach (XElement item in jogosBanco.Elements("jogo").Where(it => it.Element("nome").Value == nome))
+            var jogosBanco = XElement.Load(this.local).Elements("jogo").FirstOrDefault(it => it.Element("nome").Value.ToUpper() == nome);
+            try
             {
-                ListaJogo.Add(new Jogo(Convert.ToInt32(item.Attribute("id").Value), item.Element("nome").Value, item.Element("preco").Value, 
-                                                             (ECategoria)(Enum.Parse(typeof(ECategoria), item.Element("categoria").Value)),
-                                                                 item.Element("quantidade").Value,
-                                                                 (EDisponibilidade)(Enum.Parse(typeof(EDisponibilidade),item.Element("disponivel").Value))));
+                Jogo jogo = new Jogo(Convert.ToInt32(jogosBanco.Attribute("id").Value), jogosBanco.Element("nome").Value, jogosBanco.Element("preco").Value,
+                                       (ECategoria)(Enum.Parse(typeof(ECategoria), jogosBanco.Element("categoria").Value)),
+                                        jogosBanco.Element("quantidade").Value,
+                                       (EDisponibilidade)(Enum.Parse(typeof(EDisponibilidade), jogosBanco.Element("disponivel").Value)));
+                return jogo;
             }
-            return ListaJogo;
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public int CadastrarJogoEmXML(Jogo jogo)
