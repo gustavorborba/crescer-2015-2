@@ -11,8 +11,7 @@ namespace LocadoraUI
         static void Main(string[] args)
         {
             Relatorio banco = new Relatorio();
-            Console.WriteLine(banco.JogoMaisBarato());
-            Console.Read();
+            banco.GerarRelatiorio();
         }
     }
 }
