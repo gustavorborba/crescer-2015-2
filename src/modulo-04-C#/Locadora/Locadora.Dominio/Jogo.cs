@@ -10,11 +10,11 @@ namespace Locadora.Dominio
     public class Jogo
     {
         public int ID { get; private set; } = -1;
-        public string Nome { get; private set; }
-        public string Preco { get; private set; }
-        public ECategoria Categoria { get; private set; }
+        public string Nome { get;  set; }
+        public string Preco { get;  set; }
+        public ECategoria Categoria { get;  set; }
         public string Quantidade { get;  set; }
-        public EDisponibilidade Disponivel { get; private set; }
+        public EDisponibilidade Disponivel { get;  set; }
 
         public Jogo(int id, string nome, string preco, ECategoria categoria,string quantidade, EDisponibilidade disponivel)
         {

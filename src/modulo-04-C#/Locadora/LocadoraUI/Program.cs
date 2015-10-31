@@ -11,6 +11,7 @@ namespace LocadoraUI
         static void Main(string[] args)
         {
             JogoUI jogo = new JogoUI();
+            jogo.EditarJogo();
             jogo.BucarPorNome();
             Console.Read();
         }

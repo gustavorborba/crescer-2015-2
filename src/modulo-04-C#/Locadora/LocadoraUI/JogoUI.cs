@@ -64,5 +64,56 @@ namespace LocadoraUI
                 Console.WriteLine("Jogo informado nao se encontra no banco de dados");
             }
         }
+        public void EditarJogo()
+        {
+            string nome;
+            string novaQuantidade;
+            Console.WriteLine("Digite o nome do jogo");
+            nome = Console.ReadLine();
+            var jogo = banco.BuscarPorNome(nome);
+            try
+            {
+                Console.WriteLine("O que gostaria de mudar");
+                const int nomeJogo= 1;
+                const int quantidade = 2;
+                const int categoria = 3;
+                int opcao;
+                Console.WriteLine("1-Nome 2- Quantidade 3- Categoria");
+                opcao = int.Parse(Console.ReadLine());
+                switch (opcao)
+                {
+                    case nomeJogo:
+                        Console.WriteLine("Digite o novo nome");
+                        nome = Console.ReadLine();
+                        jogo.Nome = nome;
+                        break;
+                    case quantidade:
+                        Console.WriteLine("Digite a nova Quantidade");
+                        novaQuantidade = Console.ReadLine();
+                        jogo.Quantidade = novaQuantidade;
+                        if(Convert.ToUInt32(novaQuantidade) == 0)
+                        {
+                            jogo.Disponivel = EDisponibilidade.NAO;
+                        }
+                        else
+                        {
+                            jogo.Disponivel = EDisponibilidade.SIM;
+                        }
+                        break;
+                    case categoria:
+                        Console.WriteLine("digite a nova categoria");
+                        nome = Console.ReadLine().ToUpper();                        
+                        jogo.Categoria = (ECategoria)Enum.Parse(typeof(ECategoria), nome);
+                        break;
+                    default:
+                        break;
+                }
+                banco.EditarJogo(jogo);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Conteudo Invalido");
+            }
+        }
     }
 }

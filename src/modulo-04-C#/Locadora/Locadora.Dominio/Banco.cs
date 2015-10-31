@@ -13,7 +13,7 @@ namespace Locadora.Dominio
         string local = @"C:\Users\Gustavo\Desktop\Crescer2\src\modulo-04-C#\Locadora\Locadora.Dominio\Arquivos\game_store.xml";
         public Jogo BuscarPorNome(string nome)
         {
-            var jogosBanco = XElement.Load(this.local).Elements("jogo").FirstOrDefault(it => it.Element("nome").Value.ToUpper() == nome);
+            var jogosBanco = XElement.Load(this.local).Elements("jogo").FirstOrDefault(it => it.Element("nome").Value.ToUpper() == nome.ToUpper());
             try
             {
                 Jogo jogo = new Jogo(Convert.ToInt32(jogosBanco.Attribute("id").Value), jogosBanco.Element("nome").Value, jogosBanco.Element("preco").Value,
@@ -46,7 +46,7 @@ namespace Locadora.Dominio
             var jogosBanco = XElement.Load(this.local);
             foreach (XElement jogos in jogosBanco.Elements("jogo").Where(it => Convert.ToInt32(it.Attribute("id").Value) == jogo.ID))
             {
-                jogos.ReplaceAll(jogo.ToXml());
+                jogos.ReplaceWith(jogo.ToXml());
             }
             jogosBanco.Save(local);
         }
