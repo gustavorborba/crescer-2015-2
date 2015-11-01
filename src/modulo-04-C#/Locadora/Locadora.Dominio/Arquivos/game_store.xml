@@ -161,4 +161,11 @@
     <quantidade>0</quantidade>
     <disponivel>NAO</disponivel>
   </jogo>
+  <jogo id="24">
+    <nome>Devil may cry</nome>
+    <preco>25</preco>
+    <categoria>AVENTURA</categoria>
+    <quantidade>0</quantidade>
+    <disponivel>NAO</disponivel>
+  </jogo>
 </jogos>

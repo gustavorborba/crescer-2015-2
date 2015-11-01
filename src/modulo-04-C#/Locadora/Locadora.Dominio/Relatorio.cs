@@ -10,7 +10,7 @@ namespace Locadora.Dominio
 {
     public class Relatorio
     {
-        string local = @"C:\Users\Gustavo\Desktop\Crescer2\src\modulo-04-C#\Locadora\Locadora.Dominio\Arquivos\game_store.xml";
+        public string local = @"C:\Users\Gustavo\Desktop\Crescer2\src\modulo-04-C#\Locadora\Locadora.Dominio\Arquivos\game_store.xml";
         public int QuantidadeJogos()
         {
             return XElement.Load(this.local).Nodes().Count();

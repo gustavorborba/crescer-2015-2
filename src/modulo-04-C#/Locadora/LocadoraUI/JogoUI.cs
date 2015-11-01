@@ -58,6 +58,7 @@ namespace LocadoraUI
                 Console.WriteLine("Nome " + jogo.Nome);
                 Console.WriteLine("Preco " + jogo.Preco);
                 Console.WriteLine("Quantidade " + jogo.Quantidade);
+                Console.WriteLine("Categoria: "+jogo.Categoria);
             }
             catch (Exception)
             {
@@ -114,6 +115,12 @@ namespace LocadoraUI
             {
                 Console.WriteLine("Conteudo Invalido");
             }
+        }
+        public void GerarRelatorio()
+        {
+            Relatorio relat = new Relatorio();
+            relat.GerarRelatiorio();
+            Console.WriteLine("Relatorio gerado em \n"+relat.local+"\n");
         }
     }
 }
