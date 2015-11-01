@@ -26,13 +26,14 @@ namespace LocadoraUI
             try
             {
                 enCategoria = (ECategoria)(Enum.Parse(typeof(ECategoria), categoria));
-                Console.WriteLine("Digite a quantidade de jogos");
+                
             }
             catch (Exception)
             {
                 Console.WriteLine("Categoria Invalida");
                 return 0;
             }
+            Console.WriteLine("Digite a quantidade de jogos");
             quantidade = int.Parse(Console.ReadLine());
             disponivel = quantidade > 0 ? EDisponibilidade.SIM : EDisponibilidade.NAO;
             int sucesso=banco.CadastrarJogoEmXML(new Jogo(nome,preco,enCategoria,Convert.ToString(quantidade),disponivel));
