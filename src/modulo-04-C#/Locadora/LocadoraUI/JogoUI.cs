@@ -92,14 +92,7 @@ namespace LocadoraUI
                         Console.WriteLine("Digite a nova Quantidade");
                         novaQuantidade = Console.ReadLine();
                         jogo.Quantidade = novaQuantidade;
-                        if(Convert.ToUInt32(novaQuantidade) == 0)
-                        {
-                            jogo.Disponivel = EDisponibilidade.NAO;
-                        }
-                        else
-                        {
-                            jogo.Disponivel = EDisponibilidade.SIM;
-                        }
+                        jogo.Disponivel = Convert.ToInt32(novaQuantidade) == 0 ?  EDisponibilidade.NAO : EDisponibilidade.SIM;
                         break;
                     case categoria:
                         Console.WriteLine("digite a nova categoria");
