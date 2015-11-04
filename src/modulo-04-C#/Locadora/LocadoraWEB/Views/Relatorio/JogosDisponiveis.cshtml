@@ -1,0 +1,48 @@
+﻿@Model  LocadoraWEB.Models.RelatorioModel
+@{
+    ViewBag.Title = "JogodDisponiveis";
+}
+
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/StyleSheet1.css" />
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <header>
+        <div class="cabecalho">
+            <p class="text"><font color="white">Locadora SenuN</font></p>
+        </div>
+    </header>
+    <div>
+    <h3 class="mar">JOGOS</h3>
+        <ul class="jogos">
+            @foreach (var item in Model.Jogos)
+            {
+                <li>@item.Nome</li>
+            }
+        </ul>
+        <div class="Final-Jogos">
+            <h3 class="mar">Informacoes</h3>
+            <p>Quantidade de Jogos @Model.Quantidade</p>
+            <p>Jogo mais caro @Model.JogoMaisCaro</p>
+            <p>Jogo mais barato @Model.JogoMaisBarato</p>
+            <p>Valor Medio de Jogos @Model.ValorMedio</p>
+        </div>
+        </div>
+
+
+
+</body>
+</html>
+
+
+

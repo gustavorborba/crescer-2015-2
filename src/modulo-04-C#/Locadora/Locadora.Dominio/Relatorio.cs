@@ -16,10 +16,10 @@ namespace Locadora.Dominio
             return XElement.Load(this.local).Nodes().Count();
         }
 
-        public double ValorMedioJogo()
+        public decimal ValorMedioJogo()
         {
             var quantidade = QuantidadeJogos();
-            return XElement.Load(this.local).Elements().Sum(it => Convert.ToDouble(it.Element("preco").Value)) / quantidade;
+            return XElement.Load(this.local).Elements().Sum(it => Convert.ToDecimal(it.Element("preco").Value)) / quantidade;
         }
         public string JogoMaisCaro()
         {
