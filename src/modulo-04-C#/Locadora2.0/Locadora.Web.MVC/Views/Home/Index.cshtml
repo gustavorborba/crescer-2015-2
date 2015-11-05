@@ -3,8 +3,8 @@
 }
 <header>
     <h2 class="text-center">Locadora CWI Crescer</h2>
-    <a href="/Relatorio/JogosDisponiveis">Jogos Disponíveis</a>
+    @Html.ActionLink("Lista de Jogos","JogosDisponiveis","Relatorio")
 </header>
-<img style="margin:0 auto " class="img-responsive"  src="~/Content/img/Chars.png"/>
+<img style="margin:0 auto " class="img-responsive" src="@Url.Content("~/Content/img/Chars.png")" />
 <h2 class="text-center textcolor">SenuN Games</h2>
 

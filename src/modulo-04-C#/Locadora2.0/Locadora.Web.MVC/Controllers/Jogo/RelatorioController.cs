@@ -23,8 +23,8 @@ namespace Locadora.Web.MVC.Controllers
                 {
                     Nome = item.Nome,
                     Preco = item.Preco,
-                    Categoria = item.Categoria.ToString()
-
+                    Categoria = item.Categoria.ToString(),
+                    ID = item.Id
                 };
                 model.ListaJogos.Add(jogo);
             }

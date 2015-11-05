@@ -12,7 +12,8 @@ namespace Locadora.Repositorio.ADO
 {
     public class JogoRepositorio : RepositorioBase,  IJogoRepositorio
     {
-        private const string BASE_SELECT = "SELECT Id, Nome, Preco, IdCategoria, IdClienteLocacao FROM Jogo ";
+        private const string BASE_SELECT = @"SELECT Id, Nome, Preco, IdCategoria, IdClienteLocacao, Descricao, 
+           URLImagem, URLVideo, IDSelo FROM Jogo ";
 
         public int Atualizar(Jogo entidade)
         {
@@ -139,7 +140,10 @@ namespace Locadora.Repositorio.ADO
             jogo.Nome = reader["Nome"].ToString();
             jogo.Preco = Convert.ToDecimal(reader["Preco"]);
             jogo.Categoria = (Categoria)Convert.ToInt32(reader["IdCategoria"]);
-
+            jogo.Descricao = reader["Descricao"].ToString();
+            jogo.ImagemUrl = reader["URLImagem"].ToString();
+            jogo.VideoUrl = reader["URLVIdeo"].ToString();
+            jogo.Selos = (Selo)Convert.ToInt32(reader["IDSelo"]);
             return jogo;
         }
 

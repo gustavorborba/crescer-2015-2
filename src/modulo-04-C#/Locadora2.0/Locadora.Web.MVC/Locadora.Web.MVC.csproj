@@ -108,13 +108,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RelatorioController.cs" />
+    <Compile Include="Controllers\Jogo\BuscarJogosController.cs" />
+    <Compile Include="Controllers\Jogo\HomeController.cs" />
+    <Compile Include="Controllers\Jogo\DescricaoController.cs" />
+    <Compile Include="Controllers\Jogo\RelatorioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\JogoModel.cs" />
-    <Compile Include="Models\RelatorioModel.cs" />
+    <Compile Include="Models\Jogo\BuscarPorNomeModel.cs" />
+    <Compile Include="Models\Jogo\DescricaoModel.cs" />
+    <Compile Include="Models\Jogo\JogoModel.cs" />
+    <Compile Include="Models\Jogo\RelatorioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +131,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Descricao\Detalhes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BuscarJogos\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Locadora.Dominio\Locadora.Dominio.csproj">

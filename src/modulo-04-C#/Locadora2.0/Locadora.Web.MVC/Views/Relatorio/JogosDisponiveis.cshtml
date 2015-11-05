@@ -11,6 +11,7 @@
             <th style="width: 40%">Jogo</th>            
             <th style="width: 30%">Categoria</th>
             <th style="width: 30%">Preço</th>
+            <th style="width: 30%">Descricao</th>
         </tr>
     </thead>
           
@@ -20,6 +21,7 @@
             <td>@item.Nome </td>
             <td>@item.Categoria</td>
             <td>@item.Preco</td>
+            <td>@Html.ActionLink("Descricao jogo","Detalhes","Descricao", new { id=item.ID},null)</td>
         </tr>
         }
 </table>
