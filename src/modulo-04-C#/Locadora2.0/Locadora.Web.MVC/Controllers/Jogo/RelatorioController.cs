@@ -14,7 +14,7 @@ namespace Locadora.Web.MVC.Controllers
         {
            IJogoRepositorio repositorio = new Repositorio.ADO.JogoRepositorio();
 
-        var jogos = repositorio.BuscarTodos().ToList();
+           var jogos = repositorio.BuscarTodos().ToList();
 
             var model = new RelatorioModel();
             foreach (var item in jogos)
