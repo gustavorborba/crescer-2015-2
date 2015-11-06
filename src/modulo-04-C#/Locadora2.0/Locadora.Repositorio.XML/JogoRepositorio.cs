@@ -30,7 +30,10 @@ namespace Locadora.Repositorio.XML
             jogoSalvo.SetElementValue("preco", entidade.Preco);
             jogoSalvo.SetElementValue("categoria", entidade.Categoria.ToString());
             jogoSalvo.SetElementValue("id_cliente_locacao", entidade.IdClienteLocacao.HasValue ? entidade.IdClienteLocacao.Value.ToString() : "");
-
+            jogoSalvo.SetElementValue("selo",entidade.Selos.ToString());
+            jogoSalvo.SetElementValue("descricao",entidade.Descricao);
+            jogoSalvo.SetElementValue("imagemurl",entidade.ImagemUrl);
+            jogoSalvo.SetElementValue("videourl",entidade.VideoUrl);
             SalvarDbXml(db);
             return 1;
         }
@@ -106,6 +109,10 @@ namespace Locadora.Repositorio.XML
             jogoXml.SetElementValue("preco", jogo.Preco);
             jogoXml.SetElementValue("categoria", jogo.Categoria.ToString());
             jogoXml.SetElementValue("id_cliente_locacao", jogo.IdClienteLocacao.HasValue ? jogo.IdClienteLocacao.Value.ToString() : "");
+            jogoSalvo.SetElementValue("selo", entidade.Selos.ToString());
+            jogoSalvo.SetElementValue("descricao", entidade.Descricao);
+            jogoSalvo.SetElementValue("imagemurl", entidade.ImagemUrl);
+            jogoSalvo.SetElementValue("videourl", entidade.VideoUrl);
 
             return jogoXml;
         }
