@@ -10,13 +10,20 @@ namespace Locadora.Web.MVC.Controllers
 {
     public class RelatorioController : Controller
     {
-        public ActionResult JogosDisponiveis()
+        public ActionResult JogosDisponiveis(string nome)
         {
            IJogoRepositorio repositorio = new Repositorio.ADO.JogoRepositorio();
-
-           var jogos = repositorio.BuscarTodos().ToList();
-
             var model = new RelatorioModel();
+            var fazer = nome == null;
+            List<Locadora.Dominio.Jogo> jogos;
+            if (fazer)
+            {
+                jogos = repositorio.BuscarTodos().ToList();
+            }
+            else
+            {
+                 jogos = repositorio.BuscarPorNome(nome).ToList();
+            }
             foreach (var item in jogos)
             {
                 JogoModel jogo = new JogoModel()
