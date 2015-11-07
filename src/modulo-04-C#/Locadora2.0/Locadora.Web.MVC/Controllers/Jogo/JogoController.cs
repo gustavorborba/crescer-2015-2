@@ -109,12 +109,34 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 jogo.Preco = model.Preco;
                 repositorio.Atualizar(jogo);
 
-                TempData["Mensagem"] = "Cliente salvo com sucesso!";
+                TempData["Mensagem"] = "Jogo Atualizado com Sucesso!";
 
                 return RedirectToAction("JogosDisponiveis", "Jogo");
             }
 
             return View("Editar",model);
+        }
+
+        public ActionResult Criar()
+        {
+            return View("Editar");
+        }
+
+        public ActionResult SalvarCriacao(DescricaoModel model)
+        {
+            var jogo = new Dominio.Jogo();
+            jogo.Nome = model.Nome;
+            jogo.Categoria = model.Categorias;
+            jogo.Descricao = model.Descricao;
+            jogo.Selos = model.Selos;
+            jogo.ImagemUrl = model.Imagem;
+            jogo.VideoUrl = model.Video;
+            jogo.Preco = model.Preco;
+            repositorio.Criar(jogo);
+
+            TempData["Mensagem"] = "";
+
+            return RedirectToAction("JogosDisponiveis", "Jogo");
         }
     }
 }
