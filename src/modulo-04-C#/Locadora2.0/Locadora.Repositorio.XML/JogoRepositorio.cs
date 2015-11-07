@@ -109,10 +109,10 @@ namespace Locadora.Repositorio.XML
             jogoXml.SetElementValue("preco", jogo.Preco);
             jogoXml.SetElementValue("categoria", jogo.Categoria.ToString());
             jogoXml.SetElementValue("id_cliente_locacao", jogo.IdClienteLocacao.HasValue ? jogo.IdClienteLocacao.Value.ToString() : "");
-            jogoSalvo.SetElementValue("selo", entidade.Selos.ToString());
-            jogoSalvo.SetElementValue("descricao", entidade.Descricao);
-            jogoSalvo.SetElementValue("imagemurl", entidade.ImagemUrl);
-            jogoSalvo.SetElementValue("videourl", entidade.VideoUrl);
+            jogoXml.SetElementValue("selo", jogo.Selos.ToString());
+            jogoXml.SetElementValue("descricao", jogo.Descricao);
+            jogoXml.SetElementValue("imagemurl", jogo.ImagemUrl);
+            jogoXml.SetElementValue("videourl", jogo.VideoUrl);
 
             return jogoXml;
         }
