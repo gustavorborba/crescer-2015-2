@@ -14,10 +14,11 @@ else
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
-            <th style="width: 40%">Jogo</th>            
-            <th style="width: 30%">Categoria</th>
-            <th style="width: 30%">Preço</th>
-            <th style="width: 30%">Descricao</th>
+            <th style="width: 30%">Jogo</th>            
+            <th style="width: 25%">Categoria</th>
+            <th style="width: 25%">Preço</th>
+            <th style="width: 25%">Descricao</th>
+            <th style="width: 25%">Editar</th>
         </tr>
     </thead>
           
@@ -28,6 +29,7 @@ else
             <td>@item.Categoria</td>
             <td>@item.Preco</td>
             <td>@Html.ActionLink("Descricao jogo", "Detalhes", "Jogo", new { id = item.ID }, null)</td>
+            <td>@Html.ActionLink("Editar","Editar","Jogo",new { id = item.ID },null)</td>
         </tr>
        }
 </table>
