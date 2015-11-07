@@ -21,6 +21,8 @@ namespace Locadora.Web.MVC.Models
 
         [Required]
         public Selo Selos { get; set; }
+
+        [Required]
         public decimal Preco { get; set; }
         public int ID { get; set; }
     }
