@@ -100,7 +100,7 @@ namespace Locadora.Web.MVC.Controllers.Jogo
             TempData["Mensagem"] = null;
             var nomeRepetido = repositorio.BuscarPorNome(model.Nome).Any() ? true : false;
 
-            if (nomeRepetido)
+            if (nomeRepetido && model.ID == 0)
             {
                 TempData["Mensagem"] = "O jogo ja se encontra na base de dados";
                 return View("Editar", model);
