@@ -98,19 +98,19 @@ namespace Locadora.Repositorio.ADO
             using (IDbConnection conexao = CriarConexao())
             {
                 var sql = new StringBuilder();
-                sql.Append(" INSERT INTO Jogo (Nome, Preco, Categoria, Descricao, IDSelo, URLImagem, URLVideo , IdClienteLocacao) ");
+                sql.Append(" INSERT INTO Jogo (Nome, Preco, IdCategoria, Descricao, IDSelo, URLImagem, URLVideo , IdClienteLocacao) ");
                 sql.Append(" VALUES (@paramNome, @paramPreco, @paramCategoria, @paramDescricao, @paramSelo, @paramImagem, @paramVideo, @paramIdClienteLocacao) ");
 
                 IDbCommand comando = conexao.CreateCommand();
                 comando.CommandText = sql.ToString();
                 comando.AddParam("paramNome", entidade.Nome);
                 comando.AddParam("paramPreco", entidade.Preco);
-                comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
-                comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
-                comando.AddParam("paramSelo", (int)entidade.Selos);
+                comando.AddParam("paramCategoria", (int)entidade.Categoria);
                 comando.AddParam("paramDescricao", entidade.Descricao);
-                comando.AddParam("paramVideo", entidade.VideoUrl);
+                comando.AddParam("paramSelo", (int)entidade.Selos);
                 comando.AddParam("paramImagem", entidade.ImagemUrl);
+                comando.AddParam("paramVideo", entidade.VideoUrl);
+                comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
 
                 conexao.Open();
                 return comando.ExecuteNonQuery();

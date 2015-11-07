@@ -97,6 +97,14 @@ namespace Locadora.Web.MVC.Controllers.Jogo
         [HttpPost]
         public ActionResult Salvar(DescricaoModel model)
         {
+            TempData["Mensagem"] = null;
+            var nomeRepetido = repositorio.BuscarPorNome(model.Nome).Any() ? true : false;
+
+            if (nomeRepetido)
+            {
+                TempData["Mensagem"] = "O jogo ja se encontra na base de dados";
+                return View("Editar", model);
+            }
             if (ModelState.IsValid)
             {
                 var jogo = new Dominio.Jogo(model.ID);
@@ -107,36 +115,21 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 jogo.ImagemUrl = model.Imagem;
                 jogo.VideoUrl = model.Video;
                 jogo.Preco = model.Preco;
-                repositorio.Atualizar(jogo);
 
-                TempData["Mensagem"] = "Jogo Atualizado com Sucesso!";
-
+                if (model.ID == 0)
+                {
+                    repositorio.Criar(jogo);
+                    TempData["Mensagem"] = "Jogo Criado com Sucesso!";
+                }
+                else
+                {
+                    repositorio.Atualizar(jogo);
+                    TempData["Mensagem"] = "Jogo Atualizado com Sucesso!";
+                }
                 return RedirectToAction("JogosDisponiveis", "Jogo");
             }
-
+            TempData["Mensagem"] = "Ocorreu os seguintes erros: ";
             return View("Editar",model);
-        }
-
-        public ActionResult Criar()
-        {
-            return View("Editar");
-        }
-
-        public ActionResult SalvarCriacao(DescricaoModel model)
-        {
-            var jogo = new Dominio.Jogo();
-            jogo.Nome = model.Nome;
-            jogo.Categoria = model.Categorias;
-            jogo.Descricao = model.Descricao;
-            jogo.Selos = model.Selos;
-            jogo.ImagemUrl = model.Imagem;
-            jogo.VideoUrl = model.Video;
-            jogo.Preco = model.Preco;
-            repositorio.Criar(jogo);
-
-            TempData["Mensagem"] = "";
-
-            return RedirectToAction("JogosDisponiveis", "Jogo");
         }
     }
 }
