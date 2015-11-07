@@ -15,8 +15,6 @@ namespace Locadora.Web.MVC.Models
 
         [Required]
         public  Categoria Categorias { get; set; }
-
-        [Required]
         public string Descricao { get; set; }
         public string Imagem { get; set; }
         public string Video { get; set; }
