@@ -3,7 +3,11 @@
     ViewBag.Title = "Jogos Disponíveis";
 }
 
-@Html.ActionLink("Cricar Jogo", "Criar", "Jogo"))
+<h2>
+    @TempData["Mensagem"]
+</h2>
+
+@Html.ActionLink("Cricar Jogo", "Criar", "Jogo")
 @if (Model == null)
 {
     <h2>Nenhum Jogo Encontrado</h2>
@@ -29,7 +33,7 @@ else
             <td>@item.Categoria</td>
             <td>@item.Preco</td>
             <td>@Html.ActionLink("Descricao jogo", "Detalhes", "Jogo", new { id = item.ID }, null)</td>
-            <td>@Html.ActionLink("Editar","Editar","Jogo",new { id = item.ID },null)</td>
+            <td>@Html.ActionLink("Editar","Editar","Jogo", new { id = item.ID }, null)</td>
         </tr>
        }
 </table>
