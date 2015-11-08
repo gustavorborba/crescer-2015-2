@@ -15,7 +15,10 @@ insert into Selo
 values
 ('Bronze')
 
-//selo padrao
 update Jogo set IDSelo=1;
 
-update Jogo set Descricao='Chrono Trigger é um jogo de RPG eletrônico. Foi lançado para o console Super Nintendo no Japão em março de 1995, e uma versão aprimorada para PlayStation foi lançada em novembro de 1999.' where Id=1;
+update Jogo set Descricao='Sem Descricao'
+
+alter table  Jogo alter column Descricao varchar(max) not null 
+
+alter table Jogo add constraint FK_IDSELOS foreign key (IDSelo) references Selo(IDSelo)
