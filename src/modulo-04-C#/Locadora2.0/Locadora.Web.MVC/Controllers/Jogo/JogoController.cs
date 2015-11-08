@@ -34,6 +34,7 @@ namespace Locadora.Web.MVC.Controllers.Jogo
             descricao.Imagem = jogo.ImagemUrl;
             descricao.Video = jogo.VideoUrl;
             descricao.Descricao = jogo.Descricao;
+            descricao.ID = jogo.Id;
             return View(descricao);
         }
         public ActionResult JogosDisponiveis(string nome)
