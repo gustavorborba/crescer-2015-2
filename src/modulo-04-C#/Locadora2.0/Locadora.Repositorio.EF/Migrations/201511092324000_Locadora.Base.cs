@@ -59,9 +59,13 @@ namespace Locadora.Repositorio.EF.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Jogo", "IDCliente", "dbo.Cliente");
+            DropForeignKey("dbo.Jogo","Selos","dbo.Selos");
+            DropForeignKey("dbo.Jogo","Categoria","dbo.Categoria");
             DropIndex("dbo.Jogo", new[] { "IDCliente" });
             DropTable("dbo.Jogo");
             DropTable("dbo.Cliente");
+            DropTable("dbo.Selo");
+            DropTable("dbo.Categoria");
         }
     }
 }
