@@ -13,7 +13,7 @@ namespace Locadora.Web.MVC.Models
         [StringLength(250, MinimumLength = 5, ErrorMessage = "O nome deve ter entre 5 e 250 caracteres")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Campo Categoria Obrigatorio")]
+        [Range(1, int.MaxValue, ErrorMessage = "Categoria é Obrigatorio")]
         public  Categoria Categorias { get; set; }
 
         [Required(ErrorMessage = "Campo Descricao Obrigatorio")]
@@ -21,7 +21,7 @@ namespace Locadora.Web.MVC.Models
         public string Imagem { get; set; }
         public string Video { get; set; }
 
-        [Required(ErrorMessage = "Campo Selo Obrigatorio")]
+        [Range(1, int.MaxValue, ErrorMessage = "Selo é Obrigatorio")]
         public Selo Selos { get; set; }
 
         [Required(ErrorMessage = "Campo Preco Obrigatorio")]

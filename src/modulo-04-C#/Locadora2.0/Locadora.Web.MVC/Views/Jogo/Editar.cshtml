@@ -43,7 +43,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Categorias, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            @Html.EnumDropDownListFor(m => m.Categorias, new { @class = "form-control" })
+            @Html.EnumDropDownListFor(m => m.Categorias,"Selecione uma Categoria", new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Categorias)
         </div>
     </div>
@@ -51,7 +51,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Selos, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            @Html.EnumDropDownListFor(m => m.Selos, new { @class = "form-control" })
+            @Html.EnumDropDownListFor(m => m.Selos,"Selecione um Selo", new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Selos)
         </div>
     </div>

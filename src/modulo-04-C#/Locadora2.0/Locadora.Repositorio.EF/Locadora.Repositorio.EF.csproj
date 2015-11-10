@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201511092324000_Locadora.Base.Designer.cs">
       <DependentUpon>201511092324000_Locadora.Base.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511101800060_Atualizacao.cs" />
+    <Compile Include="Migrations\201511101800060_Atualizacao.Designer.cs">
+      <DependentUpon>201511101800060_Atualizacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511092324000_Locadora.Base.resx">
       <DependentUpon>201511092324000_Locadora.Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511101800060_Atualizacao.resx">
+      <DependentUpon>201511101800060_Atualizacao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

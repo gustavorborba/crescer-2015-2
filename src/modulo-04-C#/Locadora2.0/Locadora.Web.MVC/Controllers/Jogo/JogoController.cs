@@ -7,11 +7,15 @@ using System.Web;
 using System.Web.Mvc;
 using Locadora.Dominio;
 using Locadora.Repositorio.EF;
+using Locadora.Web.MVC.Seguranca;
+
 namespace Locadora.Web.MVC.Controllers.Jogo
 {
+    [Autorizador]
     public class JogoController : Controller
     {
         IJogoRepositorio repositorio = new JogoRepositorio();
+
         public ActionResult Index()
         {
             return View();
@@ -23,6 +27,8 @@ namespace Locadora.Web.MVC.Controllers.Jogo
 
             return View();
         }
+
+        [Autorizador(Roles ="Master")]
         public ActionResult Detalhes(int id)
         {
             var jogo = repositorio.BuscarPorID(id);
