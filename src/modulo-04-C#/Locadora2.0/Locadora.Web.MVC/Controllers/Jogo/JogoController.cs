@@ -1,5 +1,4 @@
-﻿/*
-using Locadora.Dominio.Repositorio;
+﻿using Locadora.Dominio.Repositorio;
 using Locadora.Web.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -7,11 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Locadora.Dominio;
+using Locadora.Repositorio.EF;
 namespace Locadora.Web.MVC.Controllers.Jogo
 {
     public class JogoController : Controller
     {
-        IJogoRepositorio repositorio = new Repositorio.ADO.JogoRepositorio();
+        IJogoRepositorio repositorio = new JogoRepositorio();
         public ActionResult Index()
         {
             return View();
@@ -25,8 +25,7 @@ namespace Locadora.Web.MVC.Controllers.Jogo
         }
         public ActionResult Detalhes(int id)
         {
-            IJogoRepositorio repositorio = new Repositorio.ADO.JogoRepositorio();
-            var jogo = repositorio.BuscarPorId(id);
+            var jogo = repositorio.BuscarPorID(id);
 
             DescricaoModel descricao = new DescricaoModel();
             descricao.Nome = jogo.Nome;
@@ -35,12 +34,11 @@ namespace Locadora.Web.MVC.Controllers.Jogo
             descricao.Imagem = jogo.ImagemUrl;
             descricao.Video = jogo.VideoUrl;
             descricao.Descricao = jogo.Descricao;
-            descricao.ID = jogo.Id;
+            descricao.ID = jogo.IDJogo;
             return View(descricao);
         }
         public ActionResult JogosDisponiveis(string nome)
         {
-            IJogoRepositorio repositorio = new Repositorio.ADO.JogoRepositorio();
             var model = new RelatorioModel();
             var fazer = nome == null;
             List<Locadora.Dominio.Jogo> jogos;
@@ -63,7 +61,7 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                     Nome = item.Nome,
                     Preco = item.Preco,
                     Categoria = item.Categoria.ToString(),
-                    ID = item.Id
+                    ID = item.IDJogo
                 };
                 model.ListaJogos.Add(jogo);
             }
@@ -80,7 +78,7 @@ namespace Locadora.Web.MVC.Controllers.Jogo
         {
             if (id.HasValue)
             {
-                var jogo = repositorio.BuscarPorId(Convert.ToInt32(id));
+                var jogo = repositorio.BuscarPorID(Convert.ToInt32(id));
                 var model = new DescricaoModel();
                 model.Nome = jogo.Nome;
                 model.Categorias = jogo.Categoria;
@@ -88,7 +86,7 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 model.Descricao = jogo.Descricao;
                 model.Imagem = jogo.ImagemUrl;
                 model.Video = jogo.VideoUrl;
-                model.ID = jogo.Id;
+                model.ID = jogo.IDJogo;
                 model.Preco = jogo.Preco;
                 return View(model);
             }
@@ -135,4 +133,3 @@ namespace Locadora.Web.MVC.Controllers.Jogo
         }
     }
 }
-*/

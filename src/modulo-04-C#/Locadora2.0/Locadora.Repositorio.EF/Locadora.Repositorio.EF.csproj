@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoDeDados.cs" />
+    <Compile Include="Jogo.Repositorio.EF.cs" />
     <Compile Include="Migrations\201511092324000_Locadora.Base.cs" />
     <Compile Include="Migrations\201511092324000_Locadora.Base.Designer.cs">
       <DependentUpon>201511092324000_Locadora.Base.cs</DependentUpon>

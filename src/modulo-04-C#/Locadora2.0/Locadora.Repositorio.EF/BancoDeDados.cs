@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Locadora.Repositorio.EF
 {
-    class BancoDeDados : DbContext
+    public class BancoDeDados : DbContext
     {
         public BancoDeDados() : base("LOCADORADOIS")
         {

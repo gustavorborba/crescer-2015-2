@@ -13,6 +13,6 @@ namespace Locadora.Dominio.Repositorio
         int Criar(Jogo jogo);
         int Atualizar(Jogo jogo);
         int Excluir(int id);
-        Jogo BuscarPorId(int id);
+        Jogo BuscarPorID(int id);
     }
 }
