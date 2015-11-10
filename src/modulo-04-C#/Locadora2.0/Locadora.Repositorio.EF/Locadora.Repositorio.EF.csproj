@@ -50,9 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoDeDados.cs" />
-    <Compile Include="Migrations\201511091930000_LocadoraBase.cs" />
-    <Compile Include="Migrations\201511091930000_LocadoraBase.Designer.cs">
-      <DependentUpon>201511091930000_LocadoraBase.cs</DependentUpon>
+    <Compile Include="Migrations\201511092324000_Locadora.Base.cs" />
+    <Compile Include="Migrations\201511092324000_Locadora.Base.Designer.cs">
+      <DependentUpon>201511092324000_Locadora.Base.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,8 +68,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511091930000_LocadoraBase.resx">
-      <DependentUpon>201511091930000_LocadoraBase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511092324000_Locadora.Base.resx">
+      <DependentUpon>201511092324000_Locadora.Base.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

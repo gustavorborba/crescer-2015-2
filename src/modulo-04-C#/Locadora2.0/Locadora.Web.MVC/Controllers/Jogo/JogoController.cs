@@ -1,4 +1,5 @@
-﻿using Locadora.Dominio.Repositorio;
+﻿/*
+using Locadora.Dominio.Repositorio;
 using Locadora.Web.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -134,3 +135,4 @@ namespace Locadora.Web.MVC.Controllers.Jogo
         }
     }
 }
+*/

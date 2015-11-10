@@ -31,13 +31,14 @@ namespace Locadora.Repositorio.EF
             public JogoMap()
             {
                 ToTable("Jogo");
-                HasKey(p => p.Id);
-                Property(p => p.Nome).IsRequired();
+                HasKey(p => p.IDJogo);
+                Property(p => p.Nome).IsRequired().HasMaxLength(255);
                 Property(p => p.Descricao).IsRequired();
                 Property(p => p.Categoria).IsRequired();
                 Property(p => p.Selos).IsRequired();
                 Property(p => p.ImagemUrl).IsOptional();
                 Property(p => p.VideoUrl).IsOptional();
+                HasOptional(p => p.Cliente).WithOptionalDependent().Map(m => m.MapKey("IDCliente"));
             }
         }
         class ClienteMap : EntityTypeConfiguration<Cliente>
@@ -45,9 +46,9 @@ namespace Locadora.Repositorio.EF
             public ClienteMap()
             {
                 ToTable("Cliente");
-                HasKey(p => p.Id);
+                HasKey(p => p.IDCliente);
 
-                Property(p => p.Nome).IsRequired();
+                Property(p => p.Nome).IsRequired().HasMaxLength(255);
             }
         }
     }

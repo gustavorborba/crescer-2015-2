@@ -31,7 +31,7 @@ namespace EF.DbFirst
             public JogoMap()
             {
                 ToTable("Jogo");
-                HasKey(p => p.Id);
+                HasKey(p => p.IDJogo);
                 Property(p => p.Nome).IsRequired();
                 Property(p => p.Descricao).IsRequired();
                 Property(p => p.Categoria).IsRequired();
@@ -45,7 +45,7 @@ namespace EF.DbFirst
             public ClienteMap()
             {
                 ToTable("Cliente");
-                HasKey(p => p.Id);
+                HasKey(p => p.IDCliente);
 
                 Property(p => p.Nome).IsRequired();
             }
