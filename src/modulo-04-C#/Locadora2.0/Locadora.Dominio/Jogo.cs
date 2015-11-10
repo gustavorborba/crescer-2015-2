@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Locadora.Dominio
 {
-    public class Jogo : EntidadeBase
+    public class Jogo 
     {
+        public int IDJogo { get; private set; }
         public string Nome { get; set; }
 
         public decimal Preco { get; set; }
@@ -20,28 +21,27 @@ namespace Locadora.Dominio
 
         public string ImagemUrl { get; set; }
 
-        public int? IdClienteLocacao { get; private set; }
+        public Cliente Cliente { get; private set; }
         
         public Jogo()
         {
 
         }
 
-        public Jogo(int id, int? idClienteLocacao = null)
+        public Jogo(int id)
         {
-            this.Id = id;
-            this.IdClienteLocacao = idClienteLocacao;
+            this.IDJogo = id;
         }
 
         public void LocarPara(Cliente cliente)
         {
-            this.IdClienteLocacao = cliente.Id;
+            this.Cliente = cliente;
         }
 
         public override string ToString()
         {
             var builder = new StringBuilder();
-            builder.AppendLine("Id: " + this.Id);
+            builder.AppendLine("Id: " + this.IDJogo);
             builder.AppendLine("Nome: " + this.Nome);
             builder.AppendLine("Preço: " + this.Preco.ToString("C", CultureInfo.GetCultureInfo("pt-BR")));
             builder.AppendLine("Categoria: " + this.Categoria);
@@ -64,11 +64,11 @@ namespace Locadora.Dominio
             {
                 Jogo jogoComp = (Jogo)obj;
 
-                return this.Id == jogoComp.Id
+                return this.IDJogo == jogoComp.IDJogo
                     && this.Nome == jogoComp.Nome
                     && this.Preco == jogoComp.Preco
                     && this.Categoria == jogoComp.Categoria
-                    && this.IdClienteLocacao == jogoComp.IdClienteLocacao
+                    && this.Cliente.IDCliente == jogoComp.Cliente.IDCliente
                     && this.Selos == jogoComp.Selos
                     && this.Descricao == jogoComp.Descricao
                     && this.ImagemUrl == jogoComp.ImagemUrl

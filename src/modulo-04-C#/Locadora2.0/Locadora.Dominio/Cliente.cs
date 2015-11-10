@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Locadora.Dominio
 {
-    public class Cliente : EntidadeBase
+    public class Cliente
     {
+        public int IDCliente { get; private set; }
         public string Nome { get; set; }
 
         public Cliente()
@@ -17,7 +18,7 @@ namespace Locadora.Dominio
 
         public Cliente(int id)
         {
-            this.Id = id;
+            this.IDCliente = id;
         }
     }
 }
