@@ -8,8 +8,9 @@ namespace Locadora.Web.MVC.Models.Login
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage ="Campo Obrigatorio")]
         public string Email { get; set; }
+        [Required(ErrorMessage ="Campo Obrigatorio")] 
         public string Senha { get; set; }
     }
 }
