@@ -9,10 +9,7 @@ namespace Locadora.Web.MVC.Seguranca.Model
 {
     public class UsuarioModel
     {
-        [Required(ErrorMessage ="Campo Email Obrigatorio")]
         public string Email { get; private set; }
-
-        [Required(ErrorMessage = "Campo Senha Obrigatorio")]
         public string Senha { get; private set; }
         public string[] Permissoes { get; private set; }
         public UsuarioModel(Usuario usuario)
