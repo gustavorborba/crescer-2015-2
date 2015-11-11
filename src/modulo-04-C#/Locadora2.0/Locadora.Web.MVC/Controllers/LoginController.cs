@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Locadora.Web.MVC.Models.Login;
 using Locadora.Dominio.Servicos;
+using Locadora.Repositorio.EF;
+using Services.Security;
 namespace Locadora.Web.MVC.Seguranca
 {
     public class LoginController : Controller
@@ -22,11 +24,9 @@ namespace Locadora.Web.MVC.Seguranca
             
             if (ModelState.IsValid)
             {
-               // ValidarUsuario validar = new ValidarUsuario();
-                //apenas teste para conferir, depois será retirado;
-                string usuarioAtual = 
-                //var usuarioAtual = validar.ValidarUsuario(model.Email,model.Senha);
-                if(usuarioAtual != null)
+                ValidarUsuario validar = new ValidarUsuario(new UsuarioRepositorio(),new CripografiaRepositorio());
+                var usuarioAtual = validar.Validar(model.Email, model.Senha);
+                if (usuarioAtual != null)
                 {
                     ControleDeSessao.CriarSessaoDeUsuario(usuarioAtual);
                     return RedirectToAction("Index","Jogo");

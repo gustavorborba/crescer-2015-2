@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Locadora.Dominio.Servicos;
 namespace Services.Security
 {
-    public class Cripografar : IServicoCriptografia
+    public class CripografiaRepositorio : IServicoCriptografia
     {
         public string Criptografar(string senha)
         { 

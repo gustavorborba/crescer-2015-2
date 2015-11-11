@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Locadora.Dominio;
 using Locadora.Dominio.Repositorio;
-using Locadora.Repositorio.
+using Locadora.Repositorio;
 namespace Locadora.Repositorio.EF
 {
     public class JogoRepositorio : IJogoRepositorio
