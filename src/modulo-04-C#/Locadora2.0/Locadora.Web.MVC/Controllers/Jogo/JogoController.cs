@@ -11,7 +11,7 @@ using Locadora.Web.MVC.Seguranca;
 
 namespace Locadora.Web.MVC.Controllers.Jogo
 {
-    [Autorizador(Roles ="Comum")]
+    [Autorizador]
     public class JogoController : Controller
     {
         IJogoRepositorio repositorio = new JogoRepositorio();

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Locadora.Web.MVC.Models.Login;
-using Services.Security;
+using Locadora.Dominio.Servicos;
 namespace Locadora.Web.MVC.Seguranca
 {
     public class LoginController : Controller
@@ -16,12 +16,16 @@ namespace Locadora.Web.MVC.Seguranca
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult LoginUsuario(LoginModel model)
         {
-            var validar = new Validacao();
+            
             if (ModelState.IsValid)
             {
-                var usuarioAtual = validar.ValidarUsuario(model.Email,model.Senha);
+               // ValidarUsuario validar = new ValidarUsuario();
+                //apenas teste para conferir, depois será retirado;
+                string usuarioAtual = 
+                //var usuarioAtual = validar.ValidarUsuario(model.Email,model.Senha);
                 if(usuarioAtual != null)
                 {
                     ControleDeSessao.CriarSessaoDeUsuario(usuarioAtual);
