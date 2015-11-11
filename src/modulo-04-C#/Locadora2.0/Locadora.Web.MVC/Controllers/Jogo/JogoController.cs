@@ -64,16 +64,11 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 JogoModel jogo = new JogoModel()
                 {
                     Nome = item.Nome,
-                    Preco = item.Preco,
                     Categoria = item.Categoria.ToString(),
                     ID = item.IDJogo
                 };
                 model.ListaJogos.Add(jogo);
             }
-            decimal barato = model.ListaJogos.Min(it => it.Preco);
-            model.MaisBarato = model.ListaJogos.FirstOrDefault(it => it.Preco == barato).Nome;
-            decimal caro = model.ListaJogos.Max(it => it.Preco);
-            model.MaisCaro = model.ListaJogos.FirstOrDefault(it => it.Preco == caro).Nome;
             model.TotalJogos = model.ListaJogos.Count;
             return View(model);
         }
@@ -93,7 +88,6 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 model.Imagem = jogo.ImagemUrl;
                 model.Video = jogo.VideoUrl;
                 model.ID = jogo.IDJogo;
-                model.Preco = jogo.Preco;
                 return View(model);
             }
             return View();
@@ -120,7 +114,6 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 jogo.Selos = model.Selos;
                 jogo.ImagemUrl = model.Imagem;
                 jogo.VideoUrl = model.Video;
-                jogo.Preco = model.Preco;
 
                 if (model.ID == 0)
                 {

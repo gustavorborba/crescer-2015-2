@@ -2,11 +2,14 @@
 @{
     ViewBag.Title = "Jogos Disponíveis";
 }
-
 <h2>
     @TempData["Mensagem"]
 </h2>
-<input type="button" value="Criar Jogo" class=" btn btn-primary btn-md pull-right" onclick="location.href='@Url.Action("Editar","Jogo")'" />
+@if (User.IsInRole("ADMIN"))
+{
+    <input type="button" value="Criar Jogo" class=" btn btn-primary btn-md pull-right" onclick="location.href='@Url.Action("Editar","Jogo")'" />
+}
+
 @if (Model == null)
 {
     <h2>Nenhum Jogo Encontrado</h2>
@@ -19,9 +22,12 @@ else
         <tr>
             <th style="width: 30%">Jogo</th>            
             <th style="width: 25%">Categoria</th>
-            <th style="width: 25%">Preço</th>
             <th style="width: 25%">Descricao</th>
-            <th style="width: 25%">Editar</th>
+            @if (User.IsInRole("ADMIN"))
+            {
+                <th style="width: 25%">Editar</th>
+            }
+            
         </tr>
     </thead>
           
@@ -30,14 +36,14 @@ else
         <tr>
             <td>@item.Nome </td>
             <td>@item.Categoria</td>
-            <td>@item.Preco</td>
             <td>@Html.ActionLink("Descricao jogo", "Detalhes", "Jogo", new { id = item.ID }, null)</td>
-            <td>@Html.ActionLink("Editar","Editar","Jogo", new { id = item.ID }, null)</td>
+             @if (User.IsInRole("ADMIN"))
+             {
+                <td>@Html.ActionLink("Editar", "Editar", "Jogo", new { id = item.ID }, null)</td>
+             }
         </tr>
        }
 </table>
 
-<p> Total de jogos: @Model.TotalJogos</p>
-<p>Jogo mais caro: @Model.MaisCaro</p>
-<p>Jogo mais Barato: @Model.MaisBarato</p>
+<p> Total de jogos Encontrados: @Model.TotalJogos</p>
 }

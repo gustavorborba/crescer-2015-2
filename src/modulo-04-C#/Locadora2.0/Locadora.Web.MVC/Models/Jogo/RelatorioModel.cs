@@ -9,8 +9,6 @@ namespace Locadora.Web.MVC.Models
     {
         public List<JogoModel> ListaJogos;
         public int TotalJogos { get; set; }
-        public string MaisCaro { get; set; }
-        public string MaisBarato { get; set; }
 
         public RelatorioModel()
         {

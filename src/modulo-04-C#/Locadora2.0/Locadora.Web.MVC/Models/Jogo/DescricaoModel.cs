@@ -24,9 +24,6 @@ namespace Locadora.Web.MVC.Models
         [Range(1, int.MaxValue, ErrorMessage = "Selo é Obrigatorio")]
         public Selo Selos { get; set; }
 
-        [Required(ErrorMessage = "Campo Preco Obrigatorio")]
-        public decimal Preco { get; set; }
-
         public int ID { get; set; }
     }
 }

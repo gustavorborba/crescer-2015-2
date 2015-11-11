@@ -8,7 +8,6 @@ namespace Locadora.Web.MVC.Models
     public class JogoModel
     {
         public string Nome { get; set; }
-        public decimal Preco { get; set; }
         public string Categoria { get; set; }
         public int ID { get; set; }
     }
