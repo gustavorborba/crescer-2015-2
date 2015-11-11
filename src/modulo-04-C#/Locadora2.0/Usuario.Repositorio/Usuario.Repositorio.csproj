@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E422659-1CFE-4737-9CB8-F76C908B05AC}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{3B54B915-67CA-4966-992C-CCC366FBC528}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Locadora.Repositorio.EF</RootNamespace>
-    <AssemblyName>Locadora.Repositorio.EF</AssemblyName>
+    <RootNamespace>Usuario.Repositorio</RootNamespace>
+    <AssemblyName>Usuario.Repositorio</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,16 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,38 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BancoDeDados.cs" />
-    <Compile Include="Cliente.Repositorio.EF.cs" />
-    <Compile Include="Jogo.Repositorio.EF.cs" />
-    <Compile Include="Migrations\201511092324000_Locadora.Base.cs" />
-    <Compile Include="Migrations\201511092324000_Locadora.Base.Designer.cs">
-      <DependentUpon>201511092324000_Locadora.Base.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511101800060_Atualizacao.cs" />
-    <Compile Include="Migrations\201511101800060_Atualizacao.Designer.cs">
-      <DependentUpon>201511101800060_Atualizacao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuario.Repositorio.EF.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Locadora.Dominio\Locadora.Dominio.csproj">
-      <Project>{93d95d00-78c7-4b77-be44-686ab7a29c7c}</Project>
-      <Name>Locadora.Dominio</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511092324000_Locadora.Base.resx">
-      <DependentUpon>201511092324000_Locadora.Base.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511101800060_Atualizacao.resx">
-      <DependentUpon>201511101800060_Atualizacao.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,7 +11,7 @@ using Locadora.Web.MVC.Seguranca;
 
 namespace Locadora.Web.MVC.Controllers.Jogo
 {
-    [Autorizador]
+    [Autorizador(Roles ="Comum")]
     public class JogoController : Controller
     {
         IJogoRepositorio repositorio = new JogoRepositorio();
@@ -28,7 +28,6 @@ namespace Locadora.Web.MVC.Controllers.Jogo
             return View();
         }
 
-        [Autorizador(Roles ="Master")]
         public ActionResult Detalhes(int id)
         {
             var jogo = repositorio.BuscarPorID(id);
@@ -79,6 +78,7 @@ namespace Locadora.Web.MVC.Controllers.Jogo
             return View(model);
         }
 
+        [Autorizador(Roles ="ADMIN")]
         [HttpGet]
         public ActionResult Editar(int? id)
         {

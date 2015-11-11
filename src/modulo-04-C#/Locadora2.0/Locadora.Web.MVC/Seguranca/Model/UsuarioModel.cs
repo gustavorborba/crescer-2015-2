@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,12 +14,12 @@ namespace Locadora.Web.MVC.Seguranca.Model
 
         [Required(ErrorMessage = "Campo Senha Obrigatorio")]
         public string Senha { get; private set; }
-        public string[] Autorizacao { get; private set; }
-        public UsuarioModel(string email,string senha, string[] autorizacao)
+        public string[] Permissoes { get; private set; }
+        public UsuarioModel(Usuario usuario)
         {
-            this.Email = email;
-            this.Senha = senha;
-            this.Autorizacao = autorizacao;
+            this.Email = usuario.Email;
+            this.Senha = usuario.Email;
+            this.Permissoes = usuario.Permissoes.Select(p => p.Descricao).ToArray();
         }
     }
 }
