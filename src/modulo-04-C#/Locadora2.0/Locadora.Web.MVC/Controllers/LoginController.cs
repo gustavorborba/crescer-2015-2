@@ -30,5 +30,10 @@ namespace Locadora.Web.MVC.Seguranca
             }
             return View("Index", model);
         }
+        public ActionResult Encerrar()
+        {
+            ControleDeSessao.Encerrar();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

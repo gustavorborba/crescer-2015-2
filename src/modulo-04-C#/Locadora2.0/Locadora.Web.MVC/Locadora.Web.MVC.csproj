@@ -145,7 +145,7 @@
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguranca\Autorizador.cs" />
-    <Compile Include="Controllers\Jogo\LoginController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Seguranca\ControleDeSessao.cs" />
     <Compile Include="Seguranca\Model\UsuarioModel.cs" />
   </ItemGroup>

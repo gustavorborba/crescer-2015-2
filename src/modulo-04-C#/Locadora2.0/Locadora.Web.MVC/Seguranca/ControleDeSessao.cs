@@ -24,5 +24,10 @@ namespace Locadora.Web.MVC.Seguranca
             FormsAuthentication.SetAuthCookie(usuarioLogado.Email, true);
             HttpContext.Current.Session[USUARIO_LOGADO] = usuarioLogado;
         }
+        public static void Encerrar()
+        {
+            FormsAuthentication.SignOut();
+            HttpContext.Current.Session.Abandon();
+        }
     }
 }
