@@ -38,7 +38,7 @@ else
             <td>@item.Nome </td>
             <td>@item.Categoria</td>
             <td>@Html.ActionLink("Descricao jogo", "Detalhes", "Jogo", new { id = item.ID }, null)</td>
-            <td>@Html.ActionLink("Locar", "LocarPartial", "Locacao", new { id = item.ID},null)</td>
+            <td>@Html.ActionLink("Locar", "Locar", "Locacao", new { id = item.ID},null)</td>
              @if (User.IsInRole("ADMIN"))
              {
                 <td>@Html.ActionLink("Editar", "Editar", "Jogo", new { id = item.ID }, null)</td>

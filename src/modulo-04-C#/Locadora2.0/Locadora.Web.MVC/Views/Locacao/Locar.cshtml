@@ -1,7 +1,24 @@
-﻿
+﻿@model Locadora.Web.MVC.Models.ClienteLocar
 @{
     ViewBag.Title = "Locar";
 }
 
-<h2>Locar</h2>
+@Html.Action("LocarPartial","Locacao",new { id = Model.IDJogo})
+
+<form action="@Url.Action("SalvarLocacao", "Locacao")" method="post">
+    <label for="Nome">Pesquisa por nome: </label>
+    <input type="text" id="Nome" name="Nome" value="" />
+    @Html.HiddenFor(m => m.IDJogo)
+    <input type="submit" id="btnEnviar" value="Enviar" />
+</form>
+@section Scripts {
+<script>
+        $("document").ready(function() {
+            $("#Nome").autocomplete({
+              source: '@Url.Action("ClienteAutocomplete", "Locacao")',
+                select: function () { $("#btnEnviar").click(); }
+            });
+        });
+</script>
+}
 
