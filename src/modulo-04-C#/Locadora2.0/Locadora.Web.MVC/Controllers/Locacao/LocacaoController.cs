@@ -5,12 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Locadora.Repositorio.EF;
+using Locadora.Web.MVC.Models.Login;
+using Locadora.Dominio;
+using Locadora.Dominio.Repositorio;
 
 namespace Locadora.Web.MVC.Controllers.Locacao
 {
     public class LocacaoController : Controller
     {
         // GET: Locacao
+        [HttpGet]
         public ActionResult LocarPartial(int id)
         {
             JogoRepositorio repositorio = new JogoRepositorio();
@@ -38,17 +42,39 @@ namespace Locadora.Web.MVC.Controllers.Locacao
 
             return View(model);
         }
-
+        [HttpGet]
         public ActionResult Locar(int id)
         {
-
+            ClienteLocar locar = new ClienteLocar();
+            locar.IDJogo = id;
+            return View(locar);
+        }
+        [HttpPost]
+        public ActionResult SalvarLocacao(ClienteLocar locar)
+        {
 
             return View();
         }
-        public ActionResult SalvarLocacao()
+        public JsonResult ClienteAutocomplete(string term)
         {
+            IList<Cliente> ClienteEncontrados = ObterJogosPorFiltro(term);
 
-            return View();
+            var json = ClienteEncontrados.Select(x => new { label = x.Nome });
+
+            return Json(json, JsonRequestBehavior.AllowGet);
+        }
+
+        private IList<Cliente> ObterJogosPorFiltro(string nome)
+        {
+            IClienteRepositorio clienteRepositorio = new  ClienteRepositorio();
+
+            if (string.IsNullOrEmpty(nome))
+                return clienteRepositorio.BuscarTodos();
+            else
+            {
+                return clienteRepositorio.BuscarPorNome(nome);
+            }
+                
         }
     }
 }
