@@ -15,7 +15,14 @@ namespace Locadora.Repositorio.EF
         {
             using(banco=new BancoDeDados())
             {
-                return banco.Cliente.Where(c => c.Nome == nome).ToList();
+                return banco.Cliente.Where(p => p.Nome.Contains(nome)).ToList();
+            }
+        }
+        public IList<Cliente> BuscarTodos()
+        {
+            using (banco = new BancoDeDados())
+            {
+                return banco.Cliente.ToList();
             }
         }
     }
