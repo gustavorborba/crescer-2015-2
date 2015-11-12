@@ -65,7 +65,9 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 {
                     Nome = item.Nome,
                     Categoria = item.Categoria.ToString(),
-                    ID = item.IDJogo
+                    ID = item.IDJogo,
+                    locado = item.DataLocacao == null ? false : true
+                    
                 };
                 model.ListaJogos.Add(jogo);
             }

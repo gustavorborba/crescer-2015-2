@@ -10,5 +10,6 @@ namespace Locadora.Web.MVC.Models
         public string Nome { get; set; }
         public string Categoria { get; set; }
         public int ID { get; set; }
+        public bool locado;
     }
 }

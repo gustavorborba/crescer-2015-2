@@ -9,7 +9,6 @@ namespace Locadora.Web.MVC.Models
     {
         public List<JogoModel> ListaJogos;
         public int TotalJogos { get; set; }
-
         public RelatorioModel()
         {
             ListaJogos = new List<JogoModel>();
