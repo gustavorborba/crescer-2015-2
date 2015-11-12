@@ -135,12 +135,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Jogo\JogoController.cs" />
+    <Compile Include="Controllers\Locacao\LocacaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Jogo\DescricaoModel.cs" />
     <Compile Include="Models\Jogo\JogoModel.cs" />
     <Compile Include="Models\Jogo\RelatorioModel.cs" />
+    <Compile Include="Models\LocarModel.cs" />
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguranca\Autorizador.cs" />
@@ -161,6 +163,8 @@
     <Content Include="Views\Jogo\Detalhes.cshtml" />
     <Content Include="Views\Jogo\Editar.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Jogo\JogoLocacao.cshtml" />
+    <Content Include="Views\Locacao\LocarPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

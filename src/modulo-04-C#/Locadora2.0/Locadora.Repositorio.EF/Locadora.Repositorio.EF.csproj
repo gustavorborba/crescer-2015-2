@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201511112315045_Refactoring 3.Designer.cs">
       <DependentUpon>201511112315045_Refactoring 3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511112345118_Refactoring 4.cs" />
+    <Compile Include="Migrations\201511112345118_Refactoring 4.Designer.cs">
+      <DependentUpon>201511112345118_Refactoring 4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.Repositorio.EF.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511112315045_Refactoring 3.resx">
       <DependentUpon>201511112315045_Refactoring 3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511112345118_Refactoring 4.resx">
+      <DependentUpon>201511112345118_Refactoring 4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

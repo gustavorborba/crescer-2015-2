@@ -21,6 +21,8 @@ namespace Locadora.Dominio
 
         public Cliente Cliente { get; private set; }
         
+        public DateTime DataDevolucao { get; set; }
+
         public Jogo()
         {
 
