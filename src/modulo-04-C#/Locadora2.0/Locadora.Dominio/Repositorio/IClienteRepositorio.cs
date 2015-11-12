@@ -10,5 +10,6 @@ namespace Locadora.Dominio.Repositorio
     {
         IList<Cliente> BuscarPorNome(string nome);
         IList<Cliente> BuscarTodos();
+        bool PodeLocar(string nome);
     }
 }

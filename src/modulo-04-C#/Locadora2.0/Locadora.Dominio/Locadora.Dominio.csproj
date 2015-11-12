@@ -44,6 +44,7 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Jogo.cs" />
+    <Compile Include="Locacao.cs" />
     <Compile Include="Permissao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Relatorio.cs" />
@@ -51,10 +52,12 @@
     <Compile Include="Repositorio\IJogoRepositorio.cs" />
     <Compile Include="Repositorio\IUsuarioRepositorio.cs" />
     <Compile Include="Selo.cs" />
-    <Compile Include="Servicos\IServicoCriptografia.cs" />
-    <Compile Include="Servicos\ValidarUsuario.cs" />
+    <Compile Include="Servicos\LocarServico\LocacaoServico.cs" />
+    <Compile Include="Servicos\SecurityServico\IServicoCriptografia.cs" />
+    <Compile Include="Servicos\SecurityServico\ValidarUsuario.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

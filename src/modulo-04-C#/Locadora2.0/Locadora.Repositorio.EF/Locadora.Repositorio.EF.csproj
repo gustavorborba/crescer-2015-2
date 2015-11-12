@@ -68,6 +68,14 @@
     <Compile Include="Migrations\201511112345118_Refactoring 4.Designer.cs">
       <DependentUpon>201511112345118_Refactoring 4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511121841319_Refactoring 5.cs" />
+    <Compile Include="Migrations\201511121841319_Refactoring 5.Designer.cs">
+      <DependentUpon>201511121841319_Refactoring 5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511121920414_Refactoring 6.cs" />
+    <Compile Include="Migrations\201511121920414_Refactoring 6.Designer.cs">
+      <DependentUpon>201511121920414_Refactoring 6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.Repositorio.EF.cs" />
@@ -94,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511112345118_Refactoring 4.resx">
       <DependentUpon>201511112345118_Refactoring 4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511121841319_Refactoring 5.resx">
+      <DependentUpon>201511121841319_Refactoring 5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511121920414_Refactoring 6.resx">
+      <DependentUpon>201511121920414_Refactoring 6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

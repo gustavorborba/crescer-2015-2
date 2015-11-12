@@ -25,5 +25,12 @@ namespace Locadora.Repositorio.EF
                 return banco.Cliente.ToList();
             }
         }
+        public bool PodeLocar(string nome)
+        {
+            using (banco = new BancoDeDados())
+            {
+                return banco.Jogo.Where(p => p.Clientes.Nome == nome).Count() > 3 ? false : true;
+            }
+        }
     }
 }

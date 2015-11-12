@@ -8,6 +8,7 @@ using Locadora.Repositorio.EF;
 using Locadora.Web.MVC.Models.Login;
 using Locadora.Dominio;
 using Locadora.Dominio.Repositorio;
+using Locadora.Dominio.Servicos.LocarServico;
 
 namespace Locadora.Web.MVC.Controllers.Locacao
 {
@@ -19,26 +20,7 @@ namespace Locadora.Web.MVC.Controllers.Locacao
         {
             JogoRepositorio repositorio = new JogoRepositorio();
             var jogo = repositorio.BuscarPorID(id);
-
-            LocarModel model = new LocarModel();
-            model.Nome = jogo.Nome;
-            model.IDJogo = jogo.IDJogo;
-            model.Imagem = jogo.ImagemUrl;
-            if(jogo.Selos == Dominio.Selo.OURO)
-            {
-                model.DataEntrega = DateTime.Now.AddDays(1);
-                model.Preco = 15;
-            }
-            if(jogo.Selos == Dominio.Selo.PRATA)
-            {
-                model.DataEntrega = DateTime.Now.AddDays(2);
-                model.Preco = 10;
-            }
-            if(jogo.Selos == Dominio.Selo.BRONZE)
-            {
-                model.DataEntrega = DateTime.Now.AddDays(3);
-                model.Preco = 5;
-            }
+            LocarModel model = new LocarModel(jogo);
 
             return View(model);
         }
@@ -51,6 +33,12 @@ namespace Locadora.Web.MVC.Controllers.Locacao
         }
         [HttpPost]
         public ActionResult SalvarLocacao(ClienteLocar locar)
+        {
+            LocacaoServico locacao = new LocacaoServico(new JogoRepositorio(), new ClienteRepositorio());
+            var locarJogo = locacao.LocacaoValida(locar.Nome,locar.IDJogo);
+            return View();
+        }
+        public ActionResult Devolver()
         {
 
             return View();
