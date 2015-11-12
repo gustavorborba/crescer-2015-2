@@ -20,5 +20,23 @@ namespace Locadora.Dominio
         {
             this.IDCliente = id;
         }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(Jogo))
+            {
+                Cliente jogoComp = (Cliente)obj;
+
+                return this.Nome == jogoComp.Nome;
+            }
+
+            return false;
+        }
+
     }
 }
