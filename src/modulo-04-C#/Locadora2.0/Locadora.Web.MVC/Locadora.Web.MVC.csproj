@@ -163,8 +163,8 @@
     <Content Include="Views\Jogo\Detalhes.cshtml" />
     <Content Include="Views\Jogo\Editar.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Jogo\JogoLocacao.cshtml" />
     <Content Include="Views\Locacao\LocarPartial.cshtml" />
+    <Content Include="Views\Locacao\Locar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
