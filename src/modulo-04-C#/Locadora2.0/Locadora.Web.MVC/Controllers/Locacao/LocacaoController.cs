@@ -36,7 +36,13 @@ namespace Locadora.Web.MVC.Controllers.Locacao
         {
             LocacaoServico locacao = new LocacaoServico(new JogoRepositorio(), new ClienteRepositorio());
             var locarJogo = locacao.LocacaoValida(locar.Nome,locar.IDJogo);
-            return View();
+            if (locarJogo)
+            {
+                TempData["Mensagem"] = "Jogo locado com sucesso";
+                return RedirectToAction("JogosDisponiveis", "Jogo");
+            }
+            TempData["Mensagem"] = "Jogo indisponivel ou cliente invalido";
+            return RedirectToAction("Locar","Locacao", new { id = locar.IDJogo});
         }
         public ActionResult Devolver()
         {

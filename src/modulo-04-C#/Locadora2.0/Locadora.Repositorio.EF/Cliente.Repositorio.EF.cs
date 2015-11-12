@@ -29,7 +29,7 @@ namespace Locadora.Repositorio.EF
         {
             using (banco = new BancoDeDados())
             {
-                return banco.Jogo.Where(p => p.Clientes.Nome == nome).Count() > 3 ? false : true;
+                return banco.Jogo.Where(p => p.Cliente.Nome == nome).Count() >= 3 ? false : true;
             }
         }
     }

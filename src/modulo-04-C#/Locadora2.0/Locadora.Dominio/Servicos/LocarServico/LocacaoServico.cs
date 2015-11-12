@@ -18,20 +18,21 @@ namespace Locadora.Dominio.Servicos.LocarServico
             this.jogoRepositorio = jogoRepositorio;
         }
 
-        public bool LocacaoValida(string nomeCliente,int id)
+        public bool LocacaoValida(string nome,int id)
         {
-            bool locar = clienteRepositorio.PodeLocar(nomeCliente);
+            bool locar = clienteRepositorio.PodeLocar(nome);
             var jogo = jogoRepositorio.BuscarPorID(id);
-            if(locar && jogo.DataLocacao == null)
+            var cliente = clienteRepositorio.BuscarPorNome(nome).FirstOrDefault(p => p.Nome == nome);
+            bool clienteValido = cliente == null ? false : true;
+            if (locar && jogo.DataLocacao == null && clienteValido)
             {
-                Locar(jogo,nomeCliente);
+                Locar(jogo,cliente);
                 return true;
             }
             return false;
         }
-        public void Locar(Jogo jogo, string nome)
+        public void Locar(Jogo jogo, Cliente cliente)
         {
-            var cliente = clienteRepositorio.BuscarPorNome(nome).FirstOrDefault(p => p.Nome == nome);
             jogo.LocarPara(cliente);
             jogo.DataLocacao = DateTime.Now;
             jogoRepositorio.Atualizar(jogo);

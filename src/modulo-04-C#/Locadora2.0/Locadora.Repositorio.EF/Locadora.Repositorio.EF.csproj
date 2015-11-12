@@ -72,9 +72,9 @@
     <Compile Include="Migrations\201511121841319_Refactoring 5.Designer.cs">
       <DependentUpon>201511121841319_Refactoring 5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511121920414_Refactoring 6.cs" />
-    <Compile Include="Migrations\201511121920414_Refactoring 6.Designer.cs">
-      <DependentUpon>201511121920414_Refactoring 6.cs</DependentUpon>
+    <Compile Include="Migrations\201511122256523_Odin.cs" />
+    <Compile Include="Migrations\201511122256523_Odin.Designer.cs">
+      <DependentUpon>201511122256523_Odin.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,8 +106,8 @@
     <EmbeddedResource Include="Migrations\201511121841319_Refactoring 5.resx">
       <DependentUpon>201511121841319_Refactoring 5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511121920414_Refactoring 6.resx">
-      <DependentUpon>201511121920414_Refactoring 6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511122256523_Odin.resx">
+      <DependentUpon>201511122256523_Odin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

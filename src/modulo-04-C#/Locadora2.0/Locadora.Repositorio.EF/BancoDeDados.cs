@@ -42,7 +42,8 @@ namespace Locadora.Repositorio.EF
                 Property(p => p.ImagemUrl).IsOptional();
                 Property(p => p.VideoUrl).IsOptional();
                 Property(p => p.DataLocacao).IsOptional();
-                HasOptional(p => p.Clientes).WithOptionalDependent().Map(m => m.MapKey("IDCliente"));
+                Property(p => p.IDCliente).IsOptional();
+                HasOptional(p => p.Cliente).WithMany().HasForeignKey(p => p.IDCliente);
             }
         }
         class ClienteMap : EntityTypeConfiguration<Cliente>

@@ -19,7 +19,9 @@ namespace Locadora.Dominio
 
         public string ImagemUrl { get; set; }
 
-        public Cliente Clientes { get; private set; }
+        public Cliente Cliente { get; private set; }
+        
+        public int? IDCliente { get; private set; }
         
         public DateTime? DataLocacao { get; set; }
 
@@ -35,7 +37,8 @@ namespace Locadora.Dominio
 
         public void LocarPara(Cliente cliente)
         {
-            this.Clientes = cliente;
+            this.Cliente = cliente;
+            this.IDCliente = cliente.IDCliente;
         }
 
         public override string ToString()
@@ -66,7 +69,7 @@ namespace Locadora.Dominio
                 return this.IDJogo == jogoComp.IDJogo
                     && this.Nome == jogoComp.Nome
                     && this.Categoria == jogoComp.Categoria
-                    && this.Clientes.IDCliente == jogoComp.Clientes.IDCliente
+                    && this.Cliente.IDCliente == jogoComp.Cliente.IDCliente
                     && this.Selos == jogoComp.Selos
                     && this.Descricao == jogoComp.Descricao
                     && this.ImagemUrl == jogoComp.ImagemUrl
