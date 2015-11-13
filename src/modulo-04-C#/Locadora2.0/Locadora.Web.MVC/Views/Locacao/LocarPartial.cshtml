@@ -3,12 +3,12 @@
 <h2 class="text-center">Locar Jogo</h2>
 
 <div class="row" style="margin-top:30px;">
-    <div class="col-md-4">
-        <img src=@Model.Imagem style=" width: 400px; height: 350px" />
+    <div class="col-md-4 ui-icon-image">
+        <img class="img-responsive" src=@Model.Imagem style=" width: 400px; height: 350px" />
     </div>
     <div class="col-md-3" style="margin-left:40px; padding-top:20px; font-size:medium; border: ridge">
         <p>Nome do Jogo: @Model.Nome</p>
-        <p>Preco @Model.Preco</p>
+        <p>Preco  @Model.Preco.ToString("C") </p>
         <p>Previsao de entrega: @Model.DataEntrega</p>
     </div>
 </div>

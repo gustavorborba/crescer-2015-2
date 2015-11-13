@@ -7,7 +7,7 @@ namespace Locadora.Dominio.Teste
     public class ClienteTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ClienteTeste()
         {
             Cliente cliente = new Cliente(1);
             cliente.Nome = "Mau";

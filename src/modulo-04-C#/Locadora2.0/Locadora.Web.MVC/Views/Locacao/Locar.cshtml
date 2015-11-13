@@ -2,9 +2,12 @@
 @{
     ViewBag.Title = "Locar";
 }
+
+
 <h3 style="color:red">
     @TempData["Mensagem"]
 </h3>
+
 @Html.Action("LocarPartial","Locacao",new { id = Model.IDJogo})
 <div  style="margin-top: 25px; margin-left: 25px;">
     <form action="@Url.Action("SalvarLocacao", "Locacao")" method="post">

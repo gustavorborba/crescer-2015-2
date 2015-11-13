@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="ClienteTest.cs" />
     <Compile Include="JogoTeste.cs" />
-    <Compile Include="ValidarUsuarioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
