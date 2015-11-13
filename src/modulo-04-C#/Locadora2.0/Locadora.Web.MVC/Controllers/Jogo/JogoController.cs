@@ -132,5 +132,25 @@ namespace Locadora.Web.MVC.Controllers.Jogo
             TempData["Mensagem"] = "Ocorreu os seguintes erros: ";
             return View("Editar",model);
         }
+        public JsonResult JogoAutocomplete(string term)
+        {
+            IList<Dominio.Jogo> JogoEncontrados = ObterJogosPorFiltro(term);
+
+            var json = JogoEncontrados.Select(x => new { label = x.Nome });
+
+            return Json(json, JsonRequestBehavior.AllowGet);
+        }
+
+        private IList<Dominio.Jogo> ObterJogosPorFiltro(string nome)
+        {
+            IJogoRepositorio jogoRepositorio = new JogoRepositorio();
+
+            if (string.IsNullOrEmpty(nome))
+                return jogoRepositorio.BuscarTodos();
+            else
+            {
+                return jogoRepositorio.BuscarPorNome(nome);
+            }
+        }
     }
 }
