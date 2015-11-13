@@ -2,9 +2,9 @@
 @{
     ViewBag.Title = "Jogos Disponíveis";
 }
-<h2>
+<h3 style="color: red;">
     @TempData["Mensagem"]
-</h2>
+</h3>
 @if (User.IsInRole("ADMIN"))
 {
     <input type="button" value="Criar Jogo" class=" btn btn-primary btn-md pull-right" onclick="location.href='@Url.Action("Editar","Jogo")'" />

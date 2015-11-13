@@ -41,6 +41,12 @@ namespace Locadora.Dominio
             this.IDCliente = cliente.IDCliente;
         }
 
+        public void DevolverJogo()
+        {
+            this.Cliente = null;
+            this.IDCliente = null;
+        }
+
         public override string ToString()
         {
             var builder = new StringBuilder();

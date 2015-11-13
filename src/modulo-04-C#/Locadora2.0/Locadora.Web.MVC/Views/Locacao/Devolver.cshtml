@@ -8,4 +8,4 @@
 <p>@Model.Nome</p>
 <p>@Model.Preco</p>
 <p>@Model.DataLocacao</p>
-
+<input type="button" value="Devolver" class=" btn btn-primary btn-md pull-right" onclick="location.href='@Url.Action("SalvarDevolucao","Locacao", new { id = Model.IDJogo})'" />

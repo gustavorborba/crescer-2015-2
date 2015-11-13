@@ -18,6 +18,11 @@ namespace Locadora.Dominio.Servicos.LocarServico
             this.jogoRepositorio = jogoRepositorio;
         }
 
+        public LocacaoServico(IJogoRepositorio jogoRepositorio)
+        {
+            this.jogoRepositorio = jogoRepositorio;
+        }
+
         public bool LocacaoValida(string nome,int id)
         {
             bool locar = clienteRepositorio.PodeLocar(nome);
@@ -39,6 +44,10 @@ namespace Locadora.Dominio.Servicos.LocarServico
         }
         public int Devolver(int id)
         {
+            var jogo = jogoRepositorio.BuscarPorID(id);
+            jogo.DevolverJogo();
+            jogo.DataLocacao = null;
+            jogoRepositorio.Atualizar(jogo);
             return 0;
         }
     }

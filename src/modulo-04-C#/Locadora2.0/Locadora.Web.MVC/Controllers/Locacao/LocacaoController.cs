@@ -52,6 +52,13 @@ namespace Locadora.Web.MVC.Controllers.Locacao
             DevolverModel model = new DevolverModel(jogo);
             return View(model);
         }
+        public ActionResult SalvarDevolucao(int id)
+        {
+            LocacaoServico locacao = new LocacaoServico(new JogoRepositorio());
+            locacao.Devolver(id);
+            TempData["Mensagem"] = "Jogo Devolvido com Sucesso";
+            return RedirectToAction("JogosDisponiveis","Jogo");
+        }
         public JsonResult ClienteAutocomplete(string term)
         {
             IList<Cliente> ClienteEncontrados = ObterJogosPorFiltro(term);
