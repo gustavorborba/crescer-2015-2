@@ -90,6 +90,8 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 model.Imagem = jogo.ImagemUrl;
                 model.Video = jogo.VideoUrl;
                 model.ID = jogo.IDJogo;
+                model.IDCliente = jogo.IDCliente;
+                model.Data = jogo.DataLocacao;
                 return View(model);
             }
             return View();
@@ -116,7 +118,8 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 jogo.Selos = model.Selos;
                 jogo.ImagemUrl = model.Imagem;
                 jogo.VideoUrl = model.Video;
-
+                jogo.DataLocacao = model.Data;
+                jogo.LocarPara(new Cliente((int)model.IDCliente));
                 if (model.ID == 0)
                 {
                     repositorio.Criar(jogo);

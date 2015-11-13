@@ -24,6 +24,9 @@ namespace Locadora.Web.MVC.Models
         [Range(1, int.MaxValue, ErrorMessage = "Selo é Obrigatorio")]
         public Selo Selos { get; set; }
 
+        public DateTime? Data { get; set; }
+
+        public int? IDCliente { get; set; }
         public int ID { get; set; }
     }
 }
