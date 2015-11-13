@@ -37,5 +37,9 @@ namespace Locadora.Dominio.Servicos.LocarServico
             jogo.DataLocacao = DateTime.Now;
             jogoRepositorio.Atualizar(jogo);
         }
+        public int Devolver(int id)
+        {
+            return 0;
+        }
     }
 }

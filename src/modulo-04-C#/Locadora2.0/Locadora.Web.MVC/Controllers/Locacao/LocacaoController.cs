@@ -9,6 +9,7 @@ using Locadora.Web.MVC.Models.Login;
 using Locadora.Dominio;
 using Locadora.Dominio.Repositorio;
 using Locadora.Dominio.Servicos.LocarServico;
+using Locadora.Web.MVC.Models.Locar;
 
 namespace Locadora.Web.MVC.Controllers.Locacao
 {
@@ -44,10 +45,12 @@ namespace Locadora.Web.MVC.Controllers.Locacao
             TempData["Mensagem"] = "Jogo indisponivel ou cliente invalido";
             return RedirectToAction("Locar","Locacao", new { id = locar.IDJogo});
         }
-        public ActionResult Devolver()
+        public ActionResult Devolver(int id)
         {
-
-            return View();
+            JogoRepositorio repositorio = new JogoRepositorio();
+            var jogo = repositorio.BuscarPorID(id);
+            DevolverModel model = new DevolverModel(jogo);
+            return View(model);
         }
         public JsonResult ClienteAutocomplete(string term)
         {
@@ -67,8 +70,7 @@ namespace Locadora.Web.MVC.Controllers.Locacao
             else
             {
                 return clienteRepositorio.BuscarPorNome(nome);
-            }
-                
+            }  
         }
     }
 }

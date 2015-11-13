@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Locadora.Dominio
 {
-    public class Jogo 
+    public class Jogo
     {
         public int IDJogo { get; private set; }
         public string Nome { get; set; }
@@ -20,9 +20,9 @@ namespace Locadora.Dominio
         public string ImagemUrl { get; set; }
 
         public Cliente Cliente { get; private set; }
-        
+
         public int? IDCliente { get; private set; }
-        
+
         public DateTime? DataLocacao { get; set; }
 
         public Jogo()
@@ -62,7 +62,7 @@ namespace Locadora.Dominio
 
         public override bool Equals(object obj)
         {
-            if(obj.GetType() == typeof(Jogo))
+            if (obj.GetType() == typeof(Jogo))
             {
                 Jogo jogoComp = (Jogo)obj;
 
@@ -77,6 +77,40 @@ namespace Locadora.Dominio
             }
 
             return false;
+        }
+        public decimal CalcularPrecoFinal()
+        {
+            decimal final = 0;
+
+            DateTime dataHoje = DateTime.Now;
+            int quantidadeDias = (int)(dataHoje - DataLocacao.Value).TotalDays;
+
+            if (this.Selos == Selo.OURO)
+            {
+                final = 15;
+                if (quantidadeDias > 1)
+                {
+                    final += (quantidadeDias-1) * 5;
+                }
+            }
+            else if (this.Selos == Selo.PRATA)
+            {
+                final = 10;
+                if (quantidadeDias > 2)
+                {
+                    final += (quantidadeDias-2) * 5;
+                }
+            }
+            else if (this.Selos == Selo.BRONZE)
+            {
+                final = 5;
+                if (quantidadeDias > 3)
+                {
+                    final += (quantidadeDias-3) * 5;
+                }
+            }
+
+            return final;
         }
     }
 }

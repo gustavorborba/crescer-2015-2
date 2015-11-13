@@ -21,6 +21,7 @@ namespace Locadora.Web.MVC.Models
             this.Selos = jogo.Selos;
             this.Imagem = jogo.ImagemUrl;
             this.IDJogo = jogo.IDJogo;
+            
             if (this.Selos == Dominio.Selo.OURO)
             {
                 this.DataEntrega = DateTime.Now.AddDays(1);
