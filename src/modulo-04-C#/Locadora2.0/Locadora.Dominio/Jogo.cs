@@ -21,7 +21,7 @@ namespace Locadora.Dominio
 
         public Cliente Cliente { get; private set; }
 
-        public int? IDCliente { get; private set; }
+        public int? IDCliente { get;  set; }
 
         public DateTime? DataLocacao { get; set; }
 
