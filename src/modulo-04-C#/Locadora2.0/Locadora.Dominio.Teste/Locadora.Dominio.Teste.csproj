@@ -52,12 +52,21 @@
   <ItemGroup>
     <Compile Include="ClienteTest.cs" />
     <Compile Include="JogoTeste.cs" />
+    <Compile Include="ValidarUsuarioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Locadora.Dominio\Locadora.Dominio.csproj">
       <Project>{93d95d00-78c7-4b77-be44-686ab7a29c7c}</Project>
       <Name>Locadora.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Locadora.Repositorio.EF\Locadora.Repositorio.EF.csproj">
+      <Project>{0e422659-1cfe-4737-9cb8-f76c908b05ac}</Project>
+      <Name>Locadora.Repositorio.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{e0e2461f-c83e-48e9-b080-7c36b022f581}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

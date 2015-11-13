@@ -5,7 +5,7 @@
 
 <h2>Devolver</h2>
 
-<p>@Model.Nome</p>
-<p>@Model.Preco</p>
-<p>@Model.DataLocacao</p>
+<p>Nome do Jogo: @Model.Nome</p>
+<p>Preco a pagar: @Model.Preco</p>
+<p>Data de Locacao: @Model.DataLocacao</p>
 <input type="button" value="Devolver" class=" btn btn-primary btn-md pull-right" onclick="location.href='@Url.Action("SalvarDevolucao","Locacao", new { id = Model.IDJogo})'" />

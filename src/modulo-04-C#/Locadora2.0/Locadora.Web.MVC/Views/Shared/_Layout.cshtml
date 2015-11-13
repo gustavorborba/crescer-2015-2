@@ -27,6 +27,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Locadora CWI Crescer", "Index", "Jogo", new { area = "" }, new { @class = "navbar-brand" })
+                @if (User.IsInRole("ADMIN") || User.IsInRole("ATENDENTE"))
+                {
+                    @Html.ActionLink("Sair", "Encerrar", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                }
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav"></ul>
@@ -38,7 +43,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - CWI Crescer</p>
+
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")

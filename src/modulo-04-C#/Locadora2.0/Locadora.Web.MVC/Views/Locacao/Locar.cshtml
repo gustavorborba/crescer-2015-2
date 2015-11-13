@@ -6,13 +6,15 @@
     @TempData["Mensagem"]
 </h3>
 @Html.Action("LocarPartial","Locacao",new { id = Model.IDJogo})
+<div  style="margin-top: 25px; margin-left: 25px;">
+    <form action="@Url.Action("SalvarLocacao", "Locacao")" method="post">
+        <label for="Nome">Pesquisa por nome: </label>
+        <input type="text" id="Nome" name="Nome" value="" />
+        @Html.HiddenFor(m => m.IDJogo)
+        <input type="submit" id="btnEnviar" value="Enviar" />
+    </form>
+</div>
 
-<form action="@Url.Action("SalvarLocacao", "Locacao")" method="post">
-    <label for="Nome">Pesquisa por nome: </label>
-    <input type="text" id="Nome" name="Nome" value="" />
-    @Html.HiddenFor(m => m.IDJogo)
-    <input type="submit" id="btnEnviar" value="Enviar" />
-</form>
 @section Scripts {
 <script>
         $("document").ready(function() {

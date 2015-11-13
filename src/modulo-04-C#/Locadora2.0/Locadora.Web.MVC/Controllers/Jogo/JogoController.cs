@@ -119,7 +119,6 @@ namespace Locadora.Web.MVC.Controllers.Jogo
                 jogo.ImagemUrl = model.Imagem;
                 jogo.VideoUrl = model.Video;
                 jogo.DataLocacao = model.Data;
-                jogo.LocarPara(new Cliente((int)model.IDCliente));
                 if (model.ID == 0)
                 {
                     repositorio.Criar(jogo);

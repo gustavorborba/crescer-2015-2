@@ -10,7 +10,7 @@ namespace Locadora.Web.MVC.Models
     {
         public string Nome { get; set; }
         public decimal Preco { get; set; }
-        public DateTime DataEntrega { get; set; }
+        public string DataEntrega { get; set; }
         public string Imagem { get; set; }
         public Selo Selos { get; set; }
         public int IDJogo { get; set; }
@@ -24,17 +24,17 @@ namespace Locadora.Web.MVC.Models
             
             if (this.Selos == Dominio.Selo.OURO)
             {
-                this.DataEntrega = DateTime.Now.AddDays(1);
+                this.DataEntrega = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
                 this.Preco = 15;
             }
             if (jogo.Selos == Dominio.Selo.PRATA)
             {
-                this.DataEntrega = DateTime.Now.AddDays(2);
+                this.DataEntrega = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
                 this.Preco = 10;
             }
             if (jogo.Selos == Dominio.Selo.BRONZE)
             {
-                this.DataEntrega = DateTime.Now.AddDays(3);
+                this.DataEntrega = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
                 this.Preco = 5;
             }
         }
