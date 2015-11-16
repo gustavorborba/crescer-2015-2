@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ClienteTest.cs" />
     <Compile Include="JogoTeste.cs" />
+    <Compile Include="PermissaoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

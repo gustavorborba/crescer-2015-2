@@ -1,0 +1,11 @@
+package cwi;
+
+public class Aplicacao {
+	public static void main(String[] args) {
+		LinkedList linkedList = new LinkedList();
+		linkedList.addFirst("primeiro");
+		System.out.println(linkedList.lista().size());
+		linkedList.removeFirst();
+		System.out.println(linkedList.getFirst());
+	}
+}

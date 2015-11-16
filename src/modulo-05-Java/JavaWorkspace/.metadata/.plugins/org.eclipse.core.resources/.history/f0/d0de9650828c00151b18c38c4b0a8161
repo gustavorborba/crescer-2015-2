@@ -1,0 +1,18 @@
+package cwi;
+
+public class Node {
+	private String value;
+	private Node next;
+	private Node last;
+		public Node(String value,Node next)
+		{
+			this.value = value;
+			this.next = next;
+		}
+		public Node(String value){
+			this.value = value;
+		}
+		public String getValue(){
+			return value;
+		}
+}
