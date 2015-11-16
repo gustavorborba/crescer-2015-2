@@ -40,11 +40,12 @@ public class LinkedList<T> {
 		return size;
 	}
 	public void addLast(T value){
-		Node<T> node = new Node<T>(value,last);
+		Node<T> node = new Node<T>(value);
 		if(first == null){
 			first=node;
 		}
-		last=node;
+		last.setNext(node);;
+		last = node;
 	}
 	public void removeFirst(){
 		first = first.getnext();
