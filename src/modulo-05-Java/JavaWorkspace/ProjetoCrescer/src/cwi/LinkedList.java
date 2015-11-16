@@ -1,6 +1,5 @@
 package cwi;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 public class LinkedList<T> {
@@ -57,21 +56,51 @@ public class LinkedList<T> {
 	}
 	private Node<T> findNode(int index){
 		Node<T> node = this.first;
-		for(int i=0; i <=index;i++){
-			node.getnext();
+		for(int i=1; i < index;i++){
+			node=node.getnext();
 		}
 		return node;
 	}
-	public void AddMiddle(T value){
-		int local = this.size()/2;
-		Node<T> node = this.findNode(local-1);
-		Node<T> adicionar = new Node<T>(value);
-		adicionar.setNext(node.getnext());
-		node.setNext(adicionar);
+	public void AddMiddle(int index, T value){
+		Node<T> node = findNode(index -1);
+		Node<T> nodeAdicionar = new Node<T>(value);
+		if(node == first){
+			nodeAdicionar.setNext(first);
+			first = nodeAdicionar;
+		}else{
+			nodeAdicionar.setNext(node.getnext());
+			node.setNext(nodeAdicionar);
+		}
+		
 	}
 	public void AddLast(T value){
 		Node<T> node = new Node<T>(value);
 		this.last.setNext(node);
 		this.last = node;
 	}
+	protected class Node<U> {
+		private U value;
+		private Node<U> next;
+			public Node(U value,Node<U> next)
+			{
+				this.value = value;
+				this.next = next;
+			}
+			public Node(U value){
+				this.value = value;
+			}
+			public U getValue(){
+				return value;
+			}
+			public Node<U> getnext(){
+				return this.next;
+			}
+			public void remove(){
+				next=null;
+			}
+			public void setNext(Node<U> next){
+				this.next = next;
+			}
+	}
+
 }

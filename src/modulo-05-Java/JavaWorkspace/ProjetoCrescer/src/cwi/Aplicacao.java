@@ -8,7 +8,7 @@ public class Aplicacao {
 		linkedList.addFirst("primeiro");
 		linkedList.addFirst("segundo");
 		linkedList.addFirst("terceiro");
-		linkedList.AddMiddle("Joao");
+		linkedList.AddMiddle(0,"Joao");
 		linkedList.addLast("Borba");
 		ArrayList<String> lista=linkedList.lista();
 		
