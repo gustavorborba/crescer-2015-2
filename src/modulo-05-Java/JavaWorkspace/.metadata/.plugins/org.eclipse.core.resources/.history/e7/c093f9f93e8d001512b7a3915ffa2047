@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import cwi.DoublyLinkedList;
-import cwi.LinkedList;
 
 public class DoublyLinkedListTest {
 	@Test
@@ -30,17 +29,6 @@ public class DoublyLinkedListTest {
 		assertEquals(linkedList.getLast(),"Segundo");
 	}
 	@Test
-	public void adicionarAoFinal2(){
-		DoublyLinkedList<String> linkedList = new DoublyLinkedList<String>();
-		linkedList.addFirst("primeiro");
-		linkedList.addLast("Segundo");
-		linkedList.addFirst("Quarto");
-		linkedList.addFirst("Terceiro");
-		linkedList.addLast("Quinto");
-		assertEquals(linkedList.getFirst(),"Terceiro");
-		assertEquals(linkedList.getLast(),"Quinto");
-	}
-	@Test
 	public void adicionarAoMeio(){
 		DoublyLinkedList<String> linkedList = new DoublyLinkedList<String>();
 		linkedList.addFirst("primeiro");
@@ -50,21 +38,6 @@ public class DoublyLinkedListTest {
 		ArrayList<String> lista= linkedList.lista();
 		assertEquals(lista.get(1),"MEIO");
 		assertEquals(lista.get(0),"Terceiro");
-	}
-	@Test
-	public void adicionarAoMeioDiversasSituacoes(){
-		DoublyLinkedList<String> linkedList = new DoublyLinkedList<String>();
-		linkedList.addFirst("primeiro");
-		linkedList.addLast("Quinto");
-		linkedList.addFirst("Segundo");
-		linkedList.addFirst("Terceiro");
-		linkedList.addLast("Quarto");
-		linkedList.addFirst("Terceiro");
-		linkedList.AddMiddle(1, "MEIO");
-		linkedList.addFirst("Sexto");
-		ArrayList<String> lista= linkedList.lista();
-		assertEquals(lista.get(2),"MEIO");
-		assertEquals(lista.size(),8);
 	}
 	@Test
 	public void returnList(){

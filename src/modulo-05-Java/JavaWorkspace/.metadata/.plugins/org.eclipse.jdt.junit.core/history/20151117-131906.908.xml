@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="LinkedListTest" project="ProjetoCrescer" tests="8" started="8" failures="0" errors="0" ignored="0">
+  <testsuite name="Test.LinkedListTest" time="0.001">
+    <testcase name="adicionarPrimeiroNaLista" classname="Test.LinkedListTest" time="0.001"/>
+    <testcase name="adicionarAoFinal" classname="Test.LinkedListTest" time="0.0"/>
+    <testcase name="removePorIndex" classname="Test.LinkedListTest" time="0.0"/>
+    <testcase name="removeFirst" classname="Test.LinkedListTest" time="0.0"/>
+    <testcase name="adicionarAoMeio" classname="Test.LinkedListTest" time="0.0"/>
+    <testcase name="removeLast" classname="Test.LinkedListTest" time="0.0"/>
+    <testcase name="returnList" classname="Test.LinkedListTest" time="0.0"/>
+    <testcase name="adicionarAoMeioDiversasSituacoes" classname="Test.LinkedListTest" time="0.0"/>
+  </testsuite>
+</testrun>

@@ -30,6 +30,17 @@ public class LinkedListTest {
 		assertEquals(linkedList.getLast(),"Segundo");
 	}
 	@Test
+	public void adicionarAoFinal2(){
+		LinkedList<String> linkedList = new LinkedList<String>();
+		linkedList.addFirst("primeiro");
+		linkedList.addLast("Segundo");
+		linkedList.addFirst("Quarto");
+		linkedList.addFirst("Terceiro");
+		linkedList.addLast("Quinto");
+		assertEquals(linkedList.getFirst(),"Terceiro");
+		assertEquals(linkedList.getLast(),"Quinto");
+	}
+	@Test
 	public void adicionarAoMeio(){
 		LinkedList<String> linkedList = new LinkedList<String>();
 		linkedList.addFirst("primeiro");
@@ -39,6 +50,21 @@ public class LinkedListTest {
 		ArrayList<String> lista= linkedList.lista();
 		assertEquals(lista.get(1),"MEIO");
 		assertEquals(lista.get(0),"Terceiro");
+	}
+	@Test
+	public void adicionarAoMeioDiversasSituacoes(){
+		LinkedList<String> linkedList = new LinkedList<String>();
+		linkedList.addFirst("primeiro");
+		linkedList.addLast("Quinto");
+		linkedList.addFirst("Segundo");
+		linkedList.addFirst("Terceiro");
+		linkedList.addLast("Quarto");
+		linkedList.addFirst("Terceiro");
+		linkedList.AddMiddle(1, "MEIO");
+		linkedList.addFirst("Sexto");
+		ArrayList<String> lista= linkedList.lista();
+		assertEquals(lista.get(2),"MEIO");
+		assertEquals(lista.size(),8);
 	}
 	@Test
 	public void returnList(){
