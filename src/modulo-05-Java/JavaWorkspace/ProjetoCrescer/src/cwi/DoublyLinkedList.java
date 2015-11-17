@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class DoublyLinkedList<T> {
 	private Node<T> first,last;
+	
 	public void addFirst(T value)
 	{
 		Node<T> node=new Node<T>(value,first);
@@ -16,32 +17,6 @@ public class DoublyLinkedList<T> {
 			first=node;
 		}
 	}
-	public T getFirst()
-	{
-		return first.getValue();
-	}
-	public T getLast(){
-		return last.getValue();
-	}
-	
-	public ArrayList<T> lista(){
-		ArrayList<T> lista= new ArrayList<T>();
-		Node<T> node= first;
-		while(node != null){
-			lista.add(node.getValue());
-			node=node.getNext();
-			}	
-		return lista;
-	}
-	public int size(){
-		int size=0;
-		Node<T> node= first;
-		while(node != null){
-			size++;
-			node=node.getNext();
-			}
-		return size;
-	}
 	public void addLast(T value){
 		Node<T> node = new Node<T>(value);
 		if(this.isEmpty()){
@@ -51,28 +26,6 @@ public class DoublyLinkedList<T> {
 			node.setPreview(last);
 			last = node;
 		}
-	}
-	public void removeFirst(){
-		first = first.getNext();
-	}
-	public void remove(int index){
-		Node<T> node = this.findNode(index);
-		if(node == first){
-			this.removeFirst();
-		}else if(node == last){
-			this.RemoveLast();
-		}else{
-			Node<T> nodeAuxiliar = node.getPreview();
-			nodeAuxiliar.setNext(node.getNext());
-			nodeAuxiliar.getNext().setPreview(nodeAuxiliar);
-		}
-	}
-	private Node<T> findNode(int index){
-		Node<T> node = this.first;
-		for(int i=0; i < index;i++){
-			node=node.getNext();
-		}
-		return node;
 	}
 	public void AddMiddle(int index, T value){
 		Node<T> node = findNode(index);
@@ -88,6 +41,9 @@ public class DoublyLinkedList<T> {
 			node.setPreview(nodeAdicionar);
 		}
 	}
+	public void removeFirst(){
+		first = first.getNext();
+	}
 	public void RemoveLast(){
 		if(this.last != null){
 			Node<T> node = last.getPreview();
@@ -95,6 +51,41 @@ public class DoublyLinkedList<T> {
 			last = node;
 			last.setNext(null);
 		}
+	}
+	public void remove(int index){
+		Node<T> node = this.findNode(index);
+		if(node == first){
+			this.removeFirst();
+		}else if(node == last){
+			this.RemoveLast();
+		}else{
+			Node<T> nodeAuxiliar = node.getPreview();
+			nodeAuxiliar.setNext(node.getNext());
+			nodeAuxiliar.getNext().setPreview(nodeAuxiliar);
+		}
+	}
+	public T getFirst()
+	{
+		return first.getValue();
+	}
+	public T getLast(){
+		return last.getValue();
+	}
+	public ArrayList<T> lista(){
+		ArrayList<T> lista= new ArrayList<T>();
+		Node<T> node= first;
+		while(node != null){
+			lista.add(node.getValue());
+			node=node.getNext();
+			}	
+		return lista;
+	}
+	private Node<T> findNode(int index){
+		Node<T> node = this.first;
+		for(int i=0; i < index;i++){
+			node=node.getNext();
+		}
+		return node;
 	}
 	
 	 public boolean isEmpty() {
