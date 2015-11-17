@@ -13,7 +13,6 @@ public class Aplicacao {
 	public static void main(String[] args) throws SQLException{
 		ClienteDao dao = new ClienteDao();
 		Cliente clienteAdd = new Cliente(2,"Chuck Berry","000000");
-		dao.insert(clienteAdd);
 		List<Cliente> lista= dao.listAll();
 		for(Cliente cliente : lista){
 			System.out.println(cliente.getNmNome());
