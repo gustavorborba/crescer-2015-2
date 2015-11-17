@@ -25,7 +25,7 @@ public class LinkedList<T> {
 		Node<T> node= first;
 		while(node != null){
 			lista.add(node.getValue());
-			node=node.getnext();
+			node=node.getNext();
 			}	
 		return lista;
 	}
@@ -34,7 +34,7 @@ public class LinkedList<T> {
 		Node<T> node= first;
 		while(node != null){
 			size++;
-			node=node.getnext();
+			node=node.getNext();
 			}
 		return size;
 	}
@@ -47,17 +47,24 @@ public class LinkedList<T> {
 		last = node;
 	}
 	public void removeFirst(){
-		first = first.getnext();
+		first = first.getNext();
 	}
+	//Irei mudar essa implementação assim que possivel, não curti o codigo dela.
 	public void remove(int index){
 		Node<T> node = this.findNode(index -1);
-		Node<T> removido = node.getnext();
-		node.setNext(removido.getnext());
+		if(node == this.first && index == 0){
+			this.removeFirst();
+		}else if(node == last){
+			this.RemoveLast();
+		}else{
+			Node<T> removido = node.getNext();
+			node.setNext(removido.getNext());
+		}
 	}
 	private Node<T> findNode(int index){
 		Node<T> node = this.first;
-		for(int i=1; i < index;i++){
-			node=node.getnext();
+		for(int i=0; i < index;i++){
+			node=node.getNext();
 		}
 		return node;
 	}
@@ -68,15 +75,20 @@ public class LinkedList<T> {
 			nodeAdicionar.setNext(first);
 			first = nodeAdicionar;
 		}else{
-			nodeAdicionar.setNext(node.getnext());
+			nodeAdicionar.setNext(node.getNext());
 			node.setNext(nodeAdicionar);
 		}
 		
 	}
-	public void AddLast(T value){
-		Node<T> node = new Node<T>(value);
-		this.last.setNext(node);
-		this.last = node;
+	public void RemoveLast(){
+		Node<T> node = first;
+		while(node != null){
+			if(node.getNext() == last){
+				node.setNext(null);
+			}else{
+				node = node.getNext();
+			}	
+		}
 	}
 	protected class Node<U> {
 		private U value;
@@ -92,7 +104,7 @@ public class LinkedList<T> {
 			public U getValue(){
 				return value;
 			}
-			public Node<U> getnext(){
+			public Node<U> getNext(){
 				return this.next;
 			}
 			public void remove(){
