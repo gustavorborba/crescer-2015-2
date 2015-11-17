@@ -7,7 +7,7 @@ public class LinkedList<T> {
 	public void addFirst(T value)
 	{
 		Node<T> node=new Node<T>(value,first);
-		if(first == null){
+		if(this.isEmpty()){
 			last = node;
 		}
 		first = node;
@@ -29,22 +29,14 @@ public class LinkedList<T> {
 			}	
 		return lista;
 	}
-	public int size(){
-		int size=0;
-		Node<T> node= first;
-		while(node != null){
-			size++;
-			node=node.getNext();
-			}
-		return size;
-	}
 	public void addLast(T value){
 		Node<T> node = new Node<T>(value);
-		if(first == null){
-			first=node;
+		if(this.isEmpty()){
+			this.addFirst(value);
+		}else{
+			last.setNext(node);
+			last = node;
 		}
-		last.setNext(node);;
-		last = node;
 	}
 	public void removeFirst(){
 		first = first.getNext();
@@ -70,11 +62,12 @@ public class LinkedList<T> {
 	}
 	public void AddMiddle(int index, T value){
 		Node<T> node = findNode(index -1);
-		Node<T> nodeAdicionar = new Node<T>(value);
-		if(node == first){
-			nodeAdicionar.setNext(first);
-			first = nodeAdicionar;
+		if(index == 0){
+			this.addFirst(value);
+		}else if(node == last){
+			this.addLast(value);
 		}else{
+			Node<T> nodeAdicionar = new Node<T>(value);
 			nodeAdicionar.setNext(node.getNext());
 			node.setNext(nodeAdicionar);
 		}
@@ -82,14 +75,23 @@ public class LinkedList<T> {
 	}
 	public void RemoveLast(){
 		Node<T> node = first;
-		while(node != null){
-			if(node.getNext() == last){
-				node.setNext(null);
-			}else{
-				node = node.getNext();
-			}	
+		if(node.getNext() == last){
+			first.setNext(null);
+			this.last = first;
+		}else{
+			while(node != null){
+				if(node.getNext() == last){
+					node.setNext(null);
+					last=node;
+				}
+				node = node.getNext();			
+			}
 		}
 	}
+	 public boolean isEmpty() {
+	        return first == null;
+	    }
+
 	protected class Node<U> {
 		private U value;
 		private Node<U> next;
