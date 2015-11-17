@@ -2,7 +2,7 @@ package cwi;
 
 import java.util.ArrayList;
 
-public class LinkedList<T> {
+public class LinkedList<T> implements List<T> {
 	private Node<T> last,first;
 	public void addFirst(T value)
 	{
@@ -51,7 +51,7 @@ public class LinkedList<T> {
 			}
 		}
 	}
-	//Irei mudar essa implementação assim que possivel, não curti o codigo dela.
+	//Irei mudar essa implementação assim que possivel.
 	public void remove(int index){
 		Node<T> node = this.findNode(index -1);
 		if(node == this.first && index == 0){

@@ -82,3 +82,4 @@ public class DoublyLinkedListTest {
 		assertEquals(lista.size(),3);
 	}
 }
+

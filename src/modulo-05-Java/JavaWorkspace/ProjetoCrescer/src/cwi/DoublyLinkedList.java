@@ -2,11 +2,10 @@ package cwi;
 
 import java.util.ArrayList;
 
-public class DoublyLinkedList<T> {
+public class DoublyLinkedList<T> implements List<T> {
 	private Node<T> first,last;
 	
-	public void addFirst(T value)
-	{
+	public void addFirst(T value){
 		Node<T> node=new Node<T>(value,first);
 		if(this.isEmpty()){
 			last = node;
@@ -64,8 +63,7 @@ public class DoublyLinkedList<T> {
 			nodeAuxiliar.getNext().setPreview(nodeAuxiliar);
 		}
 	}
-	public T getFirst()
-	{
+	public T getFirst(){
 		return first.getValue();
 	}
 	public T getLast(){
@@ -122,4 +120,4 @@ public class DoublyLinkedList<T> {
 				this.preview = preview;
 			}
 	}
-}
+	}
