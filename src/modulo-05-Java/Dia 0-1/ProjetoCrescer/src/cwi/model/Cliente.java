@@ -11,7 +11,7 @@ public class Cliente {
 	public String getNmNome(){
 		return this.nmNome;
 	}
-	public String nrCpf(){
+	public String getNrCpf(){
 		return this.nrCpf;
 	}
 	public Cliente(long id,String nome,String cpf){
@@ -19,4 +19,9 @@ public class Cliente {
 		this.nmNome = nome;
 		this.nrCpf = cpf;
 	}
+	public Cliente(String nome,String cpf){
+		this.nmNome = nome;
+		this.nrCpf = cpf;
+	}
+	public Cliente(){}
 }
