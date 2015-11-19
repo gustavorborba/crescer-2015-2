@@ -28,8 +28,7 @@ public class PedidoDao {
 	public List<Pedido> listAll() throws SQLException{
 		try(Connection conexao = new ConnectionFactory().getConnection()){
 			StringBuilder query = new StringBuilder();
-			query.append("select pedido.idpedido,pedido.dsPedido,cliente.idCliente,cliente.nmCliente,cliente.nrCpf from pedido ");
-			query.append(" inner join cliente on pedido.idcliente = cliente.idcliente");
+			query.append(this.queryMaster);
 			PreparedStatement statement = conexao.prepareStatement(query.toString());
 			ResultSet result = statement.executeQuery();
 			
@@ -48,8 +47,8 @@ public class PedidoDao {
 	public Pedido load(long id) throws SQLException{
 		try(Connection conexao = new ConnectionFactory().getConnection()){
 			StringBuilder query = new StringBuilder();
-			query.append("select pedido.idpedido,pedido.dsPedido,cliente.idCliente,cliente.nmCliente,cliente.nrCpf from pedido ");
-			query.append(" inner join cliente on pedido.idcliente = cliente.idcliente where idpedido = ?");
+			query.append(this.queryMaster);
+			query.append(" where idpedido = ?");
 			PreparedStatement statement = conexao.prepareStatement(query.toString());
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
