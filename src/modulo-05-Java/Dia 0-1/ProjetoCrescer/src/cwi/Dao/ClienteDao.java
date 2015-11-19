@@ -10,7 +10,7 @@ import java.util.List;
 import cwi.jdbc.ConnectionFactory;
 import cwi.model.Cliente;
 
-public class ClienteDao {
+public class ClienteDao implements IClienteDao {
 	public void insert(Cliente cliente) throws SQLException{
 		try{
 			Connection conexao = new ConnectionFactory().getConnection();

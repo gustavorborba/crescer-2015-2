@@ -10,7 +10,7 @@ import java.util.List;
 import cwi.jdbc.ConnectionFactory;
 import cwi.model.Servico;
 
-public class ServicoDao {
+public class ServicoDao implements IServicoDao {
 	public void insert(Servico servico) throws SQLException{
 		try(Connection conexao = new ConnectionFactory().getConnection()) {
 			PreparedStatement statement = conexao.prepareStatement("insert into Servico (idServico,dsServico) values (?,?)");

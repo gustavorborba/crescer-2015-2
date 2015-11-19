@@ -11,7 +11,7 @@ import cwi.jdbc.ConnectionFactory;
 import cwi.model.Cliente;
 import cwi.model.Pedido;
 
-public class PedidoDao {
+public class PedidoDao implements IPedidoDao{
 	private String queryMaster = "select pedido.idpedido,pedido.dsPedido,cliente.idCliente,cliente.nmCliente,cliente.nrCpf from pedido inner join cliente on pedido.idcliente = cliente.idcliente ";
 	public void  insert(Pedido pedido) throws SQLException{
 		try(Connection conexao = new ConnectionFactory().getConnection()) {
