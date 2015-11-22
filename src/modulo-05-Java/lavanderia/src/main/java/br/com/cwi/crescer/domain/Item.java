@@ -26,7 +26,6 @@ public class Item {
 	@Basic(optional = false)
 	private long idPedido;
 	
-	
 	@Column(name = "IDProduto")
 	@Basic(optional = false)
 	private long idProduto;
@@ -35,20 +34,20 @@ public class Item {
 	@Basic(optional = false)
 	private BigDecimal peso;
 	
-	@Column(name = "ValorUnitario")
+	@Column(name = "VALORUnitario")
 	@Basic(optional = false)
 	private BigDecimal valorUnitario;
 	
-	@Column(name = "ValorDesconto")
+	@Column(name = "VALORDesconto")
 	@Basic(optional = false)
 	private BigDecimal valorDesconto;
 	
-	@Column(name = "ValorTotal")
+	@Column(name = "VALORTotal")
 	@Basic(optional = false)
 	private BigDecimal valorTotal;
 	
 	@Column(name = "Situacao",length = 1)
-	private char situacao;
+	private String situacao;
 
 	public long getIdItem() {
 		return idItem;
@@ -106,11 +105,11 @@ public class Item {
 		this.valorTotal = valorTotal;
 	}
 
-	public char getSituacao() {
+	public String getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(char situacao) {
+	public void setSituacao(String situacao) {
 		this.situacao = situacao;
 	}
 	
