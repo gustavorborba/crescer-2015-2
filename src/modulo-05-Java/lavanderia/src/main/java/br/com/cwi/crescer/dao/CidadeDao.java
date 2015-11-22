@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.domain.Cidade;
 
 @Repository
-public class CidadeDao{
+public class CidadeDao implements IDao<Cidade>{
 	@PersistenceContext
 	private EntityManager em;
 	

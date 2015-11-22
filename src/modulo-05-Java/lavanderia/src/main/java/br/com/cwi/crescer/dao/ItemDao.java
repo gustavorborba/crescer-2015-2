@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.domain.Item;
 
 @Repository
-public class ItemDao {
+public class ItemDao implements IDao<Item> {
 	@PersistenceContext
 	private EntityManager em;
 	

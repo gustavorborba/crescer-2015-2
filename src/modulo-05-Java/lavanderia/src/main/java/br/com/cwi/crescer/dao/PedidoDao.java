@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.domain.Pedido;
 
 @Repository
-public class PedidoDao {
+public class PedidoDao implements IDao<Pedido>{
 	@PersistenceContext
 	private EntityManager em;
 	

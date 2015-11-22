@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.domain.Material;
 
 @Repository
-public class MaterialDao {
+public class MaterialDao implements IDao<Material>{
 	@PersistenceContext
 	private EntityManager em;
 	
