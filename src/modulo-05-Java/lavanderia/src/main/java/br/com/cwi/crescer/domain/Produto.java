@@ -33,5 +33,37 @@ public class Produto {
 	@Column(name = "Valor")
 	@Basic(optional = false)
 	private BigDecimal valor;
+
+	public long getIdProduto() {
+		return idProduto;
+	}
+
+	public void setIdProduto(long idProduto) {
+		this.idProduto = idProduto;
+	}
+
+	public long getIdServico() {
+		return idServico;
+	}
+
+	public void setIdServico(long idServico) {
+		this.idServico = idServico;
+	}
+
+	public long getIdMaterial() {
+		return idMaterial;
+	}
+
+	public void setIdMaterial(long idMaterial) {
+		this.idMaterial = idMaterial;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
 	
 }
