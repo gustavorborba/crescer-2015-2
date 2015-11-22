@@ -1,9 +1,6 @@
 package br.com.cwi.crescer.dao;
 
 import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
