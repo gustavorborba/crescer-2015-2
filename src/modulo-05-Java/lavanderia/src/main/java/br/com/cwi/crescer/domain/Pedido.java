@@ -27,11 +27,11 @@ public class Pedido {
 	@Basic(optional = false)
 	private long idCliente;
 	
-	@Column(name = "DataInclusao")
+	@Column(name = "DATAInclusao")
 	@Basic(optional = false)
 	private Date dataInclusao;
 	
-	@Column(name = "DataEntrega")
+	@Column(name = "DATAEntrega")
 	private Date dataEntrega;
 	
 	@Column(name = "Valor")
@@ -39,7 +39,7 @@ public class Pedido {
 	private BigDecimal  valor;
 	
 	@Column(name = "Situacao",length = 1)
-	private char situacao;
+	private String situacao;
 
 	public long getIdPedido() {
 		return idPedido;
@@ -81,11 +81,11 @@ public class Pedido {
 		this.valor = valor;
 	}
 
-	public char getSituacao() {
+	public String getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(char situacao) {
+	public void setSituacao(String situacao) {
 		this.situacao = situacao;
 	}
 }
