@@ -17,4 +17,9 @@ public class ItemDaoTest extends AbstractInfrastructureTest{
 		Item item = dao.findById(1);
 		Assert.assertNotNull(item);
 	}
+	@Test
+	public void joinTest(){
+		Item item = dao.findById(1);
+		Assert.assertNotNull(item.getPedido());
+	}
 }

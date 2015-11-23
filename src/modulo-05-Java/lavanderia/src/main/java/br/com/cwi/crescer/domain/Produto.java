@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,13 +24,15 @@ public class Produto {
 	@Column(name = "IDProduto")
 	private long idProduto;
 	
-	@Column(name = "IDServico")
+	@ManyToOne
+	@JoinColumn(name = "IDServico")
 	@Basic(optional = false)
-	private long idServico;
+	private Servico servico;
 	
-	@Column(name = "IDMaterial")
+	@ManyToOne
+	@JoinColumn(name = "IDMaterial")
 	@Basic(optional = false)
-	private long idMaterial;
+	private Material material;
 	
 	@Column(name = "Valor")
 	@Basic(optional = false)
@@ -42,20 +46,20 @@ public class Produto {
 		this.idProduto = idProduto;
 	}
 
-	public long getIdServico() {
-		return idServico;
+	public Servico getServico() {
+		return servico;
 	}
 
-	public void setIdServico(long idServico) {
-		this.idServico = idServico;
+	public void setServico(Servico servico) {
+		this.servico = servico;
 	}
 
-	public long getIdMaterial() {
-		return idMaterial;
+	public Material getMaterial() {
+		return material;
 	}
 
-	public void setIdMaterial(long idMaterial) {
-		this.idMaterial = idMaterial;
+	public void setMaterial(Material material) {
+		this.material = material;
 	}
 
 	public BigDecimal getValor() {
