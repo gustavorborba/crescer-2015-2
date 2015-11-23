@@ -1,5 +1,8 @@
 package br.com.cwi.crescer.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -56,6 +60,9 @@ public class Cliente {
         ATIVO, INATIVO
     }
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos = new ArrayList<Pedido>();
+    
 	public long getIdCliente() {
 		return idCliente;
 	}
@@ -128,5 +135,12 @@ public class Cliente {
 		this.situacao = situacao;
 	}
 	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 	
 }

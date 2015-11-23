@@ -15,5 +15,6 @@ public class PedidoDaoTest extends AbstractInfrastructureTest{
 	public void findByIdTest(){
 		Pedido pedido = dao.findById(1);
 		Assert.assertNotNull(pedido);
+		Assert.assertNotNull(pedido.cliente());
 	}
 }
