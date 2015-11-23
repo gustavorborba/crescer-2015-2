@@ -3,9 +3,13 @@ package br.com.cwi.crescer.domain;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -37,14 +41,20 @@ public class Cliente {
 	@Column(name = "Bairro",length = 50)
 	private String bairro;
 	
-	@Column(name = "IDCidade")
-	private long idCidade;
+	@ManyToOne
+	@JoinColumn(name = "IDCidade")
+	private Cidade cidade;
 	
 	@Column(name = "CEP", length = 8)
 	private String cep;
 	
-	@Column(name = "Situacao", length = 1)
-	private String situacao;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "Situacao", length = 1)
+    private SituacaoCliente situacao;
+
+    public static enum SituacaoCliente {
+        ATIVO, INATIVO
+    }
 
 	public long getIdCliente() {
 		return idCliente;
@@ -94,12 +104,12 @@ public class Cliente {
 		this.bairro = bairro;
 	}
 
-	public long getIdCidade() {
-		return idCidade;
+	public Cidade getIdCidade() {
+		return cidade;
 	}
 
-	public void setIdCidade(long idCidade) {
-		this.idCidade = idCidade;
+	public void setIdCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 	public String getCep() {
@@ -110,11 +120,11 @@ public class Cliente {
 		this.cep = cep;
 	}
 
-	public String getSituacao() {
+	public SituacaoCliente getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(String situacao) {
+	public void setSituacao(SituacaoCliente situacao) {
 		this.situacao = situacao;
 	}
 	
