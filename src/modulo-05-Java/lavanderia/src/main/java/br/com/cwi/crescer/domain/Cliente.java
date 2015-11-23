@@ -5,14 +5,13 @@ import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -39,18 +38,8 @@ public class Cliente {
 	@Column(name = "Email", length = 100)
 	private String email;
 	
-	@Column(name = "Endereco", length = 50)
-	private String endereco;
-	
-	@Column(name = "Bairro",length = 50)
-	private String bairro;
-	
-	@ManyToOne
-	@JoinColumn(name = "IDCidade")
-	private Cidade cidade;
-	
-	@Column(name = "CEP", length = 8)
-	private String cep;
+	@Embedded
+	private Endereco endereco;
 	
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "Situacao", length = 1)
@@ -97,36 +86,12 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public Cidade getIdCidade() {
-		return cidade;
-	}
-
-	public void setIdCidade(Cidade cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
 	}
 
 	public SituacaoCliente getSituacao() {
