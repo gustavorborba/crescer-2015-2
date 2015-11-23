@@ -6,11 +6,15 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Pedido")
@@ -27,10 +31,12 @@ public class Pedido {
 	@Basic(optional = false)
 	private long idCliente;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "DATAInclusao")
 	@Basic(optional = false)
 	private Date dataInclusao;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "DATAEntrega")
 	private Date dataEntrega;
 	
@@ -38,8 +44,13 @@ public class Pedido {
 	@Basic(optional = false)
 	private BigDecimal  valor;
 	
-	@Column(name = "Situacao",length = 1)
-	private String situacao;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "Situacao", length = 1)
+    private SituacaoPedido situacao;
+
+    public static enum SituacaoPedido {
+        PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO
+    }
 
 	public long getIdPedido() {
 		return idPedido;
@@ -81,11 +92,11 @@ public class Pedido {
 		this.valor = valor;
 	}
 
-	public String getSituacao() {
+	public SituacaoPedido getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(String situacao) {
+	public void setSituacao(SituacaoPedido situacao) {
 		this.situacao = situacao;
 	}
 }
