@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,8 +48,13 @@ public class Item {
 	@Basic(optional = false)
 	private BigDecimal valorTotal;
 	
-	@Column(name = "Situacao",length = 1)
-	private String situacao;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "Situacao", length = 1)
+    private SituacaoItem situacao;
+
+    public static enum SituacaoItem {
+        PENDENTE, PROCESSANDO, PROCESSADO
+    }
 
 	public long getIdItem() {
 		return idItem;
@@ -105,11 +112,11 @@ public class Item {
 		this.valorTotal = valorTotal;
 	}
 
-	public String getSituacao() {
+	public SituacaoItem getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(String situacao) {
+	public void setSituacao(SituacaoItem situacao) {
 		this.situacao = situacao;
 	}
 	
