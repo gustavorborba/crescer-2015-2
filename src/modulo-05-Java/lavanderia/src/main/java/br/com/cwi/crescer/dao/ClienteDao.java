@@ -1,11 +1,14 @@
 package br.com.cwi.crescer.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
 import br.com.cwi.crescer.domain.Cliente;
+import br.com.cwi.crescer.domain.Cliente.SituacaoCliente;
 
 @Repository
 public class ClienteDao implements IDao<Cliente>{
@@ -14,5 +17,11 @@ public class ClienteDao implements IDao<Cliente>{
 	
 	public Cliente findById(long id){
 		return em.find(Cliente.class, id);
+	}
+	
+	public List<Cliente> findBySituacao(SituacaoCliente situacao){
+		return em.createQuery("From Cliente where Cliente.Situacao = :situacao", Cliente.class)
+				.setParameter("situacao", situacao)
+				.getResultList();
 	}
 }
