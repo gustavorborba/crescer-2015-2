@@ -1,7 +1,11 @@
 package br.com.cwi.crescer.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.cwi.crescer.domain.Cliente;
 import br.com.cwi.crescer.dto.ClienteDTO;
+import br.com.cwi.crescer.dto.ResumoClienteDTO;
 
 public class ClienteMapper {
 	public static Cliente dtoToCliente(ClienteDTO clienteDTO){		
@@ -25,7 +29,22 @@ public class ClienteMapper {
 		clienteDTO.setCpf(cliente.getCpf());
 		clienteDTO.setId(cliente.getIdCliente());
 		clienteDTO.setNome(cliente.getNome());
-		
+		clienteDTO.setEmail(cliente.getEmail());
 		return clienteDTO;
+	}
+	public static Cliente merge(Cliente cliente, ClienteDTO clienteDTO){
+		cliente.setCpf(clienteDTO.getCpf());
+		cliente.setEmail(clienteDTO.getEmail());
+		cliente.setNome(clienteDTO.getNome());
+		cliente.setEndereco(EnderecoMapper.dtoToEndendereco(clienteDTO));
+		
+		return cliente;
+	}
+	public static List<ResumoClienteDTO> allToResumoClienteDTO(List<Cliente> clientes){
+		ArrayList<ResumoClienteDTO> clientesDTO = new ArrayList<ResumoClienteDTO>();
+		for (Cliente cliente : clientes) {
+			clientesDTO.add(new ResumoClienteDTO(cliente));
+		}
+		return clientesDTO;
 	}
 }
