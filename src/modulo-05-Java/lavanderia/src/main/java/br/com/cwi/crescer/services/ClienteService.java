@@ -14,20 +14,32 @@ import br.com.cwi.crescer.mapper.ClienteMapper;
 
 @Service
 public class ClienteService {
-	private ClienteDao clienteDAO;
-	
-	@Autowired
-	public ClienteService(ClienteDao dao){
-		this.clienteDAO = dao;
-	}
-	
+
+    private ClienteDao clienteDAO;
+
+    @Autowired
+    public ClienteService(ClienteDao clientedao){
+        this.clienteDAO = clientedao;
+    }
 	public ClienteDTO buscarClientePorId(Long id){
-		Cliente cliente = clienteDAO.findById(id);
+		Cliente cliente = this.clienteDAO.findById(id);
 		return ClienteMapper.clienteToClienteDTO(cliente);
 	}
 	
 	public List<ResumoClienteDTO> listarClientesAtivos(){
-		List<Cliente> clientes = clienteDAO.findBySituacao(SituacaoCliente.ATIVO);
+		List<Cliente> clientes = this.clienteDAO.findBySituacao(SituacaoCliente.ATIVO);
 		return ClienteMapper.allToResumoClienteDTO(clientes);
+	}
+	public void atualizarCliente(ClienteDTO clienteDTO){
+		Cliente cliente = clienteDAO.findById(clienteDTO.getId()) ;
+		ClienteMapper.merge(cliente, clienteDTO);
+		this.clienteDAO.save(cliente);
+	}
+	public void cadastrarCliente(ClienteDTO clienteDTO){
+		Cliente cliente = ClienteMapper.dtoToCliente(clienteDTO);
+		clienteDAO.save(cliente);
+	}
+	public void removerCliente(long id){
+		clienteDAO.SalvarRemocaoCliente(id);
 	}
 }
