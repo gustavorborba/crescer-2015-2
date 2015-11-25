@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -54,7 +55,7 @@ public class Pedido {
     @Column(name = "Situacao", length = 1)
     private SituacaoPedido situacao;
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> itens = new ArrayList<Item>();
     
     public static enum SituacaoPedido {

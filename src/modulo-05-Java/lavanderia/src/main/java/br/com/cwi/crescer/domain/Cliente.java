@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	@Column(name = "IDCliente")
-	private long idCliente;
+	private Long idCliente;
 	
 	@Column(name = "Nome", length = 70)
 	@Basic(optional = false)
@@ -49,16 +50,14 @@ public class Cliente {
         ATIVO, INATIVO
     }
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pedido> pedidos = new ArrayList<Pedido>();
     
-    
-    
-	public long getIdCliente() {
+	public Long getIdCliente() {
 		return idCliente;
 	}
 
-	public void setIdCliente(long idCliente) {
+	public void setIdCliente(Long idCliente) {
 		this.idCliente = idCliente;
 	}
 
