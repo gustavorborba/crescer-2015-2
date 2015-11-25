@@ -42,7 +42,7 @@ public class Cliente {
 	private Endereco endereco;
 	
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "Situacao", length = 1)
+    @Column(name = "SITUACAO", length = 1)
     private SituacaoCliente situacao;
 
     public static enum SituacaoCliente {
@@ -94,13 +94,13 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 
-	public SituacaoCliente getSituacao() {
-		return situacao;
-	}
+    public SituacaoCliente getSituacao() {
+        return situacao;
+    }
 
-	public void setSituacao(SituacaoCliente situacao) {
-		this.situacao = situacao;
-	}
+    public void setSituacao(SituacaoCliente situacao) {
+        this.situacao = situacao;
+    }
 	
 	public List<Pedido> getPedidos() {
 		return pedidos;

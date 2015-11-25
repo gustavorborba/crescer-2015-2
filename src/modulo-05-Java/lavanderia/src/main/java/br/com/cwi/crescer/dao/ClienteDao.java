@@ -19,9 +19,9 @@ public class ClienteDao implements IDao<Cliente>{
 		return em.find(Cliente.class, id);
 	}
 	
-	public List<Cliente> findBySituacao(SituacaoCliente situacao){
-		return em.createQuery("From Cliente where Cliente.Situacao = :situacao", Cliente.class)
-				.setParameter("situacao", situacao)
-				.getResultList();
-	}
+	  public List<Cliente> findBySituacao(SituacaoCliente situacao) {
+	        return em.createQuery("FROM Cliente c WHERE c.situacao = :situacao", Cliente.class)
+	                .setParameter("situacao", situacao)
+	                .getResultList();
+	    }
 }
