@@ -37,6 +37,7 @@ public class ClienteService {
 	}
 	public void cadastrarCliente(ClienteDTO clienteDTO){
 		Cliente cliente = ClienteMapper.dtoToCliente(clienteDTO);
+		cliente.setSituacao(SituacaoCliente.ATIVO);
 		clienteDAO.save(cliente);
 	}
 	public void removerCliente(long id){
