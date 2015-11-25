@@ -10,9 +10,10 @@ import br.com.cwi.crescer.dto.ResumoClienteDTO;
 public class ClienteMapper {
 	public static Cliente dtoToCliente(ClienteDTO clienteDTO){		
 		Cliente cliente = new Cliente();
-		
+		cliente.setIdCliente(clienteDTO.getId());
 		cliente.setNome(clienteDTO.getNome());
 		cliente.setCpf(clienteDTO.getCpf());
+		cliente.setEmail(clienteDTO.getEmail());
 		cliente.setEndereco(EnderecoMapper.dtoToEndendereco(clienteDTO));	
 		return cliente;
 	}

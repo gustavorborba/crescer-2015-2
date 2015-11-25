@@ -13,6 +13,7 @@ public class EnderecoMapper {
 		endereco.setBairro(clienteDTO.getBairro());
 		endereco.setCep(clienteDTO.getCep());
 		endereco.setCidade(cidade);
+		endereco.setEndereco(clienteDTO.getEndereco());
 		return endereco;
 	}
 }
