@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import br.com.cwi.crescer.domain.Cliente;
-import br.com.cwi.crescer.domain.Pedido;
 import br.com.cwi.crescer.domain.Cliente.SituacaoCliente;
 
 @Repository
@@ -34,9 +33,5 @@ public class ClienteDao {
 	            return cliente;
 	        }
 	        return em.merge(cliente);
-	    }
-	    @Transactional
-	    public void SalvarRemocaoCliente(Long id){
-	    	em.remove(em.getReference(Cliente.class, id));
 	    }
 }

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
 <link href="css/bootstrap.css" rel="stylesheet" />
 <head>
 <meta charset="UTF-8" />
 <title>index</title>
 </head>
 <body>
-	<h2>Visualizar</h2>
+<section layout:fragment="content">
+<h2>Visualizar</h2>
 		<form th:object="${cliente}">
 	
 			
@@ -51,6 +53,8 @@
 	 		</p>
 		</form>
 
+</section>
+	
 	
 </body>
 </html>

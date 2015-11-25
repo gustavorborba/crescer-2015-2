@@ -1,0 +1,15 @@
+.textline{
+	display: inline-block;
+	margin:0;
+}
+
+.botaoCadastrar{
+	margin-top:30px;
+	margin-bottom:10px;
+	Padding:15px;
+}
+
+.tabelaMargin{
+	margin-top:25px;
+	Padding:25;
+}

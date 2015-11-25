@@ -55,7 +55,7 @@ public class Pedido {
     @Column(name = "Situacao", length = 1)
     private SituacaoPedido situacao;
 
-    @OneToMany(mappedBy = "pedido",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "pedido")
     private List<Item> itens = new ArrayList<Item>();
     
     public static enum SituacaoPedido {

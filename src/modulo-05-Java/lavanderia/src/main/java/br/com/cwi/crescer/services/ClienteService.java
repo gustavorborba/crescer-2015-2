@@ -41,6 +41,8 @@ public class ClienteService {
 		clienteDAO.save(cliente);
 	}
 	public void removerCliente(long id){
-		clienteDAO.SalvarRemocaoCliente(id);
+		Cliente cliente = clienteDAO.findById(id);
+		cliente.setSituacao(SituacaoCliente.INATIVO);
+		clienteDAO.save(cliente);
 	}
 }
