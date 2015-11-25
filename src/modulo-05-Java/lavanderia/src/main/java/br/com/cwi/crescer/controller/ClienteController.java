@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.cwi.crescer.domain.Cidade;
+import br.com.cwi.crescer.dto.ClienteDTO;
 import br.com.cwi.crescer.services.CidadeService;
 import br.com.cwi.crescer.services.ClienteService;
 
@@ -18,12 +19,13 @@ import br.com.cwi.crescer.services.ClienteService;
 @RequestMapping("/cliente")
 public class ClienteController {
 	
-    private ClienteService clienteService;
+	private ClienteService clienteService;
     private CidadeService cidadeService;
+
     @Autowired
-    public ClienteController(ClienteService clienteService,CidadeService cidadeService) {
+    public ClienteController(ClienteService clienteService, CidadeService cidadeService) {
         this.clienteService = clienteService;
-        this.cidadeService = cidadeService;
+        this.cidadeService = cidadeService; 
     }
     
     @RequestMapping(method = RequestMethod.GET)
@@ -33,6 +35,33 @@ public class ClienteController {
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ModelAndView viewExibe(@PathVariable("id") Long id) {
         return new ModelAndView("Cliente/exibe", "cliente", clienteService.buscarClientePorId(id));
+    }
+    @RequestMapping(path = "/editar/{id}", method = RequestMethod.GET)
+    public ModelAndView viewEdita(@PathVariable("id") Long id) {
+        return new ModelAndView("cliente/editar", "cliente", clienteService.buscarClientePorId(id));
+    }
+    @RequestMapping(path = "/editar", method = RequestMethod.POST)
+    public ModelAndView salvarEdicao(ClienteDTO dto) {
+        clienteService.atualizarCliente(dto);
+        return new ModelAndView("redirect:/cliente");
+    }
+    @RequestMapping(path = "/remover/{id}", method = RequestMethod.GET)
+    public ModelAndView viewRemover(@PathVariable("id") Long id) {
+        return new ModelAndView("cliente/ExclusaoDeCliente", "cliente", clienteService.buscarClientePorId(id));
+    }
+    @RequestMapping(path = "/remover", method = RequestMethod.POST)
+    public ModelAndView salvarExclusaoDeCliente(ClienteDTO dto) {
+        clienteService.removerCliente(dto.getId());
+        return new ModelAndView("redirect:/cliente");
+    }
+    @RequestMapping(path = "/cadastrar", method = RequestMethod.GET)
+    public ModelAndView viewCadastrarCliente(ClienteDTO dto) {
+        return new ModelAndView("cliente/cadastrar", "cliente", dto);
+    }
+    @RequestMapping(path = "/cadastrar", method = RequestMethod.POST)
+    public ModelAndView salvarCadastroCliente(ClienteDTO dto) {
+        clienteService.cadastrarCliente(dto);
+        return new ModelAndView("redirect:/cliente");
     }
     @ModelAttribute("cidades")
     public List<Cidade> comboCidades() {

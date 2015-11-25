@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="css/bootstrap.css" rel="stylesheet" />
+<head>
+<meta charset="UTF-8" />
+<title>index</title>
+</head>
+<body>
+	<h2>Editar</h2>
+		<form th:action="@{/cliente/editar}" th:object="${cliente}" method="post">
+			<p>
+				<label class="control-label">Nome: </label>
+				<input th:field="*{nome}" type="text"/>
+			</p>
+			
+			<p>
+				<label class="control-label">CPF: </label>
+		 		<input th:field="*{cpf}" type="text"/>
+			</p>
+			
+			<p>
+		 		<label class="control-label">Email: </label>
+		 		<input th:field="*{email}" type="text"/>
+	 		</p>
+	 		<p>
+		 		<label class="control-label">Endereco: </label>
+		 		<input th:field="*{endereco}" type="text"/>
+	 		</p>
+	 		<p>
+		 		<label class="control-label">Cidade: </label>
+		 		<select th:field="*{idCidade}">
+	                <option th:each="c : ${cidades}" th:text="${c.nome}" th:value="${c.idCidade}" ></option>
+	            </select>
+            </p>
+             
+            <p>
+		 		<label class="control-label">Bairro: </label>
+		 		<input th:field="*{bairro}" type="text"/>
+	 		</p>
+	 		
+	 	    <p>
+		 		<label class="control-label">UF: </label>
+		 		<input th:field="*{uf}" type="text"/>
+	 		</p>
+	 		
+	 		<p>
+		 		<label class="control-label">CEP: </label>
+		 		<input th:field="*{cep}" type="text"/>
+	 		</p>
+	 		<button type="submit">Salvar</button>
+		</form>
+
+	
+</body>
+</html>
