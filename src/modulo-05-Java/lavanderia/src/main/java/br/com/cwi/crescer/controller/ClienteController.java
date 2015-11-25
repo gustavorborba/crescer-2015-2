@@ -42,8 +42,9 @@ public class ClienteController {
         return new ModelAndView("cliente/editar", "cliente", clienteService.buscarClientePorId(id));
     }
     @RequestMapping(path = "/editar", method = RequestMethod.POST)
-    public ModelAndView salvarEdicao(ClienteDTO dto) {
+    public ModelAndView salvarEdicao(ClienteDTO dto, final RedirectAttributes redirectAttributes) {
         clienteService.atualizarCliente(dto);
+        redirectAttributes.addFlashAttribute("Mensagem", "Cliente cadastrado com sucesso!");
         return new ModelAndView("redirect:/cliente");
     }
     @RequestMapping(path = "/remover/{id}", method = RequestMethod.GET)
@@ -51,8 +52,9 @@ public class ClienteController {
         return new ModelAndView("cliente/ExclusaoDeCliente", "cliente", clienteService.buscarClientePorId(id));
     }
     @RequestMapping(path = "/remover", method = RequestMethod.POST)
-    public ModelAndView salvarExclusaoDeCliente(ClienteDTO dto) {
+    public ModelAndView salvarExclusaoDeCliente(ClienteDTO dto,final RedirectAttributes redirectAttributes) {
         clienteService.removerCliente(dto.getId());
+        redirectAttributes.addFlashAttribute("Mensagem", "Cliente removido com sucesso!");
         return new ModelAndView("redirect:/cliente");
     }
     @RequestMapping(path = "/cadastrar", method = RequestMethod.GET)
@@ -60,8 +62,9 @@ public class ClienteController {
         return new ModelAndView("cliente/cadastrar", "cliente", dto);
     }
     @RequestMapping(path = "/cadastrar", method = RequestMethod.POST)
-    public ModelAndView salvarCadastroCliente(ClienteDTO dto) {
+    public ModelAndView salvarCadastroCliente(ClienteDTO dto, final RedirectAttributes redirectAttributes) {
         clienteService.cadastrarCliente(dto);
+        redirectAttributes.addFlashAttribute("Mensagem","Cliente cadastrado com sucesso");
         return new ModelAndView("redirect:/cliente");
     }
     @ModelAttribute("cidades")

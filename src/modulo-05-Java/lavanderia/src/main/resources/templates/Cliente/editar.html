@@ -9,6 +9,7 @@
 <section layout:fragment="content">
 <h2>Editar</h2>
 		<form th:action="@{/cliente/editar}" th:object="${cliente}" method="post">
+			<input th:field="*{id}" type="hidden" />
 			<p>
 				<label class="control-label">Nome: </label>
 				<input th:field="*{nome}" type="text"/>
