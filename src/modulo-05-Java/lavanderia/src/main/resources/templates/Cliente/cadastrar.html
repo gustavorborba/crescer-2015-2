@@ -9,59 +9,59 @@
 <body>
 <section layout:fragment="content" class="box texto">
 <h2>Cadastro</h2>
-<form th:action="@{/cliente/cadastrar}" th:object="${cliente}" method="post">
+<form class="dados" th:action="@{/cliente/cadastrar}" th:object="${cliente}" method="post">
 	
 			<input th:field="*{id}" type="hidden" />
-			<p>
-				<label class="control-label">Nome: </label>
+			<p class="form-group">
+				<label class="col-sm-2 control-label">Nome: </label>
 				<input th:field="*{nome}" type="text"/>
 				<div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? 'has-error'">	
 											<span class="help-inline" th:errors="*{nome}"></span>
 				</div>
 			</p>
 			
-			<p>
-				<label class="control-label">CPF: </label>
+			<p class="form-group">
+				<label class="col-sm-2 control-label">CPF: </label>
 		 		<input th:field="*{cpf}" type="text"/>
 		 						<div class="form-group" th:classappend="${#fields.hasErrors('cpf')} ? 'has-error'">	
 											<span class="help-inline" th:errors="*{cpf}"></span>
 				</div>
 			</p>
 			
-			<p>
-		 		<label class="control-label">Email: </label>
+			<p class="form-group">
+		 		<label class="col-sm-2 control-label">Email: </label>
 		 		<input th:field="*{email}" type="text"/>
 		 		<div class="form-group" th:classappend="${#fields.hasErrors('email')} ? 'has-error'">	
 											<span class="help-inline" th:errors="*{email}"></span>
 				</div>
 		 		
 	 		</p>
-	 		<p>
-		 		<label class="control-label">Endereco: </label>
+	 		<p class="form-group">
+		 		<label class="col-sm-2 control-label">Endereco: </label>
 		 		<input th:field="*{endereco}" type="text"/>
 	 		</p>
-	 		<p>
-		 		<label class="control-label">Cidade: </label>
+	 		<p class="form-group">
+		 		<label class="col-sm-2 control-label">Cidade: </label>
 		 		<select th:field="*{idCidade}">
 	                <option th:each="c : ${cidades}" th:text="${c.nome}" th:value="${c.idCidade}" ></option>
 	            </select>
             </p>
              
-            <p>
-		 		<label class="control-label">Bairro: </label>
+            <p class="form-group">
+		 		<label class="col-sm-2 control-label">Bairro: </label>
 		 		<input th:field="*{bairro}" type="text"/>
 	 		</p>
 	 		
-	 	    <p>
-		 		<label class="control-label">UF: </label>
+	 	    <p class="form-group">
+		 		<label class="col-sm-2 control-label">UF: </label>
 		 		<input th:field="*{uf}" type="text"/>
 	 		</p>
 	 		
-	 		<p>
-		 		<label class="control-label">CEP: </label>
+	 		<p class="form-group">
+		 		<label class="col-sm-2 control-label">CEP: </label>
 		 		<input th:field="*{cep}" type="text"/>
 	 		</p>
-	 		<button type="submit">Salvar</button>
+	 		<button class= "btn btn-primary btn-md botaoCadastrar" type="submit">Salvar</button>
 		</form>
 </section>
 
