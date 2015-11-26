@@ -8,7 +8,6 @@ public class indexController {
 
 	@RequestMapping("/")
 	public String index(Model model){
-		model.addAttribute("mensagem","Hello World");
 		return "index";
 	}
 }
