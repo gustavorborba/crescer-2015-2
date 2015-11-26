@@ -10,23 +10,21 @@ import org.hibernate.validator.constraints.br.CPF;
 
 public class ClienteDTO {
 	
-	@NotNull
     private Long id;
 	@Size(min = 1, max = 70)
     private String nome;
-	@NotEmpty
 	@CPF
     private String cpf;
 	@Email
-	@Max(100)
     private String email;
+	@Size(min = 0, max = 50)
     private String endereco;
+	@Size(min = 0, max = 50)
     private String bairro;
+	@Size(min = 2, max = 2)
     private String uf;
-    @NotEmpty
-    private String nomeCidade;
-    @NotNull
     private Long idCidade;
+    @Size(min = 0, max = 8)
     private String cep;
 	public Long getId() {
 		return id;
@@ -81,12 +79,6 @@ public class ClienteDTO {
 	}
 	public void setUf(String uf) {
 		this.uf = uf;
-	}
-	public String getNomeCidade() {
-		return nomeCidade;
-	}
-	public void setNomeCidade(String nomeCidade) {
-		this.nomeCidade = nomeCidade;
 	}
 	
 }

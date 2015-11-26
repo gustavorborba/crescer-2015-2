@@ -50,7 +50,7 @@ public class ClienteController {
 	@RequestMapping(path = "/editar", method = RequestMethod.POST)
 	public ModelAndView salvarEdicao(ClienteDTO dto, final RedirectAttributes redirectAttributes) {
 		clienteService.atualizarCliente(dto);
-		redirectAttributes.addFlashAttribute("Mensagem", "Cliente cadastrado com sucesso!");
+		redirectAttributes.addFlashAttribute("Mensagem", "Cliente editado com sucesso!");
 		return new ModelAndView("redirect:/cliente");
 	}
 
@@ -72,11 +72,12 @@ public class ClienteController {
 	}
 
 	@RequestMapping(path = "/cadastrar", method = RequestMethod.POST)
-	public ModelAndView salvarCadastroCliente(@Valid @ModelAttribute("cliente") ClienteDTO cliente,
+	public ModelAndView salvarCadastroCliente(@Valid @ModelAttribute("cliente") ClienteDTO clienteDTO,
 			BindingResult result, final RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
 		    return new ModelAndView("cliente/cadastrar");
 		}
+			clienteService.cadastrarCliente(clienteDTO);
 		redirectAttributes.addFlashAttribute("Mensagem", "Cliente cadastrado com sucesso");
 		return new ModelAndView("redirect:/cliente");
 	}

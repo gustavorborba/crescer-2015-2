@@ -8,6 +8,7 @@ public class EnderecoMapper {
 	public static Endereco dtoToEndendereco(ClienteDTO clienteDTO){
 		Cidade cidade = new Cidade();
 		cidade.setIdCidade(clienteDTO.getIdCidade());
+		cidade.setUf(clienteDTO.getUf());
 		
 		Endereco endereco = new Endereco();
 		endereco.setBairro(clienteDTO.getBairro());
