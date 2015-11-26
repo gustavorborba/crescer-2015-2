@@ -1,15 +1,18 @@
 .textline{
 	display: inline-block;
 	margin:0;
+	margin-left:100px;
 }
 
 .botaoCadastrar{
 	margin-top:30px;
 	margin-bottom:10px;
 	Padding:15px;
+	margin-right:120px;
 }
 
 .tabelaMargin{
-	margin-top:25px;
-	Padding:25;
+	margin-top:-10px;
+	margin-left:45px;
+	margin-right: 45px;
 }

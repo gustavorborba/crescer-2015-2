@@ -3,15 +3,14 @@
 	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
 <link href="css/bootstrap.css" rel="stylesheet" />
 <head>
+<link th:href="@{/css/allFiles.css}" rel="stylesheet" />
 <meta charset="UTF-8" />
 <title>index</title>
 </head>
 <body>
-<section layout:fragment="content">
+<section layout:fragment="content" class="box texto">
 <h2>Visualizar</h2>
-		<form th:object="${cliente}">
-	
-			
+		<form th:object="${cliente}">			
 			<p>
 				<label class="control-label">Nome: </label>
 				<input th:field="*{nome}" type="text" disabled="true" />

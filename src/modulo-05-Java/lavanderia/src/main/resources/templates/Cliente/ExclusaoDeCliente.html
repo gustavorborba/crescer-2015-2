@@ -2,11 +2,12 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
 <head>
+<link th:href="@{/css/allFiles.css}" rel="stylesheet" />
 <meta charset="ISO-8859-1" />
 <title>Insert title here</title>
 </head>
 <body>
-<section layout:fragment="content">
+<section layout:fragment="content" class="box texto">
 <form th:action="@{/cliente/remover}" th:object="${cliente}" method="post">		
 				<input th:field="*{id}" type="hidden" />
 			<p>
