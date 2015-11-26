@@ -12,8 +12,7 @@ public class ClienteDTO {
 	
 	@NotNull
     private Long id;
-	@NotEmpty
-	@Max(70)
+	@Size(min = 1, max = 70)
     private String nome;
 	@NotEmpty
 	@CPF
