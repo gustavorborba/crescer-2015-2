@@ -77,7 +77,6 @@ public class ClienteController {
 		if (result.hasErrors()) {
 		    return new ModelAndView("cliente/cadastrar");
 		}
-		clienteService.cadastrarCliente(cliente);
 		redirectAttributes.addFlashAttribute("Mensagem", "Cliente cadastrado com sucesso");
 		return new ModelAndView("redirect:/cliente");
 	}
