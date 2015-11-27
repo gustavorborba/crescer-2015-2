@@ -3,6 +3,8 @@ package br.com.cwi.crescer.domain;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,10 +21,15 @@ public class Servico {
 	@Column(name = "IDServico")
 	private long idServico;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "Descricao", length = 30)
 	@Basic(optional = false)
-	private String descricao;
+	private ServicoDescricao descricao;
 
+    public static enum ServicoDescricao {
+        Lavar, Secar
+    }
+	
 	public long getIdServico() {
 		return idServico;
 	}
@@ -31,11 +38,11 @@ public class Servico {
 		this.idServico = idServico;
 	}
 
-	public String getDescricao() {
+	public ServicoDescricao getDescricao() {
 		return descricao;
 	}
 
-	public void setDescricao(String descricao) {
+	public void setDescricao(ServicoDescricao descricao) {
 		this.descricao = descricao;
 	}
 	

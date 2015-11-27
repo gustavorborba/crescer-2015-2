@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.cwi.crescer.AbstractInfrastructureTest;
 import br.com.cwi.crescer.domain.Servico;
+import br.com.cwi.crescer.domain.Servico.ServicoDescricao;
 
 public class ServicoDaoTest extends AbstractInfrastructureTest{
 	@Autowired
@@ -13,7 +14,7 @@ public class ServicoDaoTest extends AbstractInfrastructureTest{
 	
 	@Test
 	public void findById(){
-		Servico servico = dao.findById(1);
-		Assert.assertNotNull(servico);
+		Servico servico = dao.findById(21);
+		Assert.assertEquals(ServicoDescricao.Lavar, servico.getDescricao());
 	}
 }
