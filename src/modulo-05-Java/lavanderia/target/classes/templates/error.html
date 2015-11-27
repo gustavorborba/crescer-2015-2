@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Error</title>
+</head>
+<body>
+	<section layout:fragment="content">
+	<h1>ERROS</h1>
+		${timestamp}${status}${error}
+	<div
+		th:if="${ex} or ${exception} or (${message} and ${message.length() != 0})">
+		<i th:text="${message}">message ...</i>
+	</div>
+	</section>
+
+
+</body>
+</html>
