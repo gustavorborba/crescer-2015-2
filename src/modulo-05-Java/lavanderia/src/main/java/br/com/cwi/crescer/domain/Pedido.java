@@ -23,14 +23,14 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Pedido")
-@SequenceGenerator(name = Pedido.SEQUENCE_NAME, sequenceName = Pedido.SEQUENCE_NAME, allocationSize = 1)
+@SequenceGenerator(name = Pedido.SEQUENCE_NAME, sequenceName = Pedido.SEQUENCE_NAME,  initialValue = 50, allocationSize = 1)
 public class Pedido {
 	public static final String SEQUENCE_NAME = "SEQ_Pedido";
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	@Column(name = "IDPedido")
-	private long idPedido;
+	private Long idPedido;
 	
 	@ManyToOne
 	@JoinColumn(name = "IDCliente")
@@ -61,11 +61,14 @@ public class Pedido {
         PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO
     }
 
+    public boolean idIsNull(){
+    	return this.idPedido == null;
+    }
 	public long getIdPedido() {
 		return idPedido;
 	}
 
-	public void setIdPedido(long idPedido) {
+	public void setIdPedido(Long idPedido) {
 		this.idPedido = idPedido;
 	}
 
