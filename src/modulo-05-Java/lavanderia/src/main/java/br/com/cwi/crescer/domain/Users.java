@@ -26,7 +26,7 @@ public class Users {
 	private SituacaoUsuario usuarioSituacao;
 	
     public static enum SituacaoUsuario {
-        ATIVO, INATIVO
+        INATIVO, ATIVO
     }
 
 	public String getUsername() {
