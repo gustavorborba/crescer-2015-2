@@ -38,7 +38,7 @@ public class ClienteController {
 		return new ModelAndView("Cliente/lista", "clientes", clienteService.listarClientesAtivos());
 	}
 
-	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(path = "/exibe/{id}", method = RequestMethod.GET)
 	public ModelAndView viewExibe(@PathVariable("id") Long id) {
 		return new ModelAndView("Cliente/exibe", "cliente", clienteService.buscarClientePorId(id));
 	}
@@ -83,7 +83,12 @@ public class ClienteController {
 		redirectAttributes.addFlashAttribute("Mensagem", "Cliente cadastrado com sucesso");
 		return new ModelAndView("redirect:/cliente");
 	}
-
+	
+	@RequestMapping(path = "/{nome}", method = RequestMethod.GET)
+	public ModelAndView buscaClientePorNome(@PathVariable("nome") String nome){
+		return new ModelAndView("cliente/lista", "clientes", clienteService.buscarPorNome(nome));
+	}
+	
 	@ModelAttribute("cidades")
 	public List<Cidade> comboCidades() {
 		return cidadeService.listar();

@@ -15,10 +15,6 @@
 					<a class="navbar-brand" th:href="${ '/'}">Javanderia</a> <a
 						class="navbar-brand" th:href="${ '/cliente/'}">Clientes</a>
 					<div sec:authorize="isAuthenticated()">
-						<form th:action="@{/logout}" id="logout" method="post">
-							<a class="navbar-brand" href="#"
-								onclick="document.getElementById('logout').submit()">Logout</a>
-						</form>
 					</div>
 				</div>
 			</div>

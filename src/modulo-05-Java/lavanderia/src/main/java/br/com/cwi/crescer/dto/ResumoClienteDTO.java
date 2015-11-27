@@ -1,17 +1,18 @@
 package br.com.cwi.crescer.dto;
 
 import br.com.cwi.crescer.domain.Cliente;
+import br.com.cwi.crescer.domain.Cliente.SituacaoCliente;
 
 public class ResumoClienteDTO {
 	private String nome;
 	private String cpf;
-	private String email;
+	private SituacaoCliente situacao;
 	private Long id;
 	
 	public ResumoClienteDTO(Cliente cliente){
 		this.nome = cliente.getNome();
 		this.cpf = cliente.getCpf();
-		this.email = cliente.getEmail();
+		this.situacao = cliente.getSituacao();
 		this.id = cliente.getIdCliente();
 	}
 	
@@ -27,13 +28,6 @@ public class ResumoClienteDTO {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -41,6 +35,12 @@ public class ResumoClienteDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
+
+	public SituacaoCliente getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(SituacaoCliente situacao) {
+		this.situacao = situacao;
+	}
 }

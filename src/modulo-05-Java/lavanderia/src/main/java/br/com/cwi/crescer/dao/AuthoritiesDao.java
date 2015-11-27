@@ -17,8 +17,7 @@ public class AuthoritiesDao {
 	
 	public List<Authorities> listAll(){
 		return em.createQuery("FROM Authorities", Authorities.class)
-				.getResultList();			
-		
+				.getResultList();				
 	}
 	
 	@Transactional

@@ -21,11 +21,11 @@ public class Authorities{
 	@JoinColumn(name = "username")
 	private Users user;
 
-	public Users getUsername() {
+	public Users getUsers() {
 		return user;
 	}
 
-	public void setUsername(Users username) {
+	public void setUsers(Users username) {
 		this.user = username;
 	}
 

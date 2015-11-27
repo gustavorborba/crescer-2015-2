@@ -45,4 +45,8 @@ public class ClienteService {
 		cliente.setSituacao(SituacaoCliente.INATIVO);
 		clienteDAO.save(cliente);
 	}
+	public List<ResumoClienteDTO> buscarPorNome(String nome){
+		List<Cliente> cliente = clienteDAO.findByName(nome);
+		return ClienteMapper.allToResumoClienteDTO(cliente);
+	}
 }

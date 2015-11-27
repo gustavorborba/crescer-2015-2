@@ -34,4 +34,9 @@ public class ClienteDao {
 	        }
 	        return em.merge(cliente);
 	    }
+	    public List<Cliente> findByName(String nome){
+	    	return em.createQuery("FROM Cliente as c where c.nome like :nome",Cliente.class)
+	    	.setParameter("nome", nome +"%")
+	    	.getResultList();
+	    }
 }
