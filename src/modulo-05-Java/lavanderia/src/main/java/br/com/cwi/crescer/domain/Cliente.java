@@ -52,6 +52,14 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<Pedido>();
     
+    public void ativarCliente(){
+    	this.situacao = SituacaoCliente.ATIVO;
+    }
+    
+    public void desativarCliente(){
+    	this.situacao = SituacaoCliente.INATIVO;
+    }
+    
 	public Long getIdCliente() {
 		return idCliente;
 	}

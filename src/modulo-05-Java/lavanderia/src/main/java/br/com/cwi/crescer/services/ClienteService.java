@@ -37,12 +37,12 @@ public class ClienteService {
 	}
 	public void cadastrarCliente(ClienteDTO clienteDTO){
 		Cliente cliente = ClienteMapper.dtoToCliente(clienteDTO);
-		cliente.setSituacao(SituacaoCliente.ATIVO);
+		cliente.ativarCliente();
 		clienteDAO.save(cliente);
 	}
 	public void removerCliente(long id){
 		Cliente cliente = clienteDAO.findById(id);
-		cliente.setSituacao(SituacaoCliente.INATIVO);
+		cliente.desativarCliente();
 		clienteDAO.save(cliente);
 	}
 	public List<ResumoClienteDTO> buscarPorNome(String nome){
