@@ -38,6 +38,10 @@
 				</tr>
 			</table>
 		</div>
+		 <form name="form" th:action="@{'/cliente/buscarCliente'}" method="GET">
+			<input type="text" name="nomeCliente" placeholder="Nome cliente" />
+			<input type="submit" id="pesquisar" value="Pesquisar" />
+		</form>
 	</section>
 		
 
