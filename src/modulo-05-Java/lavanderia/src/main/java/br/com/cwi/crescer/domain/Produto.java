@@ -15,14 +15,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Produto")
-@SequenceGenerator(name = Produto.SEQUENCE_NAME, sequenceName = Produto.SEQUENCE_NAME)
+@SequenceGenerator(name = Produto.SEQUENCE_NAME, sequenceName = Produto.SEQUENCE_NAME,initialValue = 50, allocationSize = 1)
 public class Produto {
 	public static final String SEQUENCE_NAME = "SEQ_Produto";
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	@Column(name = "IDProduto")
-	private long idProduto;
+	private Long idProduto;
 	
 	@ManyToOne
 	@JoinColumn(name = "IDServico")
@@ -38,11 +38,18 @@ public class Produto {
 	@Basic(optional = false)
 	private BigDecimal valor;
 
+	public boolean idIsNull(){
+    	return this.idProduto == null;
+    }
+	public long getIdPedido() {
+		return idProduto;
+	}
+	
 	public long getIdProduto() {
 		return idProduto;
 	}
 
-	public void setIdProduto(long idProduto) {
+	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
 	}
 
