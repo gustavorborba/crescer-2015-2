@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,6 +40,17 @@ public class Produto {
 	@Basic(optional = false)
 	private BigDecimal valor;
 
+	@Column(name = "Situacao")
+	@Enumerated(EnumType.ORDINAL)
+	@Basic(optional = false)
+	private ProdutoSituacao situacao;
+	
+	@Column(name = "Prazo",length = 3)
+	private int prazo;
+	public static enum ProdutoSituacao{
+		Ativo,Inativo
+	}
+	
 	public boolean idIsNull(){
     	return this.idProduto == null;
     }
@@ -71,6 +84,18 @@ public class Produto {
 
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
+	}
+	public ProdutoSituacao getSituacao() {
+		return situacao;
+	}
+	public void setSituacao(ProdutoSituacao situacao) {
+		this.situacao = situacao;
+	}
+	public int getPrazo() {
+		return prazo;
+	}
+	public void setPrazo(int prazo) {
+		this.prazo = prazo;
 	}
 	
 }
