@@ -1,5 +1,7 @@
 package br.com.cwi.crescer.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -14,5 +16,9 @@ public class ServicoDao implements IDao<Servico>{
 	
 	public Servico findById(long id){
 		return em.find(Servico.class, id);
+	}
+	public List<Servico> listarTodosServicos(){
+		return em.createQuery("From Servico",Servico.class)
+				.getResultList();
 	}
 }
