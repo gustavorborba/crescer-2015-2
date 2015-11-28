@@ -2,10 +2,7 @@ package br.com.cwi.crescer.dto;
 
 import java.math.BigDecimal;
 
-import br.com.cwi.crescer.domain.Material.MaterialDescricao;
-import br.com.cwi.crescer.domain.Produto;
 import br.com.cwi.crescer.domain.Produto.ProdutoSituacao;
-import br.com.cwi.crescer.domain.Servico.ServicoDescricao;
 
 public class ProdutoDTO {
 	private Long idProduto;
@@ -13,20 +10,9 @@ public class ProdutoDTO {
 	private ProdutoSituacao situacao;
 	private int prazo;
 	private Long idServico;
-	private ServicoDescricao servicoDescricao;
+	private String servicoDescricao;
 	private Long idMaterial;
-	private MaterialDescricao materialDescricao;
-	
-	public ProdutoDTO(Produto produto){
-		this.idProduto = produto.getIdProduto();
-		this.valor = produto.getValor();
-		this.situacao = produto.getSituacao();
-		this.idServico = produto.getServico().getIdServico();
-		this.prazo = produto.getPrazo();
-		this.servicoDescricao = produto.getServico().getDescricao();
-		this.idMaterial = produto.getMaterial().getIdMaterial();
-		this.materialDescricao = produto.getMaterial().getDescricao();
-	}
+	private String materialDescricao;
 
 	public Long getIdProduto() {
 		return idProduto;
@@ -52,12 +38,12 @@ public class ProdutoDTO {
 		this.idServico = idServico;
 	}
 
-	public ServicoDescricao getServicoDescricao() {
+	public String getServicoDescricao() {
 		return servicoDescricao;
 	}
 
-	public void setServicoDescricao(ServicoDescricao servicoDescricao) {
-		this.servicoDescricao = servicoDescricao;
+	public void setServicoDescricao(String descricao) {
+		this.servicoDescricao = descricao;
 	}
 
 	public Long getIdMaterial() {
@@ -68,11 +54,11 @@ public class ProdutoDTO {
 		this.idMaterial = idMaterial;
 	}
 
-	public MaterialDescricao getMaterialDescricao() {
+	public String getMaterialDescricao() {
 		return materialDescricao;
 	}
 
-	public void setMaterialDescricao(MaterialDescricao materialDescricao) {
+	public void setMaterialDescricao(String materialDescricao) {
 		this.materialDescricao = materialDescricao;
 	}
 
