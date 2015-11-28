@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.cwi.crescer.AbstractInfrastructureTest;
 import br.com.cwi.crescer.domain.Material;
+import br.com.cwi.crescer.domain.Material.MaterialDescricao;
 
 public class MaterialDaoTest extends AbstractInfrastructureTest{
 	@Autowired
@@ -13,7 +14,7 @@ public class MaterialDaoTest extends AbstractInfrastructureTest{
 	
 	@Test
 	public void findByIdTest(){
-		Material material = dao.findById(1);
-		Assert.assertNotNull(material);
+		Material material = dao.findById(21);
+		Assert.assertEquals(MaterialDescricao.Delicado, material.getDescricao());
 	}
 }
