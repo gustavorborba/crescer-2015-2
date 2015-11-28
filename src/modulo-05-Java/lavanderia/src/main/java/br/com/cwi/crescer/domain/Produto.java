@@ -55,6 +55,15 @@ public class Produto {
 	public boolean idIsNull(){
     	return this.idProduto == null;
     }
+	
+	public void ativarProduto(){
+		this.situacao = ProdutoSituacao.Ativo;
+	}
+	
+	public void insativarProduto(){
+		this.situacao = ProdutoSituacao.Inativo;
+	}
+	
 	public Long getIdProduto() {
 		return idProduto;
 	}
