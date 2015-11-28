@@ -12,9 +12,14 @@
 		<div style="heigth: 90px; margin-bottom: 80px;">
 			<div class="navbar navbar-inverse navbar-fixed-top">
 				<div>
-					<a class="navbar-brand" th:href="${ '/'}">Javanderia</a> <a
-						class="navbar-brand" th:href="${ '/cliente/'}">Clientes</a>
-					<div sec:authorize="isAuthenticated()">
+					<a class="navbar-brand" th:href="${ '/'}">Javanderia</a> 
+					<a class="navbar-brand" th:href="${ '/cliente/'}">Clientes</a>
+					<a class="navbar-brand" th:href="${ '/produto/'}">Produtos</a>
+					<div sec:authorize="isAuthenticated()" class="pull-right">
+						<form th:action="@{/logout}" id="logout" method="post">
+								<a class="navbar-brand" href="#"
+								onclick="document.getElementById('logout').submit()">Logout</a>
+						</form>
 					</div>
 				</div>
 			</div>
