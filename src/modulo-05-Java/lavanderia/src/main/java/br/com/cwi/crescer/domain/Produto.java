@@ -46,7 +46,8 @@ public class Produto {
 	private ProdutoSituacao situacao;
 	
 	@Column(name = "Prazo",length = 3)
-	private int prazo;
+	private Integer prazo;
+	
 	public static enum ProdutoSituacao{
 		Ativo,Inativo
 	}
@@ -91,10 +92,10 @@ public class Produto {
 	public void setSituacao(ProdutoSituacao situacao) {
 		this.situacao = situacao;
 	}
-	public int getPrazo() {
+	public Integer getPrazo() {
 		return prazo;
 	}
-	public void setPrazo(int prazo) {
+	public void setPrazo(Integer prazo) {
 		this.prazo = prazo;
 	}
 	
