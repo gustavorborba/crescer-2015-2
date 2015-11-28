@@ -11,25 +11,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Material")
-@SequenceGenerator(name = Material.SEQUENCE_NAME, sequenceName = Material.SEQUENCE_NAME)
 public class Material {
-	public static final String SEQUENCE_NAME = "SEQ_Material";
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	@Column(name = "IDMaterial")
-	private long idMaterial;
+	private Long idMaterial;
 	
 	@Column(name = "Descricao", length = 30)
 	@Basic(optional = false)
 	private String descricao;
 
 	
-	public long getIdMaterial() {
+	public Long getIdMaterial() {
 		return idMaterial;
 	}
 
-	public void setIdMaterial(long idMaterial) {
+	public void setIdMaterial(Long idMaterial) {
 		this.idMaterial = idMaterial;
 	}
 

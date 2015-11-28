@@ -17,18 +17,18 @@ public class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	@Column(name = "IDServico")
-	private long idServico;
+	private Long idServico;
 	
 	@Column(name = "Descricao", length = 30)
 	@Basic(optional = false)
 	private String descricao;
 
 	
-	public long getIdServico() {
+	public Long getIdServico() {
 		return idServico;
 	}
 
-	public void setIdServico(long idServico) {
+	public void setIdServico(Long idServico) {
 		this.idServico = idServico;
 	}
 
