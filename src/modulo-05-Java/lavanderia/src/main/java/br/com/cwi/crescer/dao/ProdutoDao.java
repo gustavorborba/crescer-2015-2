@@ -12,7 +12,7 @@ import br.com.cwi.crescer.domain.Pedido;
 import br.com.cwi.crescer.domain.Produto;
 
 @Repository
-public class ProdutoDao implements IDao<Produto>{
+public class ProdutoDao{
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -32,5 +32,15 @@ public class ProdutoDao implements IDao<Produto>{
 			return produto;
 		}
 		return em.merge(produto);
+	}
+	
+	public Produto buscarCombinacao(Produto produto){
+		StringBuilder query = new StringBuilder();
+		query.append("FROM Produto p where p.servico = :idServico and p.material = :idMaterial");
+		return em.createQuery(query.toString(),Produto.class)
+			.setParameter("idServico", produto.getServico())
+			.setParameter("idMaterial", produto.getMaterial())
+			.getSingleResult();
+				
 	}
 }
