@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
+<head>
+<link th:href="@{/css/allFiles.css}" rel="stylesheet" />
+<link th:href="@{/css/lista.css}" rel="stylesheet" />
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<section  layout:fragment="content" class="box texto">
+	<p th:text="${Mensagem}"></p>
+		<div class="botaoCadastrar">
+			<h2 class="textline">Produtos</h2>
+			<a class="btn btn-primary btn-md pull-right"
+				th:href="@{/produto/cadastrar}">Cadastrar</a>
+		</div>
+		<div class="tabelaMargin">
+			<table
+				class="table table-striped table-bordered table-hover table-responsive table-condensed ">
+				<thead>
+					<tr>
+						<th style="width: 10%">Material</th>
+						<th style="width: 10%">Servico</th>
+						<th style="width: 10%">Valor</th>
+						<th style="width: 10%">Prazo</th>
+						<th style="width: 10%">Situacao</th>
+						<th style="width: 10%">Editar</th>
+					</tr>
+				</thead>
+				<tr th:each="produto : ${produtos}">
+					<td th:text="${produto.descricaoMaterial}"></td>
+					<td th:text="${produto.descricaoServico}"></td>
+					<td th:text="${produto.valor}"></td>
+					<td th:text="${produto.prazo}"></td>
+					<td th:text="${produto.situacao}"></td>
+					<td><a th:href="${' /produto/editar/' + produto.idProduto}">Editar</a></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+</body>
+</html>

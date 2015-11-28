@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
+<head>
+<link th:href="@{/css/editar.css}" rel="stylesheet" />
+<link th:href="@{/css/allFiles.css}" rel="stylesheet" />
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<section layout:fragment="content" class="box texto">
+	<form th:action="@{/produto/editar}" th:object="${produtos}" method="post">
+			<input th:field="*{idProduto}" type="hidden" />
+			<input th:field="*{idServico}" type="hidden" />
+			<input th:field="*{idMaterial}" type="hidden" />
+	 	
+			<p class="form-group">
+		 		<label class="col-sm-2 control-label">Valor: </label>
+		 		<input th:field="*{valor}" type="text"/>
+		 		<div class="form-group" th:classappend="${#fields.hasErrors('valor')} ? 'has-error'">	
+											<span class="help-inline" th:errors="*{valor}"></span>
+				</div>	
+	 		</p>
+			
+			<p class="form-group">
+		 		<label class="col-sm-2 control-label">Prazo: </label>
+		 		<input th:field="*{prazo}" type="text"/>
+		 		<div class="form-group" th:classappend="${#fields.hasErrors('prazo')} ? 'has-error'">	
+											<span class="help-inline" th:errors="*{prazo}"></span>
+				</div>	
+	 		</p>
+	 		
+	 		<p class="form-group">
+		 		<label class="col-sm-2 control-label">Material: </label>
+	 		<select th:field="*{situacao}">
+ 				 <option th:each="situacao : ${T(br.com.cwi.crescer.domain.Produto.ProdutoSituacao).values()}" th:value="${situacao}" th:text="${situacao}"></option>
+			</select>
+			</p>
+	 		
+	 		<button class= "btn btn-primary btn-md botaoCadastrar" type="submit">Salvar</button>
+		</form>
+	</section>
+</body>
+</html>
