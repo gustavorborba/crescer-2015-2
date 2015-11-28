@@ -21,4 +21,10 @@ public class ProdutoDaoTest extends AbstractInfrastructureTest{
 		Assert.assertNotNull(produto.getMaterial());
 		Assert.assertNotNull(produto.getServico());
 	}
+	@Test
+	public void buscaCombinacaoTest(){
+		Produto produto = dao.findById(36);
+		Produto esperado = dao.buscarCombinacao(produto);
+		Assert.assertNotNull(esperado);
+	}
 }
