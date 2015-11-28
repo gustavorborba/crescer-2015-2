@@ -4,11 +4,14 @@ import java.math.BigDecimal;
 
 import br.com.cwi.crescer.domain.Material.MaterialDescricao;
 import br.com.cwi.crescer.domain.Produto;
+import br.com.cwi.crescer.domain.Produto.ProdutoSituacao;
 import br.com.cwi.crescer.domain.Servico.ServicoDescricao;
 
 public class ProdutoDTO {
 	private Long idProduto;
 	private BigDecimal valor;
+	private ProdutoSituacao situacao;
+	private int prazo;
 	private Long idServico;
 	private ServicoDescricao servicoDescricao;
 	private Long idMaterial;
@@ -17,7 +20,9 @@ public class ProdutoDTO {
 	public ProdutoDTO(Produto produto){
 		this.idProduto = produto.getIdProduto();
 		this.valor = produto.getValor();
+		this.situacao = produto.getSituacao();
 		this.idServico = produto.getServico().getIdServico();
+		this.prazo = produto.getPrazo();
 		this.servicoDescricao = produto.getServico().getDescricao();
 		this.idMaterial = produto.getMaterial().getIdMaterial();
 		this.materialDescricao = produto.getMaterial().getDescricao();
@@ -70,6 +75,20 @@ public class ProdutoDTO {
 	public void setMaterialDescricao(MaterialDescricao materialDescricao) {
 		this.materialDescricao = materialDescricao;
 	}
-	
-	
+
+	public ProdutoSituacao getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(ProdutoSituacao situacao) {
+		this.situacao = situacao;
+	}
+
+	public int getPrazo() {
+		return prazo;
+	}
+
+	public void setPrazo(int prazo) {
+		this.prazo = prazo;
+	}
 }
