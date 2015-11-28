@@ -22,6 +22,10 @@ public class ProdutoService {
 		this.produtoDao = dao;
 	}
 	
+	public ProdutoDTO buscarProduto(Long id){
+		return ProdutoMapper.produtoToDTO(produtoDao.findById(id));
+	}
+	
 	public Boolean combinacaoValida(Long idServico, Long idMaterial){
 		return !this.buscarCombinacao(idServico, idMaterial).isEmpty();
 	}
@@ -34,9 +38,14 @@ public class ProdutoService {
 		return produtoDao.buscarCombinacao(servico,material);
 	}
 
-	public void salvarAlteracao(ProdutoDTO produtoDTO){
+	public void salvarCadastro(ProdutoDTO produtoDTO){
 		Produto produto = ProdutoMapper.TOProduto(produtoDTO);
 		produto.ativarProduto();
+		produtoDao.salvarAlteracao(produto);
+	}
+	
+	public void salvarEdicao(ProdutoDTO produtoDTO){
+		Produto produto = ProdutoMapper.TOProduto(produtoDTO);
 		produtoDao.salvarAlteracao(produto);
 	}
 	
