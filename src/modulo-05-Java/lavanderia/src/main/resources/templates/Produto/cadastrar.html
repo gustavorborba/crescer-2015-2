@@ -10,6 +10,7 @@
 	<section layout:fragment="content" class="box texto">
 		<h2>Cadastro Produto</h2>
 		<p th:text="${Mensagem}"></p>
+		
 		<form class="dados" th:action="@{/produto/cadastrar}" th:object="${produto}" method="post">
 			<input th:field="*{idProduto}" type="hidden" />
 	 		<p class="form-group">
@@ -40,8 +41,7 @@
 		 		<div class="form-group" th:classappend="${#fields.hasErrors('prazo')} ? 'has-error'">	
 											<span class="help-inline" th:errors="*{prazo}"></span>
 				</div>	
-	 		</p>
-	 		
+	 		</p>	
 	 		<button class= "btn btn-primary btn-md botaoCadastrar" type="submit">Salvar</button>
 			</form>
 	</section>
