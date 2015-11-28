@@ -10,9 +10,7 @@ public class ProdutoDTO {
 	private ProdutoSituacao situacao;
 	private int prazo;
 	private Long idServico;
-	private String servicoDescricao;
 	private Long idMaterial;
-	private String materialDescricao;
 
 	public Long getIdProduto() {
 		return idProduto;
@@ -38,14 +36,6 @@ public class ProdutoDTO {
 		this.idServico = idServico;
 	}
 
-	public String getServicoDescricao() {
-		return servicoDescricao;
-	}
-
-	public void setServicoDescricao(String descricao) {
-		this.servicoDescricao = descricao;
-	}
-
 	public Long getIdMaterial() {
 		return idMaterial;
 	}
@@ -53,15 +43,7 @@ public class ProdutoDTO {
 	public void setIdMaterial(Long idMaterial) {
 		this.idMaterial = idMaterial;
 	}
-
-	public String getMaterialDescricao() {
-		return materialDescricao;
-	}
-
-	public void setMaterialDescricao(String materialDescricao) {
-		this.materialDescricao = materialDescricao;
-	}
-
+	
 	public ProdutoSituacao getSituacao() {
 		return situacao;
 	}
