@@ -41,11 +41,7 @@ public class Produto {
 	public boolean idIsNull(){
     	return this.idProduto == null;
     }
-	public long getIdPedido() {
-		return idProduto;
-	}
-	
-	public long getIdProduto() {
+	public Long getIdProduto() {
 		return idProduto;
 	}
 
