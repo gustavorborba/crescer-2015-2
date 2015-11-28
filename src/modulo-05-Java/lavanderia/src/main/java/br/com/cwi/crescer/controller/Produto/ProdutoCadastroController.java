@@ -26,7 +26,7 @@ public class ProdutoCadastroController {
 
 	@Autowired
 	public ProdutoCadastroController(ProdutoService produto, MaterialService materialService,
-			ServicoService servicoService) {
+		ServicoService servicoService) {
 		this.produtoService = produto;
 		this.materialService = materialService;
 		this.servicoService = servicoService;
@@ -45,9 +45,9 @@ public class ProdutoCadastroController {
 					"Combinacao Servico/Material já se encontra na base de dados");
 			return new ModelAndView("redirect:/produto/cadastrar");
 		}
-		produtoService.salvarAlteracao(dto);
+		produtoService.salvarCadastro(dto);
 		redirectAttributes.addFlashAttribute("Mensagem", "Produto cadastrado com Sucesso!");
-		return new ModelAndView("redirect:/cliente");
+		return new ModelAndView("redirect:/produto");
 	}
 
 	@ModelAttribute("materiais")
