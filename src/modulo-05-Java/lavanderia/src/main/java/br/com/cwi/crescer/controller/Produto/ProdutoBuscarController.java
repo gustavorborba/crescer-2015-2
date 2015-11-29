@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import br.com.cwi.crescer.domain.Material;
 import br.com.cwi.crescer.domain.Servico;
 import br.com.cwi.crescer.dto.IdsDTO;
@@ -26,10 +25,9 @@ public class ProdutoBuscarController {
 	private ServicoService servicoService;
 
 	@Autowired
-	public ProdutoBuscarController(ProdutoService produto, MaterialService materialService,
-			ServicoService servicoService) {
+	public ProdutoBuscarController(ProdutoService produto, MaterialService material, ServicoService servicoService) {
 		this.produtoService = produto;
-		this.materialService = materialService;
+		this.materialService = material;
 		this.servicoService = servicoService;
 	}
 
@@ -41,18 +39,18 @@ public class ProdutoBuscarController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView realizarProcura(IdsDTO ids) {
-		List<ProdutoDTO> produtosDTO = ProdutoMapper.allToProdutoDTO(produtoService.buscarCombinacao(ids.getIdServico(),
-														ids.getIdMaterial()));
+		List<ProdutoDTO> produtosDTO = ProdutoMapper
+				.allToProdutoDTO(produtoService.buscarCombinacao(ids.getIdServico(), ids.getIdMaterial()));
 		return new ModelAndView("produto/listar", "produtos", produtosDTO);
 	}
 
 	@ModelAttribute("materiais")
 	public List<Material> comboMaterial() {
-		return this.materialService.listarTodosMateriais();
+		return materialService.listarTodosMateriais();
 	}
 
 	@ModelAttribute("servicos")
 	public List<Servico> comboServico() {
-		return this.servicoService.listarTodosServicos();
+		return servicoService.listarTodosServicos();
 	}
 }
