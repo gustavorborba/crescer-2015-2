@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.domain.Material;
@@ -35,11 +36,27 @@ public class ProdutoDao{
 
 	public List<Produto> buscarCombinacao(Servico servico, Material material){
 		StringBuilder query = new StringBuilder();
-		query.append("FROM Produto p where p.servico = :idServico and p.material = :idMaterial");
-		return em.createQuery(query.toString(),Produto.class)
-			.setParameter("idServico", servico)
-			.setParameter("idMaterial", material)
-			.getResultList();
+		query.append("FROM Produto p where ");
+		boolean servicoNull = servico.getIdServico() == null;
+		boolean materialNull = material.getIdMaterial() == null;
+		if(!servicoNull){
+			query.append("p.servico = :idServico");
+		}
+		if(!servicoNull && !materialNull){
+			query.append(" and ");
+		}
+		if(!materialNull){
+			query.append("p.material =:idMaterial");
+		}
+		 TypedQuery<Produto> consulta= em.createQuery(query.toString(),Produto.class);
+		 
+		 if(!servicoNull){
+			 consulta.setParameter("idServico", servico);
+		 }
+		 if(!materialNull){
+			 consulta.setParameter("idMaterial", material);
+		 }
+		 return consulta.getResultList();
 			
 	}
 }
