@@ -87,7 +87,7 @@ public class ClienteController {
 	
 	@RequestMapping(path = "/ {nomeCliente}", method = RequestMethod.GET)
 	public ModelAndView buscaClientePorNome(@RequestParam("nomeCliente") String nomeCliente){
-		return new ModelAndView("cliente/lista", "clientes", clienteService.buscarPorNome(nomeCliente));
+		return new ModelAndView("cliente/lista", "clientes", clienteService.buscarPorNomeParcial(nomeCliente));
 	}
 	
 	@ModelAttribute("cidades")
