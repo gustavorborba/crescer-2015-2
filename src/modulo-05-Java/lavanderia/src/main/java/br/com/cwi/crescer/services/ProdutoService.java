@@ -30,7 +30,7 @@ public class ProdutoService {
 		return !this.buscarCombinacao(idServico, idMaterial).isEmpty();
 	}
 	
-	private List<Produto> buscarCombinacao(Long idServico, Long idMaterial){
+	public List<Produto> buscarCombinacao(Long idServico, Long idMaterial){
 		Servico servico = new Servico();
 		Material material = new Material();
 		servico.setIdServico(idServico);

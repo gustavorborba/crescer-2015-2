@@ -10,10 +10,14 @@
 <body>
 	<section  layout:fragment="content" class="box texto">
 	<p th:text="${Mensagem}"></p>
-		<div class="botaoCadastrar">
+	<div class="botaoCadastrar">
+	<a class="btn btn-primary btn-md pull-right"
+				th:href="@{/produto/cadastrar}">Cadastrar</a>
+	</div>
+		<div class="listaheader">
 			<h2 class="textline">Produtos</h2>
 			<a class="btn btn-primary btn-md pull-right"
-				th:href="@{/produto/cadastrar}">Cadastrar</a>
+				th:href="@{/produto/buscar}">Buscar Produtos</a>
 		</div>
 		<div class="tabelaMargin">
 			<table

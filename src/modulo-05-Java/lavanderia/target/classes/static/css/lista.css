@@ -4,8 +4,8 @@
 	margin-left:100px;
 }
 
-.botaoCadastrar{
-	margin-top:30px;
+.listaheader{
+	margin-top:45px;
 	margin-bottom:10px;
 	Padding:15px;
 	margin-right:120px;
@@ -15,4 +15,9 @@
 	margin-top:-10px;
 	margin-left:45px;
 	margin-right: 45px;
+}
+
+.botaoCadastrar{
+	margin-top:-25px;
+	margin-right:-10px;
 }
