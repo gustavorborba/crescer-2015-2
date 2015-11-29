@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">	
+<head>
+<link th:href="@{/css/lista.css}" rel="stylesheet" />
+<link th:href="@{/css/allFiles.css}" rel="stylesheet" />
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<section layout:fragment="content" class="box texto">
+	 <h2>Escolha o servico</h2>
+		<form name="form"  th:action="@{'/pedido/cadastro/servicoCadastro'}" th:object="${pedidos}" method="POST">
+		<input th:field="*{idCliente}" type="hidden" />
+		<input th:field="*{idMaterial}" type="hidden" />
+			<p class="form-group">
+		 		<label class="col-sm-2 control-label">Serviço: </label>
+		 		<select th:field="*{idServico}">
+	                <option th:each="s : ${servicos}" th:text="${s.descricao}" th:value="${s.idServico}" ></option>
+	            </select>
+            </p>
+            <input type="submit" id="pesquisar" value="Pesquisar" />
+		</form>
+	</section>
+</body>
+</html>

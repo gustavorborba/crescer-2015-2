@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
+<head>
+<link th:href="@{/css/allFiles.css}" rel="stylesheet" />
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<section layout:fragment="content" class="box texto">
+	<h2>Nome do Cliente</h2>
+	<p th:text="${Mensagem}"></p>
+	
+		<form name="form" th:action="@{'/pedido/cadastro/clientecadastro'}" method="POST">
+			<input type="text" id="nomeCliente" name="nomeCliente" placeholder="Nome cliente" />
+			<input type="submit" id="pesquisar" value="Pesquisar" />
+			</form>
+	</section>
+</body>
+</html>
