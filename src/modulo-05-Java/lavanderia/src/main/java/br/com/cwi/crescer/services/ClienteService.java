@@ -9,7 +9,6 @@ import br.com.cwi.crescer.dao.ClienteDao;
 import br.com.cwi.crescer.domain.Cliente;
 import br.com.cwi.crescer.domain.Cliente.SituacaoCliente;
 import br.com.cwi.crescer.dto.ClienteDTO;
-import br.com.cwi.crescer.dto.PedidoDTO;
 import br.com.cwi.crescer.dto.ResumoClienteDTO;
 import br.com.cwi.crescer.mapper.ClienteMapper;
 
@@ -60,5 +59,15 @@ public class ClienteService {
 	public List<ResumoClienteDTO> buscarPorNomeParcial(String nome){
 		List<Cliente> cliente = clienteDAO.findByNameParcial(nome);
 		return ClienteMapper.allToResumoClienteDTO(cliente);
+	}
+	
+	public ClienteDTO buscarPorCpf(String cpf){
+		List<Cliente> clientes = clienteDAO.buscarPorCpf(cpf);
+		boolean clienteEncontrado = clientes.isEmpty();
+		if(clienteEncontrado){
+			return null;
+		}
+		return ClienteMapper.clienteToClienteDTO(clientes.get(0)) ;
+		
 	}
 }
