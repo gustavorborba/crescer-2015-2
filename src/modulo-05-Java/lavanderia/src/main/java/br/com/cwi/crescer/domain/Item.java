@@ -17,14 +17,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Item")
-@SequenceGenerator(name = Item.SEQUENCE_NAME, sequenceName = Item.SEQUENCE_NAME)
+@SequenceGenerator(name = Item.SEQUENCE_NAME, sequenceName = Item.SEQUENCE_NAME,initialValue = 5, allocationSize = 1)
 public class Item {
 	public static final String SEQUENCE_NAME = "SEQ_Item";
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	@Column(name = "IDItem")
-	private long idItem;
+	private Long idItem;
 	
 	@ManyToOne
 	@JoinColumn(name = "IDPedido")
@@ -44,9 +44,6 @@ public class Item {
 	@Basic(optional = false)
 	private BigDecimal valorUnitario;
 	
-	@Column(name = "VALORDesconto")
-	@Basic(optional = false)
-	private BigDecimal valorDesconto;
 	
 	@Column(name = "VALORTotal")
 	@Basic(optional = false)
@@ -60,11 +57,11 @@ public class Item {
         PENDENTE, PROCESSANDO, PROCESSADO
     }
 
-	public long getIdItem() {
+	public Long getIdItem() {
 		return idItem;
 	}
 
-	public void setIdItem(long idItem) {
+	public void setIdItem(Long idItem) {
 		this.idItem = idItem;
 	}
 
@@ -100,14 +97,6 @@ public class Item {
 		this.valorUnitario = valorUnitario;
 	}
 
-	public BigDecimal getValorDesconto() {
-		return valorDesconto;
-	}
-
-	public void setValorDesconto(BigDecimal valorDesconto) {
-		this.valorDesconto = valorDesconto;
-	}
-
 	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}
@@ -123,5 +112,7 @@ public class Item {
 	public void setSituacao(SituacaoItem situacao) {
 		this.situacao = situacao;
 	}
-	
+	public void processarItem(){
+		this.situacao = SituacaoItem.PROCESSADO;
+	}
 }
