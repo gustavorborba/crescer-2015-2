@@ -22,6 +22,9 @@
 								onclick="document.getElementById('logout').submit()">Logout</a>
 						</form>
 					</div>
+					<div style="display: inline-block;" class="navbar-brand pull-right" sec:authorize="hasRole('ROLE_USER')">
+						<p sec:authentication="name"></p>
+					</div>
 				</div>
 			</div>
 		</div>
