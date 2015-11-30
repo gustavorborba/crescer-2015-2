@@ -17,17 +17,11 @@
 			<p class="form-group">
 		 		<label class="col-sm-2 control-label">Valor: </label>
 		 		<input th:field="*{valor}" type="text"/>
-		 		<div class="form-group" th:classappend="${#fields.hasErrors('valor')} ? 'has-error'">	
-											<span class="help-inline" th:errors="*{valor}"></span>
-				</div>	
 	 		</p>
 			
 			<p class="form-group">
 		 		<label class="col-sm-2 control-label">Prazo: </label>
 		 		<input th:field="*{prazo}" type="text"/>
-		 		<div class="form-group" th:classappend="${#fields.hasErrors('prazo')} ? 'has-error'">	
-											<span class="help-inline" th:errors="*{prazo}"></span>
-				</div>	
 	 		</p>
 	 		
 	 		<p class="form-group">
