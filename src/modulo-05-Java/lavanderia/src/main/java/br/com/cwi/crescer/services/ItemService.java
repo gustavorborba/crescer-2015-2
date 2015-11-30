@@ -47,4 +47,10 @@ public class ItemService{
 		item.processarItem();
 		return itemDAO.salvarAlteracoes(item);
 	}
+	public Boolean itensASeremProcessaod(Long idPedido){
+		Pedido pedido = new Pedido();
+		pedido.setIdPedido(idPedido);
+		return itemDAO.verificarItemASerProcessado(pedido).size() == 0;
+		
+	}
 }
