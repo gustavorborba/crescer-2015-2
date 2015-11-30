@@ -34,9 +34,21 @@ public class ClienteDao {
 	        }
 	        return em.merge(cliente);
 	    }
-	    public List<Cliente> findByName(String nome){
+	    
+	    public List<Cliente> buscarPorNome(String nome){
+	    	return em.createQuery("From Cliente as c where c.nome = :nome",Cliente.class)
+	    			.setParameter("nome", nome)
+	    			.getResultList();
+	    }
+	    
+	    public List<Cliente> findByNameParcial(String nome){
 	    	return em.createQuery("FROM Cliente as c where c.nome like :nome",Cliente.class)
 	    	.setParameter("nome", nome +"%")
 	    	.getResultList();
+	    }
+	    public List<Cliente> buscarPorCpf(String cpf){
+	    	return em.createQuery("From Cliente as c where c.cpf = :cpf",Cliente.class)
+	    			.setParameter("cpf", cpf)
+	    			.getResultList();
 	    }
 }
