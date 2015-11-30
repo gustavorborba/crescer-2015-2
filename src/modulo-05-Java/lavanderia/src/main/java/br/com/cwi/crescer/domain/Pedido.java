@@ -70,7 +70,7 @@ public class Pedido {
     public boolean idIsNull(){
     	return this.idPedido == null;
     }
-	public long getIdPedido() {
+	public Long getIdPedido() {
 		return idPedido;
 	}
 
@@ -144,5 +144,8 @@ public class Pedido {
 		this.itens = itens;
 	}
 	
+	public void alterarParaProcessando(){
+		this.situacao = SituacaoPedido.PROCESSANDO;
+	}
 	
 }

@@ -61,6 +61,5 @@ public class ItemDTO {
 	}
 	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
-	}
-	
+	}	
 }

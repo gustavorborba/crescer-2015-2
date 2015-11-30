@@ -21,8 +21,12 @@ public class PedidoDao{
 	}
 	
 	@Transactional
-	public void cadastrarPedido(Pedido pedido){
-		 em.persist(pedido);
+	public Pedido salvarAlteracoes(Pedido pedido){
+		if(pedido.idIsNull()){
+			 em.persist(pedido);
+			 return pedido;
+		}
+		return em.merge(pedido);
 	}
 	
 	public List<Pedido> listarPedidos(){

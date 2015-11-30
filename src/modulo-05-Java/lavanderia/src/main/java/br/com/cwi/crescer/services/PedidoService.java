@@ -27,6 +27,10 @@ public class PedidoService {
 		this.pedidoDAO = pedidoDAO;
 	}
 	
+	public Pedido procurarPorId(Long id){
+		return pedidoDAO.findById(id);
+	}
+	
 	public void cadastrarPedido(Long idCliente){
 		Pedido pedido = new Pedido();
 		Cliente cliente = new Cliente();
@@ -35,7 +39,7 @@ public class PedidoService {
 		pedido.setDataInclusao(new Date());
 		pedido.setValor(new BigDecimal(0));
 		pedido.setSituacao(SituacaoPedido.PENDENTE);
-		pedidoDAO.cadastrarPedido(pedido);
+		pedidoDAO.salvarAlteracoes(pedido);
 	}
 	public List<PedidoDTO> listarPedidosPorCliente(Long idCliente){
 		Cliente cliente = new Cliente();
@@ -58,5 +62,13 @@ public class PedidoService {
 	public List<ItemDTO> listarItensVinculadosAPedido(Long id){
 		Pedido pedido = pedidoDAO.findById(id);
 		return ItemMapper.allItemTOItemDTO(pedido.getItens());
+	}
+	
+	public Pedido alterarPedidoParaProcessando(Long idPedido){
+		Pedido pedido = new Pedido();
+		pedido = this.procurarPorId(idPedido);
+		pedido.alterarParaProcessando();
+		return pedidoDAO.salvarAlteracoes(pedido);
+		
 	}
 }

@@ -2,11 +2,13 @@ package br.com.cwi.crescer.controller.pedido;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.cwi.crescer.dto.ClienteDTO;
+import br.com.cwi.crescer.mapper.ClienteMapper;
 import br.com.cwi.crescer.services.ClienteService;
 import br.com.cwi.crescer.services.PedidoService;
 
@@ -34,5 +36,12 @@ public class ClientePedidoController {
 			return new ModelAndView("redirect:/pedido/cadastro/clientecadastro");
 		}
 		return new ModelAndView("/pedido/pedidos", "pedidos", pedidoService.criarDTOQueContemListaDePedidos(dto));
+	}
+	
+	@RequestMapping(path = "/clientepedidos/processando/{idPedido}", method = RequestMethod.GET)
+	public ModelAndView processarPedido(@PathVariable("idPedido") Long idPedido){
+		Long id = pedidoService.alterarPedidoParaProcessando(idPedido).cliente().getIdCliente();
+		ClienteDTO cliente= clienteService.buscarClientePorId(id);
+		return new ModelAndView("/pedido/pedidos", "pedidos", pedidoService.criarDTOQueContemListaDePedidos(cliente));
 	}
 }
