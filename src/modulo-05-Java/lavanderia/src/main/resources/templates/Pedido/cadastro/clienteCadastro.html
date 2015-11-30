@@ -11,7 +11,7 @@
 	<h2>Preencha o campo</h2>
 	<p th:text="${Mensagem}"></p>
 	
-		<form name="form" th:action="@{'/pedido/cadastro/clientecadastro'}" method="POST">
+		<form name="form" th:action="@{'/pedido/clientepedidos'}" method="POST">
 			<input type="text" id="cpf" name="cpf" placeholder="CPF" />
 			<input type="submit" id="pesquisar" value="Pesquisar" />
 		</form>
