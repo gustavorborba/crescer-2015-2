@@ -7,12 +7,13 @@ import br.com.cwi.crescer.domain.Item.SituacaoItem;
 public class ItemDTO {
 	private Long idItem;
 	private Long idPedido;
-	private Long idProduto;
+	private String servico;
+	private String material;
 	private BigDecimal peso;
 	private BigDecimal valorUnitario;
-	private BigDecimal valorDesconto;
-	private BigDecimal valorToral;
+	private BigDecimal valorTotal;
 	private SituacaoItem situacao;
+	
 	public Long getIdItem() {
 		return idItem;
 	}
@@ -25,14 +26,17 @@ public class ItemDTO {
 	public void setIdPedido(Long idPedido) {
 		this.idPedido = idPedido;
 	}
-	public Long getIdProduto() {
-		return idProduto;
+	public String getServico() {
+		return servico;
 	}
-	public void setIdProduto(Long idProduto) {
-		this.idProduto = idProduto;
+	public void setServico(String servico) {
+		this.servico = servico;
 	}
-	public BigDecimal getPeso() {
-		return peso;
+	public String getMaterial() {
+		return material;
+	}
+	public void setMaterial(String material) {
+		this.material = material;
 	}
 	public void setPeso(BigDecimal peso) {
 		this.peso = peso;
@@ -43,24 +47,20 @@ public class ItemDTO {
 	public void setValorUnitario(BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
-	public BigDecimal getValorDesconto() {
-		return valorDesconto;
-	}
-	public void setValorDesconto(BigDecimal valorDesconto) {
-		this.valorDesconto = valorDesconto;
-	}
-	public BigDecimal getValorToral() {
-		return valorToral;
-	}
-	public void setValorToral(BigDecimal valorToral) {
-		this.valorToral = valorToral;
-	}
 	public SituacaoItem getSituacao() {
 		return situacao;
 	}
 	public void setSituacao(SituacaoItem situacao) {
 		this.situacao = situacao;
 	}
-	
+	public BigDecimal getPeso() {
+		return peso;
+	}
+	public BigDecimal getValorTotal() {
+		return valorTotal;
+	}
+	public void setValorTotal(BigDecimal valorTotal) {
+		this.valorTotal = valorTotal;
+	}
 	
 }

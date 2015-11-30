@@ -7,7 +7,6 @@ import br.com.cwi.crescer.domain.Pedido.SituacaoPedido;
 
 public class PedidoDTO {
 	private Long idPedido;
-	private Long idCliente;
 	private Date dataInclusao;
 	private Date dataEntrega;
 	private BigDecimal valor;
@@ -17,12 +16,6 @@ public class PedidoDTO {
 	}
 	public void setIdPedido(Long idPedido) {
 		this.idPedido = idPedido;
-	}
-	public Long getIdCliente() {
-		return idCliente;
-	}
-	public void setIdCliente(Long idCliente) {
-		this.idCliente = idCliente;
 	}
 	public Date getDataInclusao() {
 		return dataInclusao;
