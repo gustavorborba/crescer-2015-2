@@ -31,7 +31,7 @@ public class PedidoService {
 		return pedidoDAO.findById(id);
 	}
 	
-	public void cadastrarPedido(Long idCliente){
+	public Long cadastrarPedido(Long idCliente){
 		Pedido pedido = new Pedido();
 		Cliente cliente = new Cliente();
 		cliente.setIdCliente((long)idCliente);
@@ -39,7 +39,7 @@ public class PedidoService {
 		pedido.setDataInclusao(new Date());
 		pedido.setValor(new BigDecimal(0));
 		pedido.setSituacao(SituacaoPedido.PENDENTE);
-		pedidoDAO.salvarAlteracoes(pedido);
+		return pedidoDAO.salvarAlteracoes(pedido).getIdPedido();
 	}
 	public List<PedidoDTO> listarPedidosPorCliente(Long idCliente){
 		Cliente cliente = new Cliente();
@@ -69,6 +69,5 @@ public class PedidoService {
 		pedido = this.procurarPorId(idPedido);
 		pedido.alterarParaProcessando();
 		return pedidoDAO.salvarAlteracoes(pedido);
-		
 	}
 }

@@ -10,6 +10,9 @@
 <body>
 	<section layout:fragment="content" class="box texto">
 	 <h2>Pedidos</h2>
+	 <p th:text="${Mensagem}"></p>
+	 <a class="btn btn-primary btn-md botaoCadastrar pull-right" 
+	 	th:href="${ '/pedido/cadastropedido/' + pedidos.idCliente}">Cadastrar Pedido</a>
 		<table
 				class="table table-striped table-bordered table-hover table-responsive table-condensed ">
 				<thead>

@@ -18,12 +18,12 @@ import br.com.cwi.crescer.services.ServicoService;
 
 @Controller
 @RequestMapping("/pedido/cadastro")
-public class PedidoController {
+public class PedidoItemCadastroController {
 	private ServicoService servicoService;
 	private ProdutoService produtoService;
 	private ItemService itemService;
 	@Autowired
-	public PedidoController(ServicoService servico,
+	public PedidoItemCadastroController(ServicoService servico,
 			ProdutoService produto,ItemService item) {
 		this.servicoService = servico;
 		this.produtoService = produto;

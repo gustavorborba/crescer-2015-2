@@ -56,7 +56,6 @@ public class ClienteController {
 		return new ModelAndView("redirect:/cliente");
 	}
 
-	@PreAuthorize("hasRole=('ADMIN')")
 	@RequestMapping(path = "/remover/{id}", method = RequestMethod.GET)
 	public ModelAndView viewRemover(@PathVariable("id") Long id) {
 		return new ModelAndView("cliente/ExclusaoDeCliente", "cliente", clienteService.buscarClientePorId(id));

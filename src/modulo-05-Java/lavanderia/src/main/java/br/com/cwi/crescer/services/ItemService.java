@@ -51,6 +51,12 @@ public class ItemService{
 		Pedido pedido = new Pedido();
 		pedido.setIdPedido(idPedido);
 		return itemDAO.verificarItemASerProcessado(pedido).size() == 0;
-		
+	}
+	
+	public boolean todosItensForamProcessador(Long idPedido){
+		Pedido pedido = new Pedido();
+		pedido.setIdPedido(idPedido);
+		boolean aSerPeocessado = itemDAO.verificarItemASerProcessado(pedido).isEmpty();
+		return aSerPeocessado;
 	}
 }

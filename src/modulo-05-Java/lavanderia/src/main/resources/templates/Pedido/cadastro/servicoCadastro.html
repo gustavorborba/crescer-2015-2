@@ -10,6 +10,7 @@
 <body>
 	<section layout:fragment="content" class="box texto">
 	 <h2>Escolha o servico</h2>
+	 <p th:text="${Mensagem}"></p>
 		<form th:action="@{'/pedido/cadastro/servicocadastro'}" th:object="${pedidos}" method="post">
 		<input th:field="*{idPedido}" type="hidden" />
 			<p class="form-group">
@@ -46,6 +47,8 @@
 						+ produto.idProduto + '/' + pedidos.peso}">Incluir</a></td>
 				</tr>
 			</table>
+	 <a class="btn btn-primary btn-md botaoCadastrar pull-right" 
+	 	th:href="${ '/pedido/itens/' + pedidos.idPedido}">Voltar</a>
 	</section>
 </body>
 </html>
