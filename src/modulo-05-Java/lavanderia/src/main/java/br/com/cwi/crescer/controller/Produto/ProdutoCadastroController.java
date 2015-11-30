@@ -47,7 +47,7 @@ public class ProdutoCadastroController {
 		}
 		produtoService.salvarCadastro(dto);
 		redirectAttributes.addFlashAttribute("Mensagem", "Produto cadastrado com Sucesso!");
-		return new ModelAndView("redirect:/produto");
+		return new ModelAndView("redirect:/produto/");
 	}
 
 	@ModelAttribute("materiais")
