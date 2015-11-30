@@ -46,7 +46,7 @@ public class Pedido {
 	@Column(name = "DATAEntrega")
 	private Date dataEntrega;
 	
-	@Column(name = "Valor")
+	@Column(name = "VALORBruto")
 	@Basic(optional = false)
 	private BigDecimal  valor;
 	
@@ -54,6 +54,12 @@ public class Pedido {
     @Column(name = "Situacao", length = 1)
     private SituacaoPedido situacao;
 
+	@Column(name = "VALORDesconto")
+	private BigDecimal  valorDesconto;
+	
+	@Column(name = "VALORFinal")
+	private BigDecimal  valorFinal;
+    
     @OneToMany(mappedBy = "pedido")
     private List<Item> itens = new ArrayList<Item>();
     
@@ -119,4 +125,24 @@ public class Pedido {
 	public void setItens(ArrayList<Item> itens) {
 		this.itens = itens;
 	}
+	public BigDecimal getValorDesconto() {
+		return valorDesconto;
+	}
+	public void setValorDesconto(BigDecimal valorDesconto) {
+		this.valorDesconto = valorDesconto;
+	}
+	public BigDecimal getValorFinal() {
+		return valorFinal;
+	}
+	public void setValorFinal(BigDecimal valorFinal) {
+		this.valorFinal = valorFinal;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setItens(List<Item> itens) {
+		this.itens = itens;
+	}
+	
+	
 }
