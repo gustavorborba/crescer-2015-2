@@ -3,6 +3,7 @@ package br.com.cwi.crescer.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.validation.constraints.Size;
 import br.com.cwi.crescer.domain.Produto;
 import br.com.cwi.crescer.mapper.ProdutoMapper;
 
@@ -11,6 +12,7 @@ public class TramiteDTO {
 	private Long idServico;
 	private Long idProduto;
 	private Long idPedido;
+	@Size(min = 1, max=2)
 	private BigDecimal peso;
 	private List<ProdutoDTO> produtosVinculadosAServico;
 	public Long getIdCliente() {
