@@ -33,9 +33,11 @@
 					<td th:text="${pedido.dataInclusao}"></td>
 					<td th:text="${pedido.valor}"></td>
 					<td th:text="${pedido.situacao}"></td>
-					<td><a th:href="${ '/pedido/cadastro/itemcadastro/' + pedido.idPedido}">Incluir</a></td>
+					<td th:if="${pedido.situacao.toString()} == PENDENTE"><a th:href="${ '/pedido/cadastro/itemcadastro/' + pedido.idPedido}">Incluir</a></td>
+					<td  th:if="${pedido.situacao.toString()} != PENDENTE">Incluir</td>
 					<td><a th:href="${ '/pedido/itens/' + pedido.idPedido}">Visualizar</a></td>
-					<td><a th:href="${ '/pedido/clientepedidos/processando/' + pedido.idPedido}">Processando</a></td>
+					<td th:if="${pedido.situacao.toString()} == PENDENTE"><a th:href="${ '/pedido/clientepedidos/processando/' + pedido.idPedido}">Processando</a></td>
+					<td  th:if="${pedido.situacao.toString()} != PENDENTE">Processando</td>
 				</tr>
 			</table>
 	</section>

@@ -31,7 +31,8 @@
 					<td th:text="${item.valorUnitario}"></td>
 					<td th:text="${item.valorTotal}"></td>
 					<td th:text="${item.situacao}"></td>
-					<td><a th:href="${ '/pedido/itens//processar/' + item.idItem}">Processar</a></td>
+					<td th:if="${item.situacao.toString()} != PROCESSADO"><a th:href="${ '/pedido/itens//processar/' + item.idItem}">Processar</a></td>
+					<td  th:if="${item.situacao.toString()} == PROCESSADO">Processar</td>
 				</tr>
 			</table>
 	</section>
