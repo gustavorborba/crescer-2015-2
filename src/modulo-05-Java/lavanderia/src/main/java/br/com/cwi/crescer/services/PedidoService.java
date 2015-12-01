@@ -64,10 +64,10 @@ public class PedidoService {
 		return ItemMapper.allItemTOItemDTO(pedido.getItens());
 	}
 	
-	public Pedido alterarPedidoParaProcessando(Long idPedido){
+	public Pedido alterarSituacaoPedido(Long idPedido,SituacaoPedido situacao){
 		Pedido pedido = new Pedido();
 		pedido = this.procurarPorId(idPedido);
-		pedido.alterarParaProcessando();
+		pedido.setSituacao(situacao);
 		return pedidoDAO.salvarAlteracoes(pedido);
 	}
 }
