@@ -71,6 +71,9 @@ public class PedidoService {
 		Pedido pedido = new Pedido();
 		pedido = this.procurarPorId(idPedido);
 		pedido.setSituacao(situacao);
+		if(situacao == SituacaoPedido.PROCESSADO){
+			pedido =PrecoService.calcularPrecoFinal(pedido);
+		}
 		return pedidoDAO.salvarAlteracoes(pedido);
 	}
 }

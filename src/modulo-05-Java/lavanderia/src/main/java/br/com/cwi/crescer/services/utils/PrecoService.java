@@ -23,8 +23,8 @@ public class PrecoService {
 	
 	public static Pedido calcularPrecoFinal(Pedido pedido){
 		BigDecimal desconto = calcularDesconto(pedido);
-		BigDecimal descontoASerAplicado = pedido.getValorFinal().multiply(desconto);;
-		BigDecimal novoValoFinal = pedido.getValorFinal().subtract(descontoASerAplicado);
+		BigDecimal descontoASerAplicado = pedido.getValor().multiply(desconto);;
+		BigDecimal novoValoFinal = pedido.getValor().subtract(descontoASerAplicado);
 		pedido.setValorFinal(novoValoFinal);
 		pedido.setValorDesconto(descontoASerAplicado);
 		return pedido;
@@ -61,7 +61,7 @@ public class PrecoService {
 	}
 	
 	private static boolean descontoPorValorTotalDoPedido(Pedido pedido){
-		boolean valorMaiorDesconto = pedido.getValorFinal().intValue() > 90;
+		boolean valorMaiorDesconto = pedido.getValor().intValue() > 90;
 		return valorMaiorDesconto;
 	}
 	

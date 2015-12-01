@@ -25,13 +25,15 @@
 					<div style="display: inline-block;" class="navbar-brand pull-right" sec:authorize="hasRole('ROLE_USER')">
 						<p sec:authentication="name"></p>
 					</div>
+					<div style="display: inline-block;" class="navbar-brand pull-right" sec:authorize="hasRole('ROLE_ADMIN')">
+						<p sec:authentication="name"></p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</header>
 	<section layout:fragment="content"></section>
 	<footer>
-		<p layout:fragment="custom-footer">Footer</p>
 	</footer>
 </body>
 </html>

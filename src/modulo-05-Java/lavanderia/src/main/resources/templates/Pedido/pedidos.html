@@ -45,7 +45,8 @@
 					<td th:if="${pedido.situacao.toString()} != PROCESSADO">Ação Indisponivel</td>
 					<td sec:authorize="hasRole('ROLE_ADMIN')" th:if="${pedido.situacao.toString()} != ENCERRADO and ${pedido.situacao.toString()} != CANCELADO ">
 						<a th:href="${ '/pedido/cancelar/' + pedido.idPedido}">Cancelar</a></td>
-					<td th:if="${pedido.situacao.toString()} == ENCERRADO or ${pedido.situacao.toString()} == CANCELADO ">Ação Indisponivel</td>
+					<td sec:authorize="hasRole('ROLE_ADMIN')" th:if="${pedido.situacao.toString()} == ENCERRADO
+					 or ${pedido.situacao.toString()} == CANCELADO ">Ação Indisponivel</td>
 				</tr>
 			</table>
 	</section>
