@@ -61,13 +61,13 @@ public class ClienteService {
 		return ClienteMapper.allToResumoClienteDTO(cliente);
 	}
 	
-	public ClienteDTO buscarPorCpf(String cpf){
+	public Cliente buscarPorCpf(String cpf){
 		List<Cliente> clientes = clienteDAO.buscarPorCpf(cpf);
 		boolean clienteEncontrado = clientes.isEmpty();
 		if(clienteEncontrado){
 			return null;
 		}
-		return ClienteMapper.clienteToClienteDTO(clientes.get(0)) ;
+		return clientes.get(0);
 		
 	}
 }

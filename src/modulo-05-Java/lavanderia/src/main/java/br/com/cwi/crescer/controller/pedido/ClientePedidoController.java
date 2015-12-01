@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.cwi.crescer.domain.Cliente;
 import br.com.cwi.crescer.domain.Pedido.SituacaoPedido;
-import br.com.cwi.crescer.dto.ClienteDTO;
-import br.com.cwi.crescer.mapper.ClienteMapper;
+import br.com.cwi.crescer.dto.PedidoClienteDTO;
 import br.com.cwi.crescer.services.ClienteService;
 import br.com.cwi.crescer.services.PedidoService;
 
@@ -29,21 +29,22 @@ public class ClientePedidoController {
 	public ModelAndView cadastro() {
 		return new ModelAndView("/pedido/pedidoindex");
 	}
+	
 	@RequestMapping(path = "/clientepedidos", method = RequestMethod.POST)
 	public ModelAndView validarCliente(String cpf, final RedirectAttributes redirectAttributes) {
-		ClienteDTO dto = clienteService.buscarPorCpf(cpf);
-		boolean clienteNaoEncontrado = dto == null;
+		PedidoClienteDTO pedidos = pedidoService.criarDTOQueContemListaDePedidos(clienteService.buscarPorCpf(cpf));
+		boolean clienteNaoEncontrado = pedidos.getIdCliente() == null;
 		if (clienteNaoEncontrado) {
 			redirectAttributes.addFlashAttribute("Mensagem", "Cliente não encontrado, tente novamente");
 			return new ModelAndView("redirect:/pedido/cadastro/clientecadastro");
 		}
-		return new ModelAndView("/pedido/pedidos", "pedidos", pedidoService.criarDTOQueContemListaDePedidos(dto));
+		return new ModelAndView("/pedido/pedidos", "pedidos", pedidos);
 	}
+	
 	
 	@RequestMapping(path = "/clientepedidos/processando/{idPedido}", method = RequestMethod.GET)
 	public ModelAndView processarPedido(@PathVariable("idPedido") Long idPedido){
-		Long id = pedidoService.alterarSituacaoPedido(idPedido,SituacaoPedido.PROCESSANDO).cliente().getIdCliente();
-		ClienteDTO cliente= clienteService.buscarClientePorId(id);
+		Cliente cliente = pedidoService.alterarSituacaoPedido(idPedido,SituacaoPedido.PROCESSANDO).cliente();
 		return new ModelAndView("/pedido/pedidos", "pedidos", pedidoService.criarDTOQueContemListaDePedidos(cliente));
 	}
 }
