@@ -21,9 +21,8 @@ public class ClienteService {
     public ClienteService(ClienteDao clientedao){
         this.clienteDAO = clientedao;
     }
-	public ClienteDTO buscarClientePorId(Long id){
-		Cliente cliente = this.clienteDAO.findById(id);
-		return ClienteMapper.clienteToClienteDTO(cliente);
+	public Cliente buscarClientePorId(Long id){
+		return this.clienteDAO.findById(id);
 	}
 	
 	public List<ResumoClienteDTO> listarClientesAtivos(){

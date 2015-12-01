@@ -24,7 +24,6 @@ public class PedidoService {
 	@Autowired
 	public PedidoService(PedidoDao pedidoDAO){
 		this.pedidoDAO = pedidoDAO;
-
 	}
 	
 	public Pedido procurarPorId(Long id){
@@ -62,7 +61,6 @@ public class PedidoService {
 		PedidoClienteDTO pedidoDTO = PedidoMapper.clienteEmPedidoCLienteDTO(cliente);
 		return pedidoDTO;
 	}
-	
 	
 	public List<ItemDTO> listarItensVinculadosAPedido(Long id){
 		Pedido pedido = pedidoDAO.findById(id);
