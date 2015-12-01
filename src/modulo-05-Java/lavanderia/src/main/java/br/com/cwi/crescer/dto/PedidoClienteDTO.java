@@ -2,8 +2,6 @@ package br.com.cwi.crescer.dto;
 
 import java.util.List;
 
-import br.com.cwi.crescer.domain.Pedido;
-
 public class PedidoClienteDTO {
 	private Long idCliente;
 	private String nomeCliente;
