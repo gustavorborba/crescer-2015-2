@@ -1,6 +1,7 @@
 package br.com.cwi.crescer.services;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,17 +11,20 @@ import br.com.cwi.crescer.dao.ProdutoDao;
 import br.com.cwi.crescer.domain.Item;
 import br.com.cwi.crescer.domain.Item.SituacaoItem;
 import br.com.cwi.crescer.domain.Pedido;
+import br.com.cwi.crescer.domain.Pedido.SituacaoPedido;
 import br.com.cwi.crescer.domain.Produto;
 
 @Service
 public class ItemService{
 	private ItemDao itemDAO = new ItemDao();
 	private ProdutoDao produtoDao = new ProdutoDao();
+	private PedidoService pedidoService;
 	
 	@Autowired
-	public ItemService(ItemDao item,ProdutoDao produto){
+	public ItemService(ItemDao item,ProdutoDao produto,PedidoService pedido){
 		this.itemDAO = item;
 		this.produtoDao = produto;
+		this.pedidoService = pedido;
 	}
 	
 	private BigDecimal valorTotal(BigDecimal valor, BigDecimal peso){
@@ -45,13 +49,20 @@ public class ItemService{
 	public Item processarItem(Long idItem){
 		Item item = itemDAO.findById(idItem);
 		item.processarItem();
-		return itemDAO.salvarAlteracoes(item);
+		itemDAO.salvarAlteracoes(item);
+		boolean todosItensProcessados = todosItensForamProcessados(item.getPedido().getIdPedido());
+		
+		if(todosItensProcessados){
+			pedidoService.alterarSituacaoPedido(item.getPedido().getIdPedido(), SituacaoPedido.PROCESSADO);
+		}
+		return item;
 	}
 	
-	public boolean todosItensForamProcessador(Long idPedido){
+	public boolean todosItensForamProcessados(Long idPedido){
 		Pedido pedido = new Pedido();
 		pedido.setIdPedido(idPedido);
-		boolean aSerPeocessado = itemDAO.verificarItemASerProcessado(pedido).isEmpty();
+		List<Item> pedidos = itemDAO.verificarItemASerProcessado(pedido);
+		boolean aSerPeocessado = pedidos.isEmpty();
 		return aSerPeocessado;
 	}
 }

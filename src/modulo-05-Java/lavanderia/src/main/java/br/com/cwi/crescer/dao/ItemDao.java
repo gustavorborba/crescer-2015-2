@@ -32,7 +32,7 @@ public class ItemDao{
 	public List<Item> verificarItemASerProcessado(Pedido pedido){
 		return em.createQuery("From Item i where i.pedido = :pedido and i.situacao = :situacao",Item.class)
 				.setParameter("pedido", pedido)
-				.setParameter("situacao", SituacaoItem.PROCESSADO)
+				.setParameter("situacao", SituacaoItem.PENDENTE)
 				.getResultList();
 	}
 }

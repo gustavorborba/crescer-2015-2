@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import br.com.cwi.crescer.domain.Pedido.SituacaoPedido;
 import br.com.cwi.crescer.dto.ClienteDTO;
 import br.com.cwi.crescer.mapper.ClienteMapper;
 import br.com.cwi.crescer.services.ClienteService;
@@ -40,7 +42,7 @@ public class ClientePedidoController {
 	
 	@RequestMapping(path = "/clientepedidos/processando/{idPedido}", method = RequestMethod.GET)
 	public ModelAndView processarPedido(@PathVariable("idPedido") Long idPedido){
-		Long id = pedidoService.alterarPedidoParaProcessando(idPedido).cliente().getIdCliente();
+		Long id = pedidoService.alterarSituacaoPedido(idPedido,SituacaoPedido.PROCESSANDO).cliente().getIdCliente();
 		ClienteDTO cliente= clienteService.buscarClientePorId(id);
 		return new ModelAndView("/pedido/pedidos", "pedidos", pedidoService.criarDTOQueContemListaDePedidos(cliente));
 	}
