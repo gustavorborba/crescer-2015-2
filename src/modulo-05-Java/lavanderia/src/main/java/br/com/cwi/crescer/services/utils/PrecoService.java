@@ -15,9 +15,9 @@ public class PrecoService {
 		return resultado;
 	}
 	
-	public static Pedido calcularNovoPreco(Pedido pedido, Item item){
-		BigDecimal valorFinal = pedido.getValorFinal().add(item.getValorTotal());
-		pedido.setValorFinal(valorFinal);
+	public static Pedido calcularNovoPrecoBruto(Pedido pedido, Item item){
+		BigDecimal valorFinal = pedido.getValor().add(item.getValorTotal());
+		pedido.setValor(valorFinal);
 		return pedido;
 	}
 	

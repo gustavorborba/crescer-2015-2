@@ -43,7 +43,9 @@ public class ItemService{
 		item.setValorUnitario(produto.getValor());
 		item.setIdPedido(pedido);
 		item.setValorTotal(valorTotal(item.getValorUnitario(),peso));
+		
 		itemDAO.salvarAlteracoes(item);
+		pedidoService.atualizarPrecoPedido(pedido, item);
 		return item;
 	}
 	public Item processarItem(Long idItem){

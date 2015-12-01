@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.cwi.crescer.dao.PedidoDao;
 import br.com.cwi.crescer.domain.Cliente;
+import br.com.cwi.crescer.domain.Item;
 import br.com.cwi.crescer.domain.Pedido;
 import br.com.cwi.crescer.domain.Pedido.SituacaoPedido;
 import br.com.cwi.crescer.dto.ClienteDTO;
@@ -17,6 +18,7 @@ import br.com.cwi.crescer.dto.PedidoClienteDTO;
 import br.com.cwi.crescer.dto.PedidoDTO;
 import br.com.cwi.crescer.mapper.ItemMapper;
 import br.com.cwi.crescer.mapper.PedidoMapper;
+import br.com.cwi.crescer.services.utils.PrecoService;
 
 @Service
 public class PedidoService {
@@ -41,6 +43,14 @@ public class PedidoService {
 		pedido.setSituacao(SituacaoPedido.PENDENTE);
 		return pedidoDAO.salvarAlteracoes(pedido).getIdPedido();
 	}
+	
+	public Pedido atualizarPrecoPedido(Pedido pedido,Item item){
+		pedido = pedidoDAO.findById(pedido.getIdPedido());
+		Pedido pedidoFinal = PrecoService.calcularNovoPrecoBruto(pedido, item);
+		pedidoDAO.salvarAlteracoes(pedidoFinal);
+		return pedidoFinal;
+	}
+	
 	public List<PedidoDTO> listarPedidosPorCliente(Long idCliente){
 		Cliente cliente = new Cliente();
 		cliente.setIdCliente(idCliente);

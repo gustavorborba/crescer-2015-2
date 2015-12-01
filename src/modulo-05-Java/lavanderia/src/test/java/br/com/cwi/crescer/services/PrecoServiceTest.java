@@ -77,14 +77,14 @@ public class PrecoServiceTest extends AbstractInfrastructureTest{
 	@Test
 	public void calcularNovoPreco(){
 		Pedido pedido = new Pedido();
-		pedido.setValorFinal(new BigDecimal(20));
+		pedido.setValor(new BigDecimal(20));
 		Item item = new Item();
 		item.setValorTotal(new BigDecimal(55.5));
 		
-		Pedido pedidoFinal = PrecoService.calcularNovoPreco(pedido, item);
+		Pedido pedidoFinal = PrecoService.calcularNovoPrecoBruto(pedido, item);
 		
 		BigDecimal esperado = new BigDecimal(75.5);
-		Assert.assertEquals(esperado, pedidoFinal.getValorFinal());
+		Assert.assertEquals(esperado, pedidoFinal.getValor());
 	}
 	@Test
 	public void multiplicarDoisValores(){

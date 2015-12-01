@@ -16,6 +16,7 @@ public class PedidoDTO {
 	}
 	public void setIdPedido(Long idPedido) {
 		this.idPedido = idPedido;
+		
 	}
 	public Date getDataInclusao() {
 		return dataInclusao;
