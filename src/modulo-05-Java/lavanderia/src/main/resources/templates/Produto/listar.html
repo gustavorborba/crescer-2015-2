@@ -10,7 +10,7 @@
 <body>
 	<section  layout:fragment="content" class="box texto">
 	<p th:text="${Mensagem}"></p>
-	<div class="botaoCadastrar">
+	<div class="botaoCadastrar" sec:authorize="hasRole('ROLE_ADMIN')">
 	<a class="btn btn-primary btn-md pull-right"
 				th:href="@{/produto/cadastrar}">Cadastrar</a>
 	</div>
@@ -29,7 +29,7 @@
 						<th style="width: 10%">Valor</th>
 						<th style="width: 10%">Prazo</th>
 						<th style="width: 10%">Situacao</th>
-						<th style="width: 10%">Editar</th>
+						<th sec:authorize="hasRole('ROLE_ADMIN')" style="width: 10%">Editar</th>
 					</tr>
 				</thead>
 				<tr th:each="produto : ${produtos}">
@@ -38,7 +38,7 @@
 					<td th:text="${produto.valor}"></td>
 					<td th:text="${produto.prazo}"></td>
 					<td th:text="${produto.situacao}"></td>
-					<td><a th:href="${' /produto/editar/' + produto.idProduto}">Editar</a></td>
+					<td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${' /produto/editar/' + produto.idProduto}">Editar</a></td>
 				</tr>
 			</table>
 		</div>

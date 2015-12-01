@@ -26,13 +26,13 @@
 						<th style="width: 10%">Itens</th>
 						<th style="width: 10%">Alterar para</th>
 						<th style="width: 10%">Retirar</th>
-						<th style="width: 10%">Cancelar</th>
+						<th sec:authorize="hasRole('ROLE_ADMIN')" style="width: 10%">Cancelar</th>
 					</tr>
 				</thead>
 				<tr th:each="pedido : ${pedidos.pedidosVInculados}">
 					<td th:text="${pedidos.cpf}"></td>
 					<td th:text="${pedidos.nomeCliente}"></td>
-					<td th:text="${pedido.dataInclusao}"></td>
+					<td th:text="${#dates.format(pedido.dataInclusao, 'dd/MM/yyyy')}"></td>
 					<td th:text="${pedido.valor}"></td>
 					<td th:text="${pedido.situacao}"></td>
 					<td th:if="${pedido.situacao.toString()} == PENDENTE"><a th:href="${ '/pedido/cadastro/itemcadastro/' + pedido.idPedido}">Incluir</a></td>
@@ -43,7 +43,7 @@
 					<td th:if="${pedido.situacao.toString()} == PROCESSADO">
 										<a th:href="${ '/pedido/retirar/' + pedido.idPedido}">Retirar</a></td>
 					<td th:if="${pedido.situacao.toString()} != PROCESSADO">Ação Indisponivel</td>
-					<td th:if="${pedido.situacao.toString()} != ENCERRADO and ${pedido.situacao.toString()} != CANCELADO ">
+					<td sec:authorize="hasRole('ROLE_ADMIN')" th:if="${pedido.situacao.toString()} != ENCERRADO and ${pedido.situacao.toString()} != CANCELADO ">
 						<a th:href="${ '/pedido/cancelar/' + pedido.idPedido}">Cancelar</a></td>
 					<td th:if="${pedido.situacao.toString()} == ENCERRADO or ${pedido.situacao.toString()} == CANCELADO ">Ação Indisponivel</td>
 				</tr>

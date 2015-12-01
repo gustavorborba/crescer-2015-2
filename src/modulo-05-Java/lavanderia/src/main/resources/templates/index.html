@@ -3,6 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
 <head>
 <link th:href="@{/css/index.css}" rel="stylesheet" />
+<link th:href="@{/css/allFiles.css}" rel="stylesheet" />
 <meta charset="UTF-8" />
 <title>index</title>
 </head>
@@ -11,13 +12,9 @@
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
 			<p sec:authentication="name"></p>
 		</div>
-		<div sec:authorize="hasRole('ROLE_USER')">
-			<p sec:authentication="name"></p>
-		</div>
-		<div class="container body-content" style="Margin-top: 55px">
+		<div class="container body-content box texto" style="Margin-top: 55px">
 			<h2 class="text-center">Welcome to Javanderia</h2>
-			<img style="margin: 0 auto; margin-top: 10px;" class="img-responsive"
-				src="img/java.jpg" />
+			
 		</div>
 	</section>
 
