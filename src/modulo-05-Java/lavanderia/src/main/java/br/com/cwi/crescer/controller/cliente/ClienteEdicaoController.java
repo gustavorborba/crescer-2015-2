@@ -1,4 +1,4 @@
-package br.com.cwi.crescer.controller;
+package br.com.cwi.crescer.controller.cliente;
 
 import java.util.List;
 
@@ -11,41 +11,31 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.cwi.crescer.domain.Cidade;
 import br.com.cwi.crescer.dto.ClienteDTO;
+import br.com.cwi.crescer.mapper.ClienteMapper;
 import br.com.cwi.crescer.services.CidadeService;
 import br.com.cwi.crescer.services.ClienteService;
 
 @Controller
 @RequestMapping("/cliente")
-public class ClienteController {
+public class ClienteEdicaoController {
 
 	private ClienteService clienteService;
 	private CidadeService cidadeService;
 
 	@Autowired
-	public ClienteController(ClienteService clienteService, CidadeService cidadeService) {
+	public ClienteEdicaoController(ClienteService clienteService, CidadeService cidadeService) {
 		this.clienteService = clienteService;
 		this.cidadeService = cidadeService;
 	}
-
-	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView listar() {
-		return new ModelAndView("Cliente/lista", "clientes", clienteService.listarClientesAtivos());
-	}
-
-	@RequestMapping(path = "/exibe/{id}", method = RequestMethod.GET)
-	public ModelAndView viewExibe(@PathVariable("id") Long id) {
-		return new ModelAndView("Cliente/exibe", "cliente", clienteService.buscarClientePorId(id));
-	}
-
+	
 	@RequestMapping(path = "/editar/{id}", method = RequestMethod.GET)
 	public ModelAndView viewEdita(@PathVariable("id") Long id) {
-		return new ModelAndView("cliente/editar", "cliente", clienteService.buscarClientePorId(id));
+		return new ModelAndView("cliente/editar", "cliente", ClienteMapper.clienteToClienteDTO(clienteService.buscarClientePorId(id)));
 	}
 
 	@RequestMapping(path = "/editar", method = RequestMethod.POST)
@@ -57,7 +47,7 @@ public class ClienteController {
 
 	@RequestMapping(path = "/remover/{id}", method = RequestMethod.GET)
 	public ModelAndView viewRemover(@PathVariable("id") Long id) {
-		return new ModelAndView("cliente/ExclusaoDeCliente", "cliente", clienteService.buscarClientePorId(id));
+		return new ModelAndView("cliente/ExclusaoDeCliente", "cliente", ClienteMapper.clienteToClienteDTO(clienteService.buscarClientePorId(id)));
 	}
 
 	@RequestMapping(path = "/remover", method = RequestMethod.POST)
@@ -81,11 +71,6 @@ public class ClienteController {
 			clienteService.cadastrarCliente(clienteDTO);
 		redirectAttributes.addFlashAttribute("Mensagem", "Cliente cadastrado com sucesso");
 		return new ModelAndView("redirect:/cliente");
-	}
-	
-	@RequestMapping(path = "/ {nomeCliente}", method = RequestMethod.GET)
-	public ModelAndView buscaClientePorNome(@RequestParam("nomeCliente") String nomeCliente){
-		return new ModelAndView("cliente/lista", "clientes", clienteService.buscarPorNomeParcial(nomeCliente));
 	}
 	
 	@ModelAttribute("cidades")
