@@ -2,6 +2,7 @@ package br.com.cwi.crescer.domain;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -148,4 +149,10 @@ public class Pedido {
 		this.situacao = SituacaoPedido.PROCESSANDO;
 	}
 	
+	public int getDiaSemana(){
+		Calendar calendario = Calendar.getInstance();
+		calendario.setTime(this.dataInclusao);
+		int diaDaSemana = calendario.get(Calendar.DAY_OF_WEEK);
+		return diaDaSemana;
+	}
 }
