@@ -25,6 +25,8 @@
 						<th style="width: 10%">Incluir Item</th>
 						<th style="width: 10%">Itens</th>
 						<th style="width: 10%">Alterar para</th>
+						<th style="width: 10%">Retirar</th>
+						<th style="width: 10%">Cancelar</th>
 					</tr>
 				</thead>
 				<tr th:each="pedido : ${pedidos.pedidosVInculados}">
@@ -38,6 +40,12 @@
 					<td><a th:href="${ '/pedido/itens/' + pedido.idPedido}">Visualizar</a></td>
 					<td th:if="${pedido.situacao.toString()} == PENDENTE"><a th:href="${ '/pedido/clientepedidos/processando/' + pedido.idPedido}">Processando</a></td>
 					<td  th:if="${pedido.situacao.toString()} != PENDENTE">Processando</td>
+					<td th:if="${pedido.situacao.toString()} == PROCESSADO">
+										<a th:href="${ '/pedido/retirar/' + pedido.idPedido}">Retirar</a></td>
+					<td th:if="${pedido.situacao.toString()} != PROCESSADO">Ação Indisponivel</td>
+					<td th:if="${pedido.situacao.toString()} != ENCERRADO and ${pedido.situacao.toString()} != CANCELADO ">
+						<a th:href="${ '/pedido/cancelar/' + pedido.idPedido}">Cancelar</a></td>
+					<td th:if="${pedido.situacao.toString()} == ENCERRADO or ${pedido.situacao.toString()} == CANCELADO ">Ação Indisponivel</td>
 				</tr>
 			</table>
 	</section>

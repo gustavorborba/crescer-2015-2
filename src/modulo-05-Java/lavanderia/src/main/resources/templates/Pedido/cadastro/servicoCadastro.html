@@ -22,6 +22,9 @@
             <p>
             	<label class="col-sm-2 control-label">Peso </label>
             	<input th:field="*{peso}" type="text"/>
+            	<div class="form-group" th:classappend="${#fields.hasErrors('peso')} ? 'has-error'">	
+											<span class="help-inline" th:errors="*{peso}"></span>
+				</div>
             </p>
             <input type="submit" id="pesquisar" value="Pesquisar" />
 		</form>
@@ -48,7 +51,7 @@
 				</tr>
 			</table>
 	 <a class="btn btn-primary btn-md botaoCadastrar pull-right" 
-	 	th:href="${ '/pedido/itens/' + pedidos.idPedido}">Voltar</a>
+	 	th:href="${ '/pedido//clientepedidos/' + pedidos.idPedido}">Voltar</a>
 	</section>
 </body>
 </html>
